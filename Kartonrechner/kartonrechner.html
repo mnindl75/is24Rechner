@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kartonrechner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/is24Core.css">
+    <link rel="stylesheet" type="text/css" href="css/kartonrechner.css">
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/kartonrechner.js"></script>
+</head>
+<body>
+    <div id="boxes-calculate" class="brd-clr-lghtblue bgr-blu-lght rnd-a-m ovf-hdn p-b-m">
+        <h3 class="p-t-s p-l-s">Kartonrechner</h3>
+        <div id="datas" class="ovf-hdn">
+            <div class="ovf-hdn slider-all-holder">
+                <p class="label m-t-s p-l-s">Personen</p>
+                <div class="m-h-s" id="people-slider"></div>
+                <p class="slider-value-holder ftw-bld m-l-m m-t-s"><span id="people-value"></span></p>
+            </div>
+            <div class="ovf-hdn slider-all-holder m-b-s">
+                <p class="label m-t-s p-l-s">Zimmer</p>
+                <div class="m-h-s" id="rooms-slider"></div>
+                <p class="slider-value-holder ftw-bld m-l-m m-t-s"><span id="rooms-value"></span></p>
+            </div>
+            <p id="no-calculate" class="ftf-std m-b-s m-l-s">
+                keine Berechnung m&ouml;glich: <span></span>
+            </p>
+            <input type="text" id="living-years" name="living-years" class="dsp-blk flt-l m-l-s" value="2" maxlength="2"/>
+            <label for="living-years" class="ftw-bld dsp-blk flt-l p-t-xs m-r-m">Wohnjahre</label>
+            <input type="text" id="meter-bookshelf" name="meter-bookshelf" class="dsp-blk flt-l p-l-s" value="2" maxlength="2"/>
+            <label for="meter-bookshelf" class="ftw-bld dsp-blk flt-l p-t-xs m-r-m">Meter B&uuml;cherregal</label>
+        </div>
+        <div id="result" class="p-r-s txt-aln-ctr">
+            <p class="fts-l ftf-hdl m-b-s">Kartons <span id="boxes" class="num-boxes ftf-hdl"></span></p>
+            <p class="fts-l ftf-hdl m-b-m">B&uuml;cherkartons <span id="book-boxes" class="num-boxes ftf-hdl"></span></p>
+            <a class="btn-m dsp-ibl btn-action txt-aln-ctr" target="_blank" href="#" >
+                Kartons kaufen
+            </a>
+        </div>
+    </div>
+</body>
+</html>

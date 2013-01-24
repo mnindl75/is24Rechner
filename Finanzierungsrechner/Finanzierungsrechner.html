@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="clientlibs/js/clientlibs.js"></script>
+    <script type="text/javascript" src="js/Finanzierungsrechner.js"></script>
+    <link rel="stylesheet" type="text/css" href="clientlibs/css/clientlibs.css">
+    <link rel="stylesheet" type="text/css" href="css/finanzierungsrechner.css">
+</head>
+<body>
+<article id="main-article">
+    <div class="section zinsvergleichteaser">
+        <section class="m-v-m">
+            <div id="av-teaser">
+                <h3>Finanzierungsrechner</h3>
+                <form action="http://www.immobilienscout24.de/de/baufinanzierung/" method="get" class="filter">
+                    <div class="sliders">
+                        <div>
+                            <p class="validation-message">Bitte geben Sie einen gültigen Betrag für den Kaufpreis an.</p>
+                            <label for="purchasePrice">Kaufpreis</label>
+                            <div class="slider_holder">
+                                <div class="slider" id="purchasePrice_slider"></div>
+                            </div>
+                            <input type="text" id="purchasePrice" name="purchasePrice" value="200000" class="slider_inputs input-text unit-eur">
+
+                        </div>
+                        <div>
+                            <p class="validation-message">Bitte geben Sie einen gültigen Betrag für Ihr Eigenkapital an.</p>
+                            <label for="ownFunds">Eigenkapital</label>
+                            <div class="slider_holder">
+                                <div class="slider" id="ownFunds_slider"></div>
+                            </div>
+                            <input type="text" id="ownFunds" name="ownFunds" value="50000" class="slider_inputs input-text unit-eur">
+                        </div>
+                    </div>
+
+                    <div class="compute_data">
+                        <p id="loan_value" style="display: block; ">330.000 €</p>
+                        <p>Darlehen</p>
+                    </div>
+                    <div class="compute_data monthly_rate">
+                        <p id="monthly_value" style="display: block; ">1.348 €</p>
+                        <p>Monatliche Rate</p>
+                        <a href="/baufinanzierung/service/finanzierungsrechner-annahmen.html">Annahmen</a></div>
+                    <div class="submit_button">
+                        <input class="btn-action btn-m" type="submit" value="Anbieter vergleichen">
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</article>
+</body>
+</html>
