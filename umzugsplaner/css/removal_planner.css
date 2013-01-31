@@ -1,0 +1,412 @@
+#removal_planner {
+  width: 762px;
+  overflow-x: hidden;
+  color: #444444;
+  font: 10px/1.33333 Verdana,"DejaVu Sans",Arial,Helvetica,sans-serif;
+  font-size: 10px !important;
+}
+#removal_planner a {
+  outline: none;
+}
+#removal_planner #form_holder {
+  border-right: 1px solid #E3E3E3;
+  border-left: 1px solid #E3E3E3;
+  border-bottom: 1px solid #E3E3E3;
+  border-radius: 4px 4px;
+  -moz-border-radius: 4px 4px;
+  padding: 0 3px 3px 3px;
+  -moz-box-shadow: 2px 3px 6px -2px #E3E3E3;
+  -webkit-box-shadow: 2px 3px 6px -2px #E3E3E3;
+  box-shadow: 2px 3px 6px -2px #E3E3E3;
+  margin-bottom: 10px;
+  height: 262px;
+  width: 752px;
+}
+#removal_planner #form_text {
+  position: absolute;
+  top: 43px;
+  left: 20px;
+  font-size: 26px;
+  color: #4a688f;
+  width: 445px;
+  z-index: 2;
+}
+#removal_planner #rem_plann_form {
+  background: url(../img/header.jpg) no-repeat 0 0 transparent;
+  height: 262px;
+  width: 752px;
+}
+#removal_planner #rem_plann_form #form_box {
+  width: 450px;
+  height: 95px;
+  position: relative;
+  top: 100px;
+  left: 18px;
+  background-color: #edeeee;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #edeeee), color-stop(100%,  #ffffff));
+  background-image: -moz-linear-gradient(top, #edeeee 0%,  #ffffff 100%);
+  background-image: linear-gradient(top, #edeeee 0%,  #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeeee', endColorstr='#ffffff');
+  border-radius: 4px 4px;
+  -moz-border-radius: 4px 4px;
+  overflow: hidden;
+  -moz-box-shadow: 0px 3px 4px 0px #6e757d;
+  -webkit-box-shadow: 0px 3px 4px 0px #6e757d;
+  box-shadow: 0px 3px 4px 0px #6e757d;
+}
+#removal_planner #rem_plann_form #form_box .radio {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  top: -1px;
+}
+#removal_planner #rem_plann_form #form_box .radio {
+  width: 20px;
+  margin-left: 20px;
+}
+#removal_planner #rem_plann_form #form_box .radio:hover {
+  background: 1px solid red;
+}
+#removal_planner #rem_plann_form #form_box span,
+#removal_planner #rem_plann_form #form_box #form_label {
+  font-size: 1.1em;
+}
+#removal_planner #rem_plann_form #form_box span.with_own {
+  width: 130px;
+}
+#removal_planner #rem_plann_form #form_box span.with_sped {
+  width: 225px;
+}
+#removal_planner #rem_plann_form #form_box #form_label {
+  clear: both;
+  float: left;
+  margin-left: 20px;
+  width: 113px;
+  background: url(../img/calendar.png) no-repeat scroll 100px 0 transparent;
+  padding: 2px 20px 0 0;
+  height: 24px;
+  cursor: pointer;
+}
+#removal_planner #rem_plann_form #form_box #datepicker {
+  border: 1px solid #7F9DB9;
+  display: block;
+  float: left;
+  font-size: 11px;
+  height: 15px;
+  padding: 3px 0 1px 2px;
+  width: 112px;
+  cursor: pointer;
+}
+#removal_planner #rem_plann_form #form_box .submit {
+  float: left;
+  margin-left: 15px;
+}
+#removal_planner #rem_plann_form #form_box .submit a {
+  background: url(../img/sp_expose.png) no-repeat scroll 100% -789px transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+#removal_planner #rem_plann_form #form_box .submit span {
+  font-size: 1.1em;
+  background: url(../img/sp_expose.png) no-repeat scroll 0 -727px transparent;
+  padding: 0 6px 2px;
+  text-shadow: -1px -1px 0 #FF7500, 1px -1px 0 #FF7500, 0 -1px 0 #FF7500, 0 1px 1px #FF7500;
+  display: inline-block;
+  line-height: 19px !important;
+  margin: 0 0 0-2px;
+  color: #ffffff;
+  font-weight: bold;
+}
+#removal_planner #rem_plann_form #form_box .submit a:hover {
+  background-position: 100% -820px;
+  color: #FFFFFF;
+}
+#removal_planner #rem_plann_form #form_box .submit a span:hover { 
+  background-position: 0 -758px;
+  text-shadow: none;
+}
+#removal_planner #ui-datepicker-div {
+  border: none;
+  background-color: #ffffff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #edeeee), color-stop(100%,  #ffffff));
+  background-image: -moz-linear-gradient(top, #edeeee 0%,  #ffffff 100%);
+  background-image: linear-gradient(top, #edeeee 0%,  #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#edeeee', endColorstr='#ffffff');
+  -moz-box-shadow: 2px 3px 6px -2px #E3E3E3;
+  -webkit-box-shadow: 2px 3px 6px -2px #E3E3E3;
+  box-shadow: 2px 3px 6px -2px #E3E3E3;
+  width: 28em;
+  z-index: 900 !important;
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-header {
+  background-color: #FF7500;
+  background-image: none;
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-header .ui-corner-all {
+  background-color: #ffffff;
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-header .ui-datepicker-title span {
+  color: #ffffff
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-header .ui-corner-all .ui-icon {
+  background-image: url(../img/ui-icons_222222_256x240.png);
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-today a {
+  border-color: #FF7500;
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-current-day a {
+  border-color: #FF7500;
+  background-color: #FF7500;
+  color: #ffffff;
+  font-weight: bold;
+}
+#removal_planner #ui-datepicker-div .ui-datepicker-calendar a {
+  text-align: center;
+  background-image: none;
+}
+#removal_planner .pdf_export {
+  font-size: 14px;
+  position: relative;
+  top: 128px;
+  left: 19px;
+  width: 130px;
+}
+#removal_planner #pdf_holder {
+  left: 610px;
+  position: absolute;
+  top: 414px;
+}
+*+html #removal_planner #pdf_holder {
+  display: none;
+}
+#removal_planner .pdf_export p {
+  background: url(../img/pdf.png) no-repeat scroll 90px 0 transparent;
+  width: 120px;
+  height: 30px;
+  padding-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#removal_planner .pdf_export p:hover {
+  color: #FF7500;
+}
+#removal_planner #rem_plann_form .pdf_export p {
+  background-position: 0px 0px;
+  padding-left: 33px;
+}
+#removal_planner #plan_result {
+  width: 762px;
+  overflow: hidden;
+}
+#removal_planner #tabs {
+  border: none;
+  font-size: 10px;
+}
+#removal_planner #tabs .ui-tabs-nav {
+  border: none;
+  background: none;
+  margin-left: 14px;
+}
+*+html #removal_planner #tabs .ui-tabs-nav {
+  position: relative;
+  top: -10px
+}
+#removal_planner #tabs li.ui-state-default {
+  width: 180px;
+  background: none;
+  height: 28px;
+  border: none;
+}
+*+html #removal_planner #tabs li.ui-state-default {
+  background-color: #ffffff;
+}
+#removal_planner #tabs li i {
+  background-color: #6e757d;
+  display: block;
+  width: 100%;
+  border: 1px solid #d2d4d6;
+  border-bottom: none;
+}
+#removal_planner #tabs li .over_tab {
+  opacity: 0.5;
+  /*bringt momentan nicht gewünschten Effekt*/
+ /* filter: alpha(opacity=5);*/
+  border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+#removal_planner #tabs li .under_tab {
+  border-top: none;
+  border-bottom: none;
+}
+#removal_planner #tabs li.ui-tabs-selected {
+  background-color: #f9f9f9;
+  -moz-box-shadow: 6px -2px 2px -3px #6B6F72;
+  -webkit-box-shadow: 6px -2px 2px -3px #6B6F72;
+  box-shadow: 6px -2px 2px -3px #6B6F72;
+  margin-right: 0;
+}
+#removal_planner #tabs li.ui-tabs-selected i {
+  background-color: #f9f9f9;
+}
+#removal_planner #tabs ul li.ui-tabs-selected.last_tab {
+  -moz-box-shadow: -6px -2px 2px -3px #6B6F72;
+  -webkit-box-shadow: -6px -2px 2px -3px #6B6F72;
+  box-shadow: -6px -2px 2px -3px #6B6F72;
+  margin-left: -2px;
+}
+#removal_planner #tabs ul li a {
+  color: #ffffff;
+  outline: none;
+  font-weight: bold;
+  position: relative;
+  top: 1px;
+  z-index: 2;
+  font-size: 1.2em;
+  height: 0px;
+}
+*+html #removal_planner #tabs ul li a {
+  top: 10px;
+}
+#removal_planner #tabs li.ui-state-default a:hover {
+  color: #FF7500;
+}
+#removal_planner #tabs li.ui-tabs-selected a {
+  color: #FF7500;
+}
+#removal_planner #tabs .tab_content,
+#removal_planner .loading_animation {
+  border: 1px solid #bababa ;
+  border-radius: 4px 4px;
+  -moz-border-radius: 4px 4px;
+  background: #ffffff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #f9f9f9), color-stop(30%,  #ffffff));
+  background-image: -moz-linear-gradient(top, #f9f9f9 0%,  #ffffff 30%);
+  background-image: linear-gradient(top, #f9f9f9 0%,  #ffffff 30%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#ffffff');
+  -moz-box-shadow: 0 1px 4px #D5D6D8;
+  -webkit-box-shadow: 0 1px 4px #D5D6D8;
+  box-shadow: 0 1px 4px #D5D6D8;
+  font-size: 11px;
+  padding: 1em 5px 1em 1.4em;
+}
+#removal_planner #tabs .jspHorizontalBar, #removal_planner #tabs .jspVerticalBar, #removal_planner #tabs .jspTrack {
+    background: none;
+    border: 0;
+    width: 10px;
+    right: 3px;
+}
+#removal_planner #tabs .jspTrack {
+    background: #e3e3e3;
+    border: 1px solid #d6d6d6;
+    width: 14px;
+    padding: 0;
+  -moz-border-radius: 6px 6px;
+  border-radius: 6px 6px;
+}
+#removal_planner #tabs .jspDrag {
+  background: #abaeb3;
+  -moz-border-radius: 4px 4px;
+  border-radius: 4px 4px;
+  width: 14px;
+}
+#removal_planner #tabs .jspHorizontalBar .jspCap {
+    width: 2px;
+}
+#removal_planner #tabs .jspVerticalBar .jspCap {
+    height: 2px;
+    display: block;
+}
+#removal_planner #tabs .jspVerticalBar .jspCapBottom {
+    height: 3px;
+}
+#removal_planner .scroll-pane {
+  width: 100%;
+  height: 350px;
+  margin-bottom: 50px;
+}
+#removal_planner #tabs .ui-tabs-hide {
+  position: absolute;
+  left: -10000px;
+  display: block;
+}
+#removal_planner .jScrollPaneContainer {
+position: relative;
+overflow: hidden;
+z-index: 1;
+}
+#removal_planner .tips {
+  overflow: hidden;
+}
+#removal_planner .tip_holder {
+  border-bottom: 1px solid #ccd9e2;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+#removal_planner .time {
+  float: left;
+  width: 120px;
+}
+#removal_planner .tip {
+  float: left;
+  width: 80%;
+  overflow: hidden;
+}
+#removal_planner .tip .link_list,
+#removal_planner .tip .tip_body {
+  float: left;
+  width: 50%;
+  min-width: 50%;
+}
+#removal_planner .tip ul {
+  padding-left: 15px;
+  list-style-type: circle;
+}
+#removal_planner .tip .link_list {
+  width: 43%;
+  min-width: 43%;
+  margin-left: 30px;
+}
+#removal_planner .tip .link_list a {
+  background: url(../img/sp_expose.png) no-repeat scroll -564px -1676px transparent;
+  display: inline-block;
+  margin-left: -7px;
+  padding-left: 9px;
+  color: #0044CC;
+  text-decoration: none;
+  display: block;
+}
+#removal_planner .tip .link_list a.extern {
+  background-position: -461px -2908px;
+}
+#removal_planner .tip .link_list a:hover {
+  color: #E75C00;
+  text-decoration: underline;
+}
+#removal_planner .time .late_day {
+  color: #FF7500;
+}
+#removal_planner .time .day {
+  font-weight: bold;
+}
+#removal_planner #start_layer {
+  background-color: #E9EAEF;
+  opacity: .6;
+  filter: alpha(opacity = 60);
+  position: absolute;
+  top: 280px;
+  height: 455px;
+  border-radius: 4px 4px;
+  -moz-border-radius: 4px 4px;
+  z-index: 200;
+  width: 762px;
+}
+#removal_planner .loading_animation {
+  display: none;
+  padding: 100px 0 255px 345px;
+}

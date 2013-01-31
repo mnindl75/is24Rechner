@@ -1,0 +1,28 @@
+#sidebar-boxes-calculate #datas input {
+    font-size: 12px;
+    color: #444;
+    padding: 4px 3px;
+    background: white;
+    -webkit-box-shadow: 1px 2px 2px gainsboro inset;
+    box-shadow: 1px 2px 2px gainsboro inset;
+    border: 1px solid #97ACC1;
+    width: 45px;
+}
+#sidebar-boxes-calculate #datas input.error {
+    border-color: #ff0000;
+}
+#sidebar-boxes-calculate #datas label.error {
+    color: #ff0000;
+}
+#sidebar-boxes-calculate #result,
+#sidebar-boxes-calculate #to-removal-shop {
+    border-top: 1px solid #ffffff;
+}
+#sidebar-boxes-calculate #no-calculate {
+    font-size: 14px;
+    line-height: 14px;
+    color: #ff0000;
+}
+#sidebar-boxes-calculate #to-removal-shop a {
+    padding-left: 0;;
+}
