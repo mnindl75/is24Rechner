@@ -16,6 +16,8 @@
  * @param inputSelector A valid selector for the input element, which shall be transformed.
  * @return HTMLElement The slider element as an "advanced" HTMLElement (like from initSlider).
  */
+var de = de || {};
+de.is24 = de.is24 || {};
 de.is24.slider = de.is24.slider ||
 (function () {
     "use strict";

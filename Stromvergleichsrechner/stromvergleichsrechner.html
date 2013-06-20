@@ -7,39 +7,37 @@
     <link rel="stylesheet" type="text/css" href="css/stromvergleichsrechner.css">
     <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="js/respond.min.js"></script>
-    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/sliderV2.js"></script>
     <script type="text/javascript" src="js/stromvergleichsrechner.js"></script>
 </head>
 <body>
-    <div id="removal_calculator" class="brd-clr-lghtblue bgr-blu-lght rnd-a-m ovf-hdn p-b-m">
-        <h3 class="p-t-s p-l-s">Strompreisvergleichsrechner</h3>
-        <div id="datas" class="ovf-hdn">
-            <input type="text" id="people" name="people" class="dsp-blk flt-l m-l-s" value="2" maxlength="2"/>
-            <label for="people" class="ftw-bld dsp-blk flt-l p-t-xs m-r-m">Ihre Postleitzahl</label>
-            <div class="ovf-hdn slider-all-holder">
-                <p class="label m-t-s p-l-s">Wohnfl&auml;che</p>
-                <div id="square_meter_slider" class="m-h-s"></div>
-                <p class="slider-value-holder ftw-bld m-l-m m-t-s">ca. <span id="square-meter-value"></span> m&sup2;</p>
+    <div id="strom-vergleichs-rechner" class="brd-clr-lghtblue bgr-blu-lght rnd-a-m ovf-hdn p-b-s">
+        <h3 class="p-t-s p-b-xs p-l-s">Strompreisvergleichsrechner</h3>
+        <div id="datas" class="ovf-hdn p-l-s">
+            <div class="ovf-hdn">
+                <input type="text" id="zip" name="zip" class="dsp-blk flt-l m-l-s" placeholder="z.B.: 10178" maxlength="5"/>
+                <label for="zip" class="ftw-bld dsp-blk flt-l p-t-xs m-r-m">Ihre Postleitzahl</label>
             </div>
-            <div class="ovf-hdn slider-all-holder">
-                <p class="label m-t-s p-l-s">Entfernung</p>
-                <div id="distance_slider" class="m-h-s"></div>
-                <p class="slider-value-holder ftw-bld m-l-m m-t-s">ca. <span id="distance-value"></span> km</p>
+            <div class="m-t-s ovf-hdn" id="visuals">
+                <i class="visual" id="visual-1">&nbsp;</i>
+                <i class="visual" id="visual-2">&nbsp;</i>
+                <i class="visual" id="visual-3">&nbsp;</i>
+                <i class="visual" id="visual-4">&nbsp;</i>
+                <i class="visual" id="visual-5">&nbsp;</i>
+                <i class="visual" id="visual-6">&nbsp;</i>
+                <i class="visual" id="visual-7">&nbsp;</i>
+                <i class="visual" id="visual-8">&nbsp;</i>
             </div>
-            <input type="text" id="rooms" name="rooms" class="dsp-blk flt-l p-l-s" value="2" maxlength="2"/>
-            <label for="rooms" class="ftw-bld dsp-blk flt-l p-t-xs m-r-m">Zimmer</label>
-            <a class="btn-m dsp-ibl btn-action txt-aln-ctr" href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
-                Angebote vergleichen
-            </a>
+            <p class="fts-s clr-drkgry m-l-xs"><span id="personen-value"></span> Personen Haushalt</p>
+            <div class="ovf-hdn m-b-xs slider-all-holder">
+                <div id="verbrauchs-slider" class="m-r-s"></div>
+                <p class="label m-t-s ftw-bld">Verbrauch</p>
+            </div>
+            <input type="text" id="verbrauch" name="verbrauch" class="dsp-blk flt-l m-l-s"  maxlength="4"/>
         </div>
         <div id="result" class="p-r-s txt-aln-ctr">
-            <p class="fts-l ftf-hdl m-b-s">Preis Umzugsfirma</p>
-            <p id="price" class="ftf-hdl"><span></span> &euro;</p>
-            <a href="http://www.immobilienscout24.de/umzug/service/umzugskostenrechner-annahmen.html" class="dsp-blk m-b-s m-t-s fts-s">
-                Annahmen
-            </a>
             <a class="btn-m dsp-ibl btn-action txt-aln-ctr" href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
-                Angebote vergleichen
+                Stromanbieter finden
             </a>
         </div>
     </div>
