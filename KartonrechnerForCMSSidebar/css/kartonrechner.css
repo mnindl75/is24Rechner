@@ -18,11 +18,12 @@
 #sidebar-boxes-calculate #to-removal-shop {
     border-top: 1px solid #ffffff;
 }
-#sidebar-boxes-calculate #no-calculate {
-    font-size: 14px;
-    line-height: 14px;
+#sidebar-boxes-calculate .no-calculate {
     color: #ff0000;
 }
 #sidebar-boxes-calculate #to-removal-shop a {
     padding-left: 0;;
+}
+#sidebar-boxes-calculate #boxes {
+    color: #335D85;
 }

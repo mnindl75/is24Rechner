@@ -23,68 +23,86 @@ de.is24.STATIC.kartonrechner_sidebar = (function ($) {
         return result;
     }
 
-    function removeSpaceAndDotAndCommaFromText(text) {
-        return text.toString().replace(/\s/g, "").replace(/\./g, "").replace(/\,/g, "");
-    }
-
     function calculateBoxes() {
-        var people =  parseInt($('#people-value').text(), 10),
-            rooms = parseInt($('#rooms-value').text(), 10),
+        var people =  parseInt($('#people').val(), 10),
+            rooms = parseInt($('#rooms').val(), 10),
             living_years =  parseInt($('#living-years').val(), 10),
-            meter_bookshelf =  parseInt($('#meter-bookshelf').val(), 10),
-            num_boxes = ((people * 4) + (rooms * 14.7) + (rooms * living_years * 0.6)).toFixed(0),
-            num_book_boxes = (meter_bookshelf / 2).toFixed(0);
+            num_boxes = ((people * 4) + (rooms * 14.7) + (rooms * living_years * 0.6)).toFixed(0);
         if ($('.error').length > 0) {
             return null;
         }
-        $('#no-calculate').hide();
+        $('.no-calculate').fadeOut(1000);
         $('#boxes').text(addDecimalSeparatorsToNumberString(num_boxes));
-        $('#book-boxes').text(addDecimalSeparatorsToNumberString(num_book_boxes));
-        $('.btn-action').attr("href", SHOP_START_URL + num_boxes + ";" + num_book_boxes);
+        $('#to-removal-shop a').attr("href", SHOP_START_URL + num_boxes);
+    }
+
+
+    function setErrorMessages($this) {
+        var $no_calculate = $this.prev().prev(),
+            $no_calculate_spez_error = $no_calculate.find('span');
+        if ($this.is('#people')) {
+            if ($this.val() < 1) {
+                $no_calculate_spez_error.text(ERROR_TEXT_0_PEOPLE);
+            } else {
+                $no_calculate_spez_error.text(ERROR_TEXT_MORE_PEOPLE);
+            }
+        } else if ($this.is('#rooms')) {
+            if ($this.val() < 1) {
+                $no_calculate_spez_error.text(ERROR_TEXT_0_ROOMS);
+            } else {
+                $no_calculate_spez_error.text(ERROR_TEXT_MORE_ROOMS);
+            }
+        } else {
+            $no_calculate_spez_error.text(ERROR_TEXT_0_LIVING_YEARS);
+        }
+        $no_calculate.fadeIn(1000);
     }
 
     function setError($this) {
-        var $no_calculate = $('#no-calculate'),
-            $no_calculate_spez_error = $no_calculate.find('span');
-        $this.addClass("error").next().addClass("error");
+        $this.addClass("error").prev().addClass("error");
         $('#boxes').text("0");
-        if ($this.is('#living-years')) {
-            $no_calculate_spez_error.text(ERROR_TEXT_0_LIVING_YEARS);
-        } else {
-            $no_calculate_spez_error.text(ERROR_TEXT_0_METER_BOOKSHELF);
-        }
-        $no_calculate.show();
+        setErrorMessages($this);
     }
 
     function inputValidate($this) {
         var input_value = $this.val();
-        if (input_value.match(/\D/) || input_value.length < 1 || input_value == "0") {
+        if (input_value.match(/\D/) ||  input_value == "0") {
             setError($this);
-        } else if ($this.not("living-years") && (parseInt(input_value, 10) > MAX_INPUT_VALUE)){
+        } else if (input_value.length < 1 && !($this.is(":focus"))) {
+            setError($this);
+        } else if ($this.attr("id") !== "living-years" && (parseInt(input_value, 10) > MAX_INPUT_VALUE)){
             setError($this);
         } else {
-            $this.removeClass("error").next().removeClass("error");
+            $this.removeClass("error").prev().removeClass("error").prev().fadeOut(1000);
             if ($('.error').length > 0) {
+                $('input.error').each(function() {
+                    setErrorMessages($(this));
+                });
                 return null;
             }
-            calculateBoxes();
+            if ((input_value.length > 0)) {
+                calculateBoxes();
+            } else {
+                $('#boxes').text("0");
+            }
+
         }
     }
 
     function initTextInputs() {
-        $('#living-years').keyup(function () {
+        $('#living-years').bind("keyup change", function () {
             inputValidate($(this));
         });
-        $('#people').keyup(function () {
+        $('#people').bind("keyup change", function () {
             inputValidate($(this));
         });
-        $('#rooms').keyup(function () {
+        $('#rooms').bind("keyup change", function () {
             inputValidate($(this));
         });
     }
 
     function init() {
-        $('#no-calculate').hide();
+        $('.no-calculate').hide();
         initTextInputs();
         calculateBoxes();
     }
@@ -95,9 +113,8 @@ de.is24.STATIC.kartonrechner_sidebar = (function ($) {
         }
     };
 })(jQuery);
-/*funktioniert leider nicht immer bei ready*/
-jQuery(window).load(function () {
+jQuery(document).ready(function () {
     "use strict";
-    de.is24.STATIC.umzugskostenrechner.init();
+    de.is24.STATIC.kartonrechner_sidebar.init();
 });
 
