@@ -1,3 +1,6 @@
+#strom-vergleichs-rechner {
+    font-size: 12px;
+}
 #strom-vergleichs-rechner h3 {
     margin-bottom: 0;
     border-bottom: 1px solid #CAD5DF;
@@ -18,10 +21,18 @@
 }
 #strom-vergleichs-rechner .slider-all-holder {
     position: relative;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 #strom-vergleichs-rechner .slider-holder {
     padding-top: 14px;
     padding-bottom: 14px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    width: 120px;
+    float: left;
 }
 #strom-vergleichs-rechner .slider {
     position: relative;
@@ -33,11 +44,6 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7e7e7', endColorstr='#fdfdfd');
     border: 1px solid #97acc1;
     border-radius: 5px;
-}
-#strom-vergleichs-rechner .slider-value-holder {
-    position: absolute;
-    top: 0px;
-    left: 196px;
 }
 #strom-vergleichs-rechner #datas {
     border-top: 1px solid #ffffff;
@@ -57,7 +63,7 @@
     box-shadow: 1px 2px 2px gainsboro inset;
     border: 1px solid #97ACC1;
     margin-right: 8px;
-    width: 10%;
+    width: 85px;
 }
 #strom-vergleichs-rechner #datas input.error {
     border-color: #ff0000;
@@ -69,7 +75,7 @@
     top:-12px;
     left:0px;
     position: absolute;
-    width: 25px;
+    width: 15px;
     height: 32px;
     background-color: #cdd8e1;
     background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #f2f5f7), color-stop(100%, #cdd8e1));
@@ -93,6 +99,11 @@
     background-image: linear-gradient(top, #97acc1 20%, #5c7d9e 51%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#97acc1', endColorstr='#5c7d9e');
 }
+#strom-vergleichs-rechner #datas .label {
+    float: left;
+    width: 25%;
+    margin-top: 11px;
+}
 @media screen and (min-width: 321px) {
     #strom-vergleichs-rechner .slider-value-holder {
         left: 337px;
@@ -111,6 +122,7 @@
     #strom-vergleichs-rechner h3 {
         border-bottom: none;
         width: 30%;
+        font-size: 16px;
     }
     #strom-vergleichs-rechner slider-all-holder {
         position: static;
@@ -132,7 +144,6 @@
         padding-top: 0;
     }
     #strom-vergleichs-rechner .slider-holder {
-        width: 15%;
         float: left;
     }
     #strom-vergleichs-rechner .slider-value-holder {
@@ -140,71 +151,7 @@
         position: static;
     }
 }
-
-
-/*
-
-
-
-#helper-visuals {
-                margin-left: 68px;
-                i.helper-visual {
-                    float: left;
-                    width: 15.5%;
-                    display: block;
-                    height: 55px;
-                    background: url("../images/transportService/sprite_transport-service.png") no-repeat scroll transparent;
-                    background-position: 0px -1221px;
-                    &.active {
-                        background-position: 0px -1146px;
-                    }
-                }
-            }
-
-
-
-
-            .slider-holder {
-                width: 48%;
-                float: left;
-                padding: 14px 0;
-                .slider {
-                    position: relative;
-                    height: 7px;
-                    .gradient(@color: #FDFDFD, @start: #E7E7E7, @stop: #FDFDFD, @startColorStop: 20%, @stopColorStop: 100%);
-                    border: 1px solid #97ACC1;
-                    border-radius: 5px;
-                    .slider-fill {
-                        height: 9px;
-                        position: absolute;
-                        top: -1px;
-                        left: 0px;
-                        border-radius: 5px 0 0 5px;
-                        .gradient(@color: #5C7D9E, @start: #97ACC1, @stop: #5C7D9E, @startColorStop: 20%, @stopColorStop: 51%);
-                    }
-                    .slider-thumb {
-                        width: 15px;
-                        height: 30px;
-                        top: -12px;
-                        position: absolute;
-                        border: 1px solid #97ACC1;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        .gradient(@color: #CDD8E1, @start: #F2F5F7, @stop: #CDD8E1, @startColorStop: 0%, @stopColorStop: 100%);
-                    }
-                }
-            }
-
-*/
-
-
-
-
 @media screen and (min-width: 768px) {
-    #strom-vergleichs-rechner #datas .label {
-        float: left;
-        width: 25%;
-    }
     #strom-vergleichs-rechner #result {
         padding-bottom: 0;
     }
