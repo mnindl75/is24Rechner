@@ -65,12 +65,6 @@
     margin-right: 8px;
     width: 85px;
 }
-#strom-vergleichs-rechner #datas input.error {
-    border-color: #ff0000;
-}
-#strom-vergleichs-rechner #datas label.error {
-    color: #ff0000;
-}
 #strom-vergleichs-rechner .slider-thumb {
     top:-12px;
     left:0px;
