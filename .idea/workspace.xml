@@ -23,23 +23,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f55449b-d412-4d56-82c9-4d8e846b4511" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/css/is24Core.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/js/jquery-1.9.0.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/js/respond.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/stromvergleichsrechner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/js/stromvergleichsrechner.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Umzugskostenrechner.zip" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Umzugskostenrechner/js/slider.js" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/js/slider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KartonrechnerForCMSSidebar/css/kartonrechner.css" afterPath="$PROJECT_DIR$/KartonrechnerForCMSSidebar/css/kartonrechner.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KartonrechnerForCMSSidebar/kartonrechner.html" afterPath="$PROJECT_DIR$/KartonrechnerForCMSSidebar/kartonrechner.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KartonrechnerForCMSSidebar/js/kartonrechner.js" afterPath="$PROJECT_DIR$/KartonrechnerForCMSSidebar/js/kartonrechner.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html" afterPath="$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/img/sprite-personen.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/Gasvergleichsrechner.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/Gasvergleichsrechner.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/css/gasvergleichsrechner.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/js/gasvergleichsrechner.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/css/is24Core.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/js/jquery-1.9.0.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/mnindl.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/js/respond.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/js/slider.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gasvergleichsrechner/js/sliderV2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ant.xml" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css" afterPath="$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="is24CMSThings.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371719685519" ignored="false" />
+    <ignored path="Finanzierungsrechner/Finanzierungsrechner.iml" />
+    <ignored path="Stromvergleichsrechner/Stromvergleichsrechner.iml" />
+    <ignored path="KartonrechnerForShop/KartonrechnerForShop.iml" />
+    <ignored path="KartonrechnerForCMSSidebar/KartonrechnerForCMSSidebar.iml" />
+    <ignored path="Kartonrechner/Kartonrechner.iml" />
+    <ignored path="umzugsplaner2/umzugsplaner2.iml" />
+    <ignored path="Umzugskostenrechner/Umzugskostenrechner.iml" />
+    <ignored path="umzugsplaner/umzugsplaner.iml" />
+    <file path="/Dummy.txt" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371899550404" ignored="false" />
     <file path="/kartonrechner.html" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1359645489017" ignored="false" />
     <file path="/kartonrechner.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1359643489596" ignored="false" />
     <file path="/kartonrechner.js" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1359645137373" ignored="false" />
@@ -66,7 +79,7 @@
     <file path="$PROJECT_DIR$/../umzug/webapp/grails-app/controllers/de/is24/umzug/UmzugsplanerController.groovy" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1361181219096" ignored="false" />
     <file path="/UmzugsplanerController.groovy" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1360944819436" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/grails-app/domain/de/is24/umzug/umzugsplaner/RemovalTipItem.groovy" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1360920728186" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/Grails/lib/grails_integration.jar!/org/jetbrains/plugins/grails/lang/gsp/resolve/taglib/tld/grails.tld" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1360921081972" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Grails/lib/grails_integration.jar!/org/jetbrains/plugins/grails/lang/gsp/resolve/taglib/tld/grails.tld" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371731687973" ignored="false" />
     <file path="/fragment.java" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1360926374353" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/src/groovy/de/is24/umzug/util/PDF.groovy" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1360944135111" ignored="false" />
     <file path="/PDF.groovy" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1360937040921" ignored="false" />
@@ -84,7 +97,7 @@
     <file path="$PROJECT_DIR$/../umzug/webapp/web-app/css/umzugsExpose/umzugsExposeHeader.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1362733956001" ignored="false" />
     <file path="/umzugsExposeHeader.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1361193444495" ignored="false" />
     <file path="/a.java" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1361193918211" ignored="false" />
-    <file path="/a.less" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1361193931899" ignored="false" />
+    <file path="/a.less" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371733464890" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/web-app/css/is24Core.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1361351801971" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/grails-app/services/de/is24/umzug/umzugsplaner/UmzugsplanerService.groovy" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1363361092966" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/web-app/js/umzugsExpose/removal_planner.js" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1361437055333" ignored="false" />
@@ -156,8 +169,150 @@
     <file path="$PROJECT_DIR$/../umzug/webapp/grails-app/views/halteverbotszone/index.gsp" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1369145455366" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/grails-app/views/calculatorPage/calculatorPageV2.gsp" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371713794900" ignored="false" />
     <file path="$PROJECT_DIR$/../umzug/webapp/grails-app/views/transportservice/submitted.gsp" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1369145455366" ignored="false" />
-    <file path="/stromvergleichsrechner.html" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371721151868" ignored="false" />
-    <file path="/stromvergleichsrechner.js" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371720418256" ignored="false" />
+    <file path="/stromvergleichsrechner.html" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371741304878" ignored="false" />
+    <file path="/stromvergleichsrechner.js" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371741707775" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/FlexCompilerSchema.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758091" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.2.7.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.1.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.4.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-encoding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_mimebinding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wadl20061109.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/flex/lib/FlexSupport.jar!/schemas/AIR_Descriptor.3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/bindingschema_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758092" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-jaxrpc-config_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl20.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl12.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/bindingfile.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/business-process.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jersey.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/XMLSchema.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758108" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v12/weblogic-application_1_3.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JBoss/lib/jbossIntegration.jar!/descriptors/jboss-deployment-structure-1_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_httpbinding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v12/weblogic-web-app_1_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-ws-security_1_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v12/weblogic-application_1_4.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-addr.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v12/weblogic-rdbms-jar_1_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-eventing.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11soap12.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/cxf-jaxws.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v12/weblogic-ejb-jar_1_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jboss-jaxws-config_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v12/weblogic-rdbms-jar_1_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/cxf-soap.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl_customizationschema_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdd_provider_java.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/xjc.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-addr2006.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758109" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/jbossws-tool_1_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/sun-jaxws.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wadl20090202.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-encoding1_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl11_soapbinding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/j2ee_jaxrpc_mapping_1_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/ws-policy.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/soap-envelope.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/wsdl.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/http/wsdl11_httpbinding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758113" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-cache-3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/mime/wsdl11_mimebinding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/wsdl/soap/wsdl11_soapbinding.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-2.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf.web.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/sun-jaxws.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-aop-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis.services.wsdd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/cxf-servlet.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2Servlet.web.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/WSServlet.web.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-2.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/JAXRPCServlet.web.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/AxisServlet.web.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-util-2.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2.conf_axis2.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/REST_SWDP.web.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/jaxrpc-ri-runtime.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/WebServices/lib/WebServices.jar!/schemas/resources/Axis2.services.xml" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758114" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-2.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-task-3.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-3.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-mvc-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-2.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-3.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-2.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-task-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758115" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jdbc-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758123" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tx-3.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758123" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-beans-2.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758123" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-2.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jms-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jee-3.1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-oxm-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-cache-3.2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-context-2.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-tool-2.5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-lang-3.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/Spring/lib/spring.jar!/resources/schemas/spring-jdbc-3.0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_2_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_1_4.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/connector_1_5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/j2ee_1_4.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_3_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/persistence_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/spring.tld" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758124" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/orm_1_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-facesconfig_1_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-jsptaglibrary_2_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_4.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-common_3_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/orm_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-strict.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_6.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_3_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/spring-form.tld" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/j2ee_web_services_client_1_1.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xinclude.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jspxml.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jspxml.tld" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758125" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_client_1_3.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758137" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xml.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758137" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/persistence.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758137" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application-client_5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/ejb-jar_3_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_1_3.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/catalog.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_6.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-fragment_3_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/jsp_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/javaee_web_services_1_2.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/application_6.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/connector_1_6.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-jsptaglibrary_2_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758138" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/weblogicIntegration/lib/weblogicIntegration.jar!/res/v10/weblogic-rdbms-jar_1_0.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758139" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_5.xsd" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371729758139" ignored="false" />
+    <file path="/a.jspx" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371733470963" ignored="false" />
+    <file path="/stromvergleichsrechner.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371740678879" ignored="false" />
+    <file path="/Gasvergleichsrechner.html" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371901737524" ignored="false" />
+    <file path="/gasvergleichsrechner.js" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371902407555" ignored="false" />
+    <file path="/gasvergleichsrechner.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1371900980775" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,87 +373,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="umzugskostenrechner.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Umzugskostenrechner/js/umzugskostenrechner.js">
+      <file leaf-file-name="Gasvergleichsrechner.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gasvergleichsrechner/Gasvergleichsrechner.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="3143" selection-end="3606" vertical-scroll-proportion="0.0">
+            <state line="32" column="104" selection-start="1865" selection-end="1865" vertical-scroll-proportion="0.7017544">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kartonrechner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KartonrechnerForShop/kartonrechner.html">
+      <file leaf-file-name="gasvergleichsrechner.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gasvergleichsrechner/css/gasvergleichsrechner.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="6" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
+            <state line="15" column="20" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kartonrechner.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KartonrechnerForCMSSidebar/js/kartonrechner.js">
+      <file leaf-file-name="gasvergleichsrechner.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gasvergleichsrechner/js/gasvergleichsrechner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="55" selection-start="1120" selection-end="1153" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="slider.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/KartonrechnerForShop/js/slider.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="19" column="40" selection-start="905" selection-end="905" vertical-scroll-proportion="-5.357143">
               <folding>
-                <marker date="1358946749000" expanded="false" signature="11419:11432" placeholder="..." />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="slider.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/js/slider.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1358946749000" expanded="false" signature="11419:11432" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="umzugskostenrechner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="36" selection-start="894" selection-end="894" vertical-scroll-proportion="-10.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stromvergleichsrechner.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/stromvergleichsrechner.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="1636" selection-end="1636" vertical-scroll-proportion="-6.265306">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stromvergleichsrechner.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2735" selection-end="2735" vertical-scroll-proportion="0.33333334">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stromvergleichsrechner.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/js/stromvergleichsrechner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="10" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -321,10 +420,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Umzugskostenrechner/js/response.js" />
-        <option value="$PROJECT_DIR$/Umzugskostenrechner/js/umzugskostenrechner.js" />
-        <option value="$PROJECT_DIR$/Umzugskostenrechner/css/umzugskostenrechner.css" />
-        <option value="$PROJECT_DIR$/Kartonrechner/css/kartonrechner.css" />
         <option value="$PROJECT_DIR$/Kartonrechner/kartonrechner.html" />
         <option value="$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html" />
         <option value="$PROJECT_DIR$/KartonrechnerForShop/kartonrechner.html" />
@@ -334,17 +429,24 @@
         <option value="$PROJECT_DIR$/KartonrechnerForCMSSidebar/js/kartonrechner.js" />
         <option value="$PROJECT_DIR$/Kartonrechner/js/kartonrechner.js" />
         <option value="$PROJECT_DIR$/Stromvergleichsrechner/umzugskostenrechner.html" />
-        <option value="$PROJECT_DIR$/Stromvergleichsrechner/js/stromvergleichsrechner.js" />
+        <option value="$PROJECT_DIR$/Stromvergleichsrechner/js/sliderV2.js" />
         <option value="$PROJECT_DIR$/Stromvergleichsrechner/stromvergleichsrechner.html" />
+        <option value="$PROJECT_DIR$/Stromvergleichsrechner/js/stromvergleichsrechner.js" />
         <option value="$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css" />
+        <option value="$PROJECT_DIR$/Gasvergleichsrechner/js/gasvergleichsrechner.js" />
+        <option value="$PROJECT_DIR$/Gasvergleichsrechner/css/gasvergleichsrechner.css" />
+        <option value="$PROJECT_DIR$/Gasvergleichsrechner/Gasvergleichsrechner.html" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState />
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1599" />
+    <option name="x" value="-1" />
     <option name="y" value="-4" />
-    <option name="width" value="1602" />
-    <option name="height" value="1205" />
+    <option name="width" value="1442" />
+    <option name="height" value="905" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -374,12 +476,88 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stromvergleichsrechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stromvergleichsrechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gasvergleichsrechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gasvergleichsrechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gasvergleichsrechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="is24Rechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gasvergleichsrechner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -387,22 +565,12 @@
       <pane id="PackagesPane">
         <subPane />
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="is24CMSThings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="is24CMSThings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="is24CMSThings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -415,9 +583,9 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="reference.settings.ide.settings.spelling" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Gasvergleichsrechner" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -425,11 +593,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Gasvergleichsrechner" />
       <recent name="$PROJECT_DIR$/Stromvergleichsrechner/js" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/KartonrechnerForCMSSidebar" />
       <recent name="$PROJECT_DIR$/Kartonrechner/js" />
-      <recent name="$PROJECT_DIR$/Umzugskostenrechner/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Stromvergleichsrechner/js" />
@@ -452,19 +620,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -495,6 +650,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -508,13 +676,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -538,6 +699,13 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -545,7 +713,8 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="1" Folder0="$PROJECT_DIR$/../umzug/germanDic" Dictionaries="0" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
     <option name="mySSHConnectionTimeout" value="30000" />
@@ -555,12 +724,12 @@
     <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
     <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
     <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="DETECT_NESTED_COPIES" value="true" />
     <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
     <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
     <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
@@ -577,39 +746,51 @@
       <created>1359629857045</created>
       <updated>1359629857045</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="erste version vom strompreisvergeleichsrechner">
+      <created>1371737623300</created>
+      <updated>1371737623300</updated>
+    </task>
+    <task id="LOCAL-00004" summary="erste version vom strompreisvergleichsrechner">
+      <created>1371741867451</created>
+      <updated>1371741867451</updated>
+    </task>
+    <task id="LOCAL-00005" summary="erste version vom strompreisvergleichsrechner">
+      <created>1371742035069</created>
+      <updated>1371742035069</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1599" y="-4" width="1602" height="1205" extended-state="6" />
-    <editor active="false" />
+    <frame x="-1" y="-4" width="1442" height="905" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3282876" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4580559" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282876" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4208633" sideWeight="0.42609853" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922202" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24903475" sideWeight="0.6717124" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4208633" sideWeight="0.5725699" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -655,7 +836,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="erstmal rin damit" />
+    <option name="LAST_COMMIT_MESSAGE" value="erste version vom strompreisvergleichsrechner" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -669,8 +850,8 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="second commit" />
-    <MESSAGE value="erstmal rin damit" />
+    <MESSAGE value="erste version vom strompreisvergeleichsrechner" />
+    <MESSAGE value="erste version vom strompreisvergleichsrechner" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -714,115 +895,102 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Umzugskostenrechner/css/umzugskostenrechner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="32" selection-start="3604" selection-end="3604" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kartonrechner/css/kartonrechner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="30" selection-start="792" selection-end="792" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/umzugsplaner2/js/removal_planner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="7" selection-start="6166" selection-end="6166" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Kartonrechner/kartonrechner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="30" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="38" column="30" selection-start="2359" selection-end="2359" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Kartonrechner/js/kartonrechner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="8" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KartonrechnerForShop/js/kartonrechner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KartonrechnerForShop/js/slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1358946749000" expanded="false" signature="11419:11432" placeholder="..." />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Umzugskostenrechner/js/umzugskostenrechner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3143" selection-end="3606" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="83" column="0" selection-start="3143" selection-end="3606" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KartonrechnerForShop/kartonrechner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="12" column="6" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/KartonrechnerForCMSSidebar/js/kartonrechner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="55" selection-start="1120" selection-end="1153" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="55" selection-start="1120" selection-end="1153" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/js/slider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1358946749000" expanded="false" signature="11419:11432" placeholder="..." />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="36" selection-start="894" selection-end="894" vertical-scroll-proportion="-10.625">
+        <state line="17" column="36" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Umzugskostenrechner/js/neuerer slider/slider.js">
+    <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/js/sliderV2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.8333333">
+        <state line="91" column="73" selection-start="4839" selection-end="4851" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1369838517351" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1371733286746" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/js/stromvergleichsrechner.js">
+    <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="10" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
+        <state line="89" column="31" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/stromvergleichsrechner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1636" selection-end="1636" vertical-scroll-proportion="-6.265306">
+        <state line="14" column="19" selection-start="715" selection-end="715" vertical-scroll-proportion="-5.9583335">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/css/stromvergleichsrechner.css">
+    <entry file="file://$PROJECT_DIR$/Stromvergleichsrechner/js/stromvergleichsrechner.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2735" selection-end="2735" vertical-scroll-proportion="0.33333334">
+        <state line="56" column="46" selection-start="2581" selection-end="2581" vertical-scroll-proportion="1.0219619">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gasvergleichsrechner/js/gasvergleichsrechner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="40" selection-start="905" selection-end="905" vertical-scroll-proportion="-5.357143">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gasvergleichsrechner/css/gasvergleichsrechner.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="20" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gasvergleichsrechner/Gasvergleichsrechner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="104" selection-start="1865" selection-end="1865" vertical-scroll-proportion="0.7017544">
           <folding />
         </state>
       </provider>
