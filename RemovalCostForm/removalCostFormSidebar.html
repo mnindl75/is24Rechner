@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Umzugskostenform im Contentbereich</title>
+    <title>Umzugskostenform in der Sidebar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/removalCostForm.css">
 </head>
 <body>
-<div id="removalCostFormContent">
-    <header>Wieviel kostet mein Umzug?</header>
+<div id="removalCostFormSidebar">
     <form id="removalCostFormContentForm" action="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html">
+        <header>Wieviel kostet mein Umzug?</header>
         <i>&nbsp;</i>
         <div>
             <label for="vonstr">von</label>
@@ -23,9 +23,7 @@
             <input placeholder="Ort" name="nachort" class="text-input" type="text"/>
         </div>
         <footer>
-            <a href="javascript:{}" onclick="document.getElementById('removalCostFormContentForm').submit(); return false;">
-                Jetzt Preis berechnen
-            </a>
+            <button>Preis berechnen</button>
         </footer>
     </form>
 </div>
