@@ -1,0 +1,51 @@
+#removalCostForm {
+    font-family: Tahoma, Geneva, sans-serif !important;
+    border: 1px solid red;
+    padding: 10px 10px 0 10px;
+    width: 706px;
+}
+#removalCostForm form {
+    overflow: hidden;
+}
+#removalCostForm header {
+    font-family: Tahoma, Geneva, sans-serif !important;
+    color: #335D86;
+    font-size: 21px;
+}
+#removalCostForm div {
+    float: left;
+    width: 50%;
+    overflow: hidden;
+}
+#removalCostForm footer {
+    clear: both;
+    background: url("../img/nur_pfeile.png") no-repeat 0px 0px transparent;
+}
+#removalCostForm label {
+    display: block;
+    font-weight: bold;
+}
+#removalCostForm .text-input {
+    border: 1px solid #97ACC1;
+    box-shadow: 2px 2px 3px 0 #C5C5C5 inset;
+    font-size: 12px;
+    outline: medium none;
+    padding: 5px;
+    -moz-box-shadow: inset 2px 2px 3px 0 #C5C5C5;
+    -webkit-box-shadow: inset 2px 2px 3px #C5C5C5;
+    box-shadow: inset 2px 2px 3px 0 #C5C5C5;
+    display: block;
+    float: left;
+}
+#removalCostForm input[name$="str"] {
+    float: none;
+    width: 90%;
+}
+#removalCostForm input[name$="plz"] {
+    width: 25%;
+}
+#removalCostForm input[name$="ort"] {
+    width: 58%;
+    margin-left: 13px;
+}
+

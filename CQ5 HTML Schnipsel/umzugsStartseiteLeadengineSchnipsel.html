@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div class="sourcecode section">
+    <form action="/umzug/umzugsunternehmen/vergleichen.html" method="get" class="form-stnd" accept-charset="iso-8859-1">
+        <fieldset class="form-element-m">
+            <h4 class="ftw-nml m-b-l">Umzug von</h4>
+            <input type="text" class="input-text-stnd form-element-xxl m-t-xs" name="vonstr" placeholder="Stra&szlig;e &amp; Hausnummer" />
+            <input type="text" class="input-text-stnd form-element-s" name="vonplz" placeholder="PLZ" />
+            <input type="text" class="input-text-stnd form-element-l" name="vonort" placeholder="Ort" />
+        </fieldset>
+        <fieldset class="form-element-m">
+            <h4 class="ftw-nml m-r-s">Umzug nach</h4>
+            <div>
+                <input type="radio" id="nachstehtfest" name="nachstehtnichtfest" value="0" checked="checked" />
+                <label for="nachstehtfest">Adresse Einzugsort</label>
+            </div>
+            <div class="m-t-xs" style="margin-bottom: 3px">
+                <input type="radio" id="nachstehtnichtfest" name="nachstehtnichtfest" value="1" />
+                <label for="nachstehtnichtfest">nur Ort</label>
+            </div>
+            <input type="text" class="input-text-stnd form-element-xxl" name="nachstr" placeholder="Stra&szlig;e &amp; Hausnummer" />
+            <input type="text" class="input-text-stnd form-element-s" name="nachplz" placeholder="PLZ" />
+            <input type="text" class="input-text-stnd form-element-l" name="nachort" placeholder="Ort" />
+        </fieldset>
+        <fieldset class="clear-bth p-t-s txt-aln-ctr">
+            <input type="submit" value="Angebote vergleichen" class="btn-l btn-action" />
+        </fieldset>
+    </form>
+    <script>
+        jQuery('input[name="nachstehtnichtfest"]').click(function() {
+            if (jQuery(this).attr("id") === "nachstehtnichtfest" ) {
+                console.log(jQuery(this).attr("id"))
+                jQuery('input[name="nachstr"]').attr("disabled", "disabled")
+            } else {
+                console.log(jQuery(this).attr("id"))
+                jQuery('input[name="nachstr"]').removeAttr("disabled")
+            }
+        });
+    </script>
+</div>
+
+</body>
+</html>
