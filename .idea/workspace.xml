@@ -23,25 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f55449b-d412-4d56-82c9-4d8e846b4511" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Kartonrechner.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/KartonrechnerForCMSSidebar.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/img/lokalisieren.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/img/neu_ecke.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/img/nur_pfeile.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/img/or_pfeil.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/img/preis_01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Umzugskostenrechner.tar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/css/removalCostForm.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RemovalCostForm/removalCostFormContent.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Umzugskostenrechner/js/slider.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CQ5 HTML Schnipsel/umzugsStartseiteLeadengineSchnipsel.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Umzugskostenrechner.zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html" afterPath="$PROJECT_DIR$/Umzugskostenrechner/umzugskostenrechner.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="is24CMSThings.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1389861182214" ignored="false" />
+    <file path="/Dummy.txt" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1389867672478" ignored="false" />
     <file path="/kartonrechner.html" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1359645489017" ignored="false" />
     <file path="/kartonrechner.css" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1359643489596" ignored="false" />
     <file path="/kartonrechner.js" changelist="9f55449b-d412-4d56-82c9-4d8e846b4511" time="1359645137373" ignored="false" />
@@ -286,7 +272,7 @@
       <file leaf-file-name="removalCostForm.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RemovalCostForm/css/removalCostForm.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="24" selection-start="126" selection-end="126" vertical-scroll-proportion="0.06807867">
+            <state line="3" column="24" selection-start="126" selection-end="126" vertical-scroll-proportion="0.06828528">
               <folding />
             </state>
           </provider>
@@ -653,14 +639,18 @@
       <created>1371814003705</created>
       <updated>1371814003705</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="removalcostform and other shit">
+      <created>1389867689080</created>
+      <updated>1389867689080</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1600" y="24" width="1600" height="1176" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3282876" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32890996" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282876" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -672,20 +662,20 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3282876" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24903475" sideWeight="0.6717124" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24903475" sideWeight="0.67109007" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TeamCity" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -731,7 +721,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version of stromvergleichsrechner" />
+    <option name="LAST_COMMIT_MESSAGE" value="removalcostform and other shit" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -748,6 +738,7 @@
     <MESSAGE value="second commit" />
     <MESSAGE value="erstmal rin damit" />
     <MESSAGE value="final version of stromvergleichsrechner" />
+    <MESSAGE value="removalcostform and other shit" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -886,7 +877,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RemovalCostForm/css/removalCostForm.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="24" selection-start="126" selection-end="126" vertical-scroll-proportion="0.06807867">
+        <state line="3" column="24" selection-start="126" selection-end="126" vertical-scroll-proportion="0.06828528">
           <folding />
         </state>
       </provider>
