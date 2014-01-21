@@ -1,0 +1,50 @@
+#expose-funktions-box {
+    font-family: Tahoma, Geneva, sans-serif !important;
+    font-size: 12px;
+    line-height: 12px;
+    width: 374px;
+    border: 1px solid #d1d8e0;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+}
+#expose-funktions-box header {
+    background-color: #e4edfc;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #fdfdfb), color-stop(100%, #e4edfc));
+    background-image: -moz-linear-gradient(top, #fdfdfb 0%, #e4edfc 100%);
+    background-image: linear-gradient(top, #fdfdfb 0%, #e4edfc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfb', endColorstr='#e4edfc');
+    padding: 6px 12px;
+    border-bottom: #d1d8e0;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+}
+#expose-funktions-box #expose-funktions-box-content {
+    overflow: hidden;
+}
+#expose-funktions-box #expose-funktions-box-content header {
+    background: url("../img/umzugslaster_icon.png") no-repeat 11px 15px transparent;
+    padding: 20px 0 0 56px;
+    font-weight: bold;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item {
+    float: left;
+    width: 50%;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item#boni {
+    background: url("../img/Icons_Bonicheck.png") no-repeat 0px 0px transparent;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item#offers {
+    background: url("../img/Icons_Umzug.png") no-repeat 0px 0px transparent;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item#insert {
+    background: url("../img/Icons_Suchanzeige.png") no-repeat 0px 0px transparent;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item#low-price {
+    background: url("../img/Icons_Strom.png") no-repeat 0px 0px transparent;
+}
+
+
