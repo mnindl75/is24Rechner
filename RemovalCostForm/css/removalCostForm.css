@@ -1,3 +1,7 @@
+#removalCostFormContent {
+    margin: 0 auto;
+    text-align: left;
+}
 #removalCostFormContent,
 #removalCostFormSidebar {
     font-family: Tahoma, Geneva, sans-serif !important;
@@ -124,6 +128,9 @@
     top: 18px;
     color: #0044CC;
     text-decoration: underline;
+}
+#removalCostFormContent a:hover {
+    color: #FF7500;
 }
 #removalCostFormContent a:before {
     content: "";
