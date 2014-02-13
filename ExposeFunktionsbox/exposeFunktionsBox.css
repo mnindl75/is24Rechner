@@ -1,0 +1,44 @@
+#expose-funktions-box {
+    font-family: Tahoma, Geneva, sans-serif !important;
+    font-size: 12px;
+    line-height: 12px;
+    width: 374px;
+    border-bottom: 1px solid #d1d8e0;
+    padding-bottom: 12px;
+}
+#expose-funktions-box #expose-funktions-box-content {
+    overflow: hidden;
+}
+#expose-funktions-box #expose-funktions-box-content header {
+    background: url("umzugslaster_icon.png") no-repeat 11px 13px transparent;
+    padding: 16px 0 12px 56px;
+    font-weight: bold;
+    display: block;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item {
+    float: left;
+    width: 35%;
+    height: 100px;
+    padding: 0px 7% 12px 7%;
+    text-align: center;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item {
+    border: none;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item a {
+    text-decoration: none;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item a:hover p {
+    color: #FF7500;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item a img {
+    border: 0;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item .funktionsbox-text-link {
+    display: block;
+    color: #335D86;
+    outline: none;
+}
+#expose-funktions-box #expose-funktions-box-content .expose-funktions-box-item a.image-text {
+    margin-top: 2px;
+}
