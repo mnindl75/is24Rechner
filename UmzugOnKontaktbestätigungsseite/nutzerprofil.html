@@ -1,0 +1,139 @@
+<style>
+    #layer {
+        background: #cfd5dd; /* Old browsers */
+        background: -moz-linear-gradient(top, #fff 0%, #e8f1ff 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #e8f1ff)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #fff 0%, #e8f1ff 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #fff 0%, #e8f1ff 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #fff 0%, #e8f1ff 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #fff 0%, #e8f1ff 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e8f1ff', GradientType=0); /* IE6-9 */
+        border: 1px solid #d8dce1;
+        border-radius: 5px;
+		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+		-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+		box-sizing: border-box;         /* Opera */
+        padding-left: 34px;
+		padding-right: 16px;
+		padding-top: 34px;
+		padding-bottom: 34px;
+        position: relative;
+        width: 385px;
+    }
+
+    #layer i.closeBtn {
+    background: url('http://www.immobilienscout24.de/styles/next/css/img/fi/close.png');
+	background-repeat: no-repeat;
+    display: block;
+    height: 16px;
+    width: 16px;
+	position: absolute;
+	right: 7px;
+    top: 7px;
+	text-indent: -9999px;
+    }
+	
+    #layer p {
+		font-family: Tahoma, Verdana, Geneva, Kalimati, sans-serif;
+        font-size: 19px;
+        letter-spacing: -1px;
+        line-height: 1.2em;
+        margin: 1em 0;
+		color: #4C4C4C;
+        width: 300px;
+		position: absolute;
+        left: 125px;
+        top: 10px;
+
+    }
+
+	#layer ul {
+
+        margin: 1em 0;
+		padding-left: 1.3em;
+		line-height: 1.3em;
+	}
+	
+	#layer li {
+		font-family: Verdana, Geneva, Kalimati, sans-serif;
+		color: #4C4C4C;
+		list-style: none;
+		list-style-image:url('https://www.immobilienscout24.de/styles/next/css/img/fi/check.gif');
+		font-size: 13px;
+
+
+
+	}
+	
+    #layer a {
+        background: #ff9f4d; /* Old browsers */
+        background: -moz-linear-gradient(top, #ff9f4d 0%, #ff7500 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff9f4d), color-stop(100%, #ff7500)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ff9f4d 0%, #ff7500 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ff9f4d 0%, #ff7500 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #ff9f4d 0%, #ff7500 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #ff9f4d 0%, #ff7500 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9f4d', endColorstr='#ff7500', GradientType=0); /* IE6-9 */
+        border: 1px solid #ce5c02;
+        border-radius: 3px;
+        box-shadow: 0 -1px 0 #ea5800 inset, 0 1px 0 #ffc797 inset;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font: 17px/32px Tahoma, Verdana, Geneva, Kalimati, sans-serif;
+        height: 32px;
+        margin: 1em 0 0 40px;
+        padding: 0 .5em;
+        text-decoration: none;
+        text-shadow: 0 -1px 0 #ea5800;
+    }
+
+    #layer a:hover, #layer a:active, #layer a:focus {
+        background: #ffb271; /* Old browsers */
+        background: -moz-linear-gradient(top, #ffb271 0%, #ff9133 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffb271), color-stop(100%, #ff9133)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ffb271 0%, #ff9133 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ffb271 0%, #ff9133 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #ffb271 0%, #ff9133 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #ffb271 0%, #ff9133 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb271', endColorstr='#ff9133', GradientType=0); /* IE6-9 */
+    }
+</style>
+
+<div id="layer">
+    <img width="80" height="40" alt="ImmobilienScout24"
+         src="https://www.immobilienscout24.de/styles/next/css/img/logo/logo.png" id="layerLogo">
+    <i class="closeBtn" onclick="closeLayer()">x</i>
+
+    <p>Mit Ihrem Nutzerprofil <br>schneller zur Traumwohnung</p>
+	
+<ul>
+	<li>Bei ImmobilienScout24 registrieren/einloggen</li>
+	<li>Pers&ouml;nliches Nutzerprofil erstellen</li>
+	<li>Daten zuk&uuml;nftig bei Kontaktanfragen mitsenden</li>
+	<li>Vom Makler <b>bevorzugt behandelt</b> werden</li>
+</ul>
+
+
+    <a onclick="handleButtonClick()" href="http://www.immobilienscout24.de/umzug/landingpages/nutzerprofil.html?ns_campaign=10-02160&icmp=10-02160&ns_mchannel=internal&ns_source=sky&ns_linkname=kontaktlayer_nutzerprofil" target="_blank">Meine Chancen verbessern</a>
+</div>
+
+<script>
+    function closeLayer() {
+        document.getElementById('layer').style.display = 'none';
+    }
+
+    function handleButtonClick() {
+        closeLayer();
+        initCounterPixel();
+    }
+
+    function initCounterPixel() {
+        var ts = new Date().getTime(),
+                image = new Image();
+        image.src = 'http://ads.immobilienscout24.de/adlink|3.0|1072|4173676|0|16|ADTECH;Adid=9719435;BnId=1;misc=' + ts;
+        image.width = 1;
+        image.height = 1;
+        document.getElementsByTagName('body')[0].appendChild(image);
+    }
+</script>
