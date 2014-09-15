@@ -9,68 +9,73 @@
 #removalcost-calculator .slider {
     position: relative;
     height:7px;
-    background-color: #fdfdfd;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #e7e7e7), color-stop(51%, #fdfdfd));
-    background-image: -moz-linear-gradient(top, #e7e7e7 20%, #fdfdfd 51%);
-    background-image: linear-gradient(top, #e7e7e7 20%, #fdfdfd 51%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7e7e7', endColorstr='#fdfdfd');
-    border: 1px solid #97acc1;
+    border: 1px solid #dadada;
     border-radius: 5px;
 }
 #removalcost-calculator .slider-thumb {
-    top:-12px;
     left:0px;
     position: absolute;
-    width: 25px;
-    height: 32px;
-    background-color: #cdd8e1;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #f2f5f7), color-stop(100%, #cdd8e1));
-    background-image: -moz-linear-gradient(top, #f2f5f7 0%, #cdd8e1 100%);
-    background-image: linear-gradient(top, #f2f5f7 0%, #cdd8e1 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f5f7', endColorstr='#cdd8e1');
-    border: 1px solid #97acc1;
-    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #dadada;
     cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 21px;
+    top: -10px;
+}
+#removalcost-calculator .slider-thumb:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    border-width: 4px;
+    border-color: #003468 #003468 #003468 #003468;
+    border-style: solid;
+    width: 0px;
+    height: 0;
+    border-radius: 8px;
 }
 #removalcost-calculator .slider-fill {
-    background-color: #5c7d9e;
+    background-color: #003468;
     height:9px;
     position: absolute;
-    top:-1px;
-    left:0px;
+    top: -1px;
+    left: 1px;
     border-radius: 5px 0 0 5px;
-    background-color: #5c7d9e;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #97acc1), color-stop(51%, #5c7d9e));
-    background-image: -moz-linear-gradient(top, #97acc1 20%, #5c7d9e 51%);
-    background-image: linear-gradient(top, #97acc1 20%, #5c7d9e 51%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#97acc1', endColorstr='#5c7d9e');
 }
-
-
 .selecter-holder {
     position: relative;
 }
 .selecter-holder .selecter {
-    border: 1px solid #97acc1;
-    padding: 5px 7px 9px 7px;
+    border: 1px solid #dadada;
+    border-radius: 5px 0px 0px 5px;
+    padding-top: 7px;
     background-color: #ffffff;
     width: 58px;
-    height: 25px;
+    height: 31px;
     background: #ffffff;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(29%, #ffffff), color-stop(99%, #CAD5DF));
-    background: -ms-linear-gradient(bottom, #ffffff, #CAD5DF);
-    background: -moz-linear-gradient(top, #ffffff 29%, #CAD5DF 99%);
-    background: -o-linear-gradient(#CAD5DF, #ffffff);
-    background: linear-gradient(top, #ffffff 29%, #CAD5DF 99%);
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",#CAD5DF, #ffffff));
     position: relative;
     cursor: pointer;
+    text-align: center;
+}
+.selecter-holder .selecter:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    display: block;
+    right: -35px;
+    border-width: 1px;
+    border-color: #dadada #dadada #dadada transparent;
+    border-style: solid;
+    width: 33px;
+    height: 29px;
+    border-radius: 0px 5px 5px 0px;
 }
 .selecter-holder .selecter:after {
     content: "";
     position: absolute;
-    top: 10px;
-    right: 7px;
+    top: 13px;
+    right: -24px;
     border-width: 7px;
     border-color: #335D86 transparent transparent;
     border-style: solid;
@@ -85,28 +90,24 @@
 }
 .selecter-holder .selecter.open {
     background: #ffffff;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(14%, #CAD5DF), color-stop(92%, #ffffff));
-    background: -ms-linear-gradient(bottom, #CAD5DF, #ffffff);
-    background: -moz-linear-gradient(top, #CAD5DF 14%, #ffffff 92%);
-    background: -o-linear-gradient(#ffffff, #CAD5DF);
-    background: linear-gradient(top, #CAD5DF 14%, #ffffff 92%);
-    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",#ffffff, #CAD5DF));
     border-bottom: none;
     padding-bottom: 10px;
+    border-radius: 5px 0px 0px 0px;
 }
 .selecter-holder .select-options {
     display: none;
-    border: 1px solid #97acc1;
+    border: 1px solid #dadada;
+    border-radius: 0px 0px 5px 5px;
     border-top: none;
-    padding: 2px 0 2px 2px;
+    padding: 2px 0 2px 0;
     position: absolute;
     z-index: 999;
     width: 58px;
     background-color: #ffffff;
 }
-
 .selecter-holder .select-options p {
-    padding: 0 0 3px 6px;
+    padding: 0 0 3px 0;
+    text-align: center;
     cursor: pointer;
 }
 .selecter-holder .select-options p:hover {
@@ -128,17 +129,8 @@
 
 }
 @media screen and (min-width: 768px) {
-    #removalcost-calculator .label {
-        float: left;
-        width: 25%;
-    }
-    #removalcost-calculator .slider-thumb {
-        width: 15px;
-        height: 30px;
-    }
+
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    #removalcost-calculator .label {
-        width: 20%;
-    }
+
 }
