@@ -6,12 +6,6 @@ de.is24.STATIC.umzugskostenrechner = de.is24.STATIC.umzugskostenrechner || {};
 de.is24.STATIC.umzugskostenrechner = (function ($) {
     "use strict";
 
-    var MAX_INPUT_VALUE = 12,
-        ERROR_TEXT_MORE_ROOMS = "max. 12 Zimmer",
-        ERROR_TEXT_0_ROOMS = "1 - 12 Zimmer",
-        ERROR_TEXT_MORE_PEOPLE = "max. 12 Personen",
-        ERROR_TEXT_0_PEOPLE = "1 - 12 Personen";
-
     function addDecimalSeparatorsToNumberString(result) {
         while (result.match(/^(\d+)(\d{3}\b)/)) {
             result = result.replace(/^(\d+)(\d{3}\b)/, RegExp.$1 + '.' + RegExp.$2);
@@ -31,56 +25,8 @@ de.is24.STATIC.umzugskostenrechner = (function ($) {
             number_boxes = (people * 4) + (rooms * 14.7) + (people * 0.6),
             cbm = ((rooms * 9 + 12) * 0.4) + ((square_meter / 2) * 0.6) + (number_boxes * 0.06),
             price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2));
-        if ($('.error').length > 0) {
-            return null;
-        }
-        $('#no-price-calculate').hide();
         $('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
     }
-
-    function setError($this) {
-        var $no_price_calculate = $('#no-price-calculate'),
-            $no_price_calculate_spez_error = $no_price_calculate.find('span');
-        $this.addClass("error").next().addClass("error");
-        $('#price span').text("0");
-        if ($this.is('#people')) {
-            if ($this.val() < 1) {
-                $no_price_calculate_spez_error.text(ERROR_TEXT_0_PEOPLE);
-            } else {
-                $no_price_calculate_spez_error.text(ERROR_TEXT_MORE_PEOPLE);
-            }
-        } else {
-            if ($this.val() < 1) {
-                $no_price_calculate_spez_error.text(ERROR_TEXT_0_ROOMS);
-            } else {
-                $no_price_calculate_spez_error.text(ERROR_TEXT_MORE_ROOMS);
-            }
-        }
-        $no_price_calculate.show();
-    }
-
-    function inputValidate($this) {
-        var input_value = $this.val();
-        if (input_value.match(/\D/) || (parseInt(input_value, 10) > MAX_INPUT_VALUE) || input_value.length < 1 || input_value == "0") {
-            setError($this);
-        } else {
-            $this.removeClass("error").next().removeClass("error");
-            if ($('.error').length > 0) {
-                return null;
-            }
-            calculateRemovalCompanyCosts();
-        }
-    }
-
-    function initTextInputs() {
-        $('#people').keyup(function () {
-            inputValidate($(this));
-        });
-        $('#rooms').keyup(function () {
-            inputValidate($(this));
-        });
-    }
-
     function initSelecter() {
         var $selecter_holder = $('.selecter-holder');
         $selecter_holder.each(function() {
@@ -109,6 +55,7 @@ de.is24.STATIC.umzugskostenrechner = (function ($) {
                 $this_selecter_hidden_value_input.val($this.attr("data-options-value")).trigger("change");
                 $this_selecter.removeClass("open").text($this.text());
                 $this_select_options.fadeToggle("fast");
+                calculateRemovalCompanyCosts();
             });
 
             $selecter_holder.mouseleave(function() {
@@ -129,9 +76,7 @@ de.is24.STATIC.umzugskostenrechner = (function ($) {
     }
 
     function init() {
-        $('#no-price-calculate').hide();
         initSliders();
-        initTextInputs();
         initSelecter();
         calculateRemovalCompanyCosts();
     }
