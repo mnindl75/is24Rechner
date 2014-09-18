@@ -57,10 +57,6 @@ de.is24.STATIC.umzugskostenrechner = (function ($) {
                 $this_select_options.fadeToggle("fast");
                 calculateRemovalCompanyCosts();
             });
-
-            $selecter_holder.mouseleave(function() {
-                $(this).find('.selecter').removeClass("open").next().fadeOut("fast");
-            });
         });
     }
 
