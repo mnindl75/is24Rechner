@@ -231,7 +231,7 @@
             <p id="price" class="font-m font-brandorange margin-bottom-s">
                 ab<span id="price-result" class="font-xl font-bold margin-left-s"></span> <span class="font-xl font-bold">&euro;</span>
             </p>
-            <a class="button-orange padding-horizontal-m" href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
+            <a class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
                 Jetzt informieren
             </a>
         </div>
@@ -261,6 +261,13 @@
             return text.toString().replace(/\s/g, "").replace(/\./g, "").replace(/\,/g, "");
         }
 
+        function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
+            var button = $('#result .button-orange'),
+                $button_link = button.attr("data-original-href");
+            $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
+            button.attr("href", $button_link);
+        }
+
         function calculateRemovalCompanyCosts() {
             var square_meter = parseInt($('#square-meter-value').text(), 10),
                     distance = parseInt(removeSpaceAndDotAndCommaFromText($('#distance-value').text()), 10),
@@ -270,6 +277,7 @@
                     cbm = ((rooms * 9 + 12) * 0.4) + ((square_meter / 2) * 0.6) + (number_boxes * 0.06),
                     price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2));
             $('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
+            changeRemovalCompaniesLinkParams(square_meter, people, rooms);
         }
         function initSelecter() {
             var $selecter_holder = $('.selecter-holder');
