@@ -289,6 +289,11 @@
                     createPDF(time);
                 }
             }
+            function writeCSSForDatepickerInHead() {
+                var $head = $('head');
+                $head.append('<link type="text/css" href="http://www.immobilienscout24.de/umzugsexpose/css/umzugsplaner/removalplanerForRemovalStartpage.css" rel="stylesheet"/>');
+            }
+            writeCSSForDatepickerInHead();
             initDatepicker();
             $('#create-removal-plan').click(function (e) {
                 e.preventDefault();
@@ -311,3 +316,6 @@
         de.is24.STATIC.umzugsplanerRubrikStartPage.init();
     });
 </script>
+
+
+
