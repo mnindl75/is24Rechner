@@ -197,10 +197,19 @@
         left: 0;
     }
 
+#status-text {
+    color: #b80000;
+}
+#status-text.right {
+    color: #1f7d00;
+}
+
+
 </style>
-<input autocomplete="off" id="datepicker" type="text" class="input-text-stnd margin-bottom-s" placeholder="Datum"/>
-<input id="removal-planer-email" type="text" class="input-text-stnd margin-bottom-s" placeholder="E-Mail"/>
-<a href="http://redirect.immobilienscout24.de/servlet/redirect?ref=/umzugsexpose/77110655&amplocation=http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=" >
+<input autocomplete="off" id="datepicker" type="text" class="input-text-stnd margin-bottom-s margin-top-s one-whole" placeholder="Datum"/>
+<input id="removal-planer-email" type="text" class="input-text-stnd margin-bottom-s one-whole" placeholder="E-Mail"/>
+<p id="status-text" class="font-s align-center margin-bottom-s"></p>
+<a id="create-removal-plan" class="block icon-arrow" href="http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=" >
     Umzugsplan erstellen
 </a>
 <script>
@@ -211,29 +220,85 @@
 
     de.is24.STATIC.umzugsplanerRubrikStartPage = (function ($) {
         "use strict";
-        function initDatepicker() {
-            var datepicker = $('#datepicker');
-            $.datepicker.regional.de = {
-                monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
-                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-                weekHeader: 'Wo',
-                dateFormat: 'dd.mm.yy',
-                firstDay: 1,
-                showMonthAfterYear: true,
-                showAnim: 'fold'
-            };
-            $.datepicker.setDefaults($.datepicker.regional.de);
-            datepicker.datepicker();
-        }
+        function initRemovalPlaner() {
+            var email_register_succces,
+                $datepicker = $('#datepicker'),
+                $email = $('#removal-planer-email'),
+                email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
+                $status_text_holder = $('#status-text'),
+                error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
+                error_text_email_wrong = "Bitte geben Sie eine gültige Email Adresse ein oder lassen Sie das Feld frei.",
+                text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
+                error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
+            function createPDF(time) {
+                var url = "http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=" + time;
+                window.open(url, 'generatePDF', 'scrollbars=yes');
+            }
+            function initDatepicker() {
 
-        function init() {
+                $.datepicker.regional.de = {
+                    monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    weekHeader: 'Wo',
+                    dateFormat: 'dd.mm.yy',
+                    firstDay: 1,
+                    showMonthAfterYear: true,
+                    showAnim: 'fold'
+                };
+                $.datepicker.setDefaults($.datepicker.regional.de);
+                $datepicker.datepicker();
+            }
+            function emailRegister() {
+                var removal_date = $datepicker.datepicker("getDate"),
+                        time,
+                        email_value = $email.val();
+                if ($datepicker.val().length > 0) {
+                    time = (Math.round((removal_date.getTime()) / 1000));
+                    if (email_value.length > 0 ) {
+                        $.ajax( {
+                            url: email_reg_link,
+                            async: false,
+                            data: {
+                                "movingDate" : removal_date.getDate().toString() + '.' +
+                                        ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear()
+                                , "email" : email_value
+                                , "faxnumber": ""
+                            },
+                            success: function(data) {
+                                if (data.status === "500") {
+                                    $status_text_holder.removeClass("right").text(error_text_server).fadeIn(1000);
+                                } else if (data.status === "200" && !data.email) {
+                                    $status_text_holder.removeClass("right").text(error_text_email_wrong).fadeIn(1000);
+                                } else {
+                                    $status_text_holder.text(text_email_right).addClass("right").fadeIn(1000);
+                                    email_register_succces = true;
+                                }
+                            }
+                        });
+                    } else {
+                        createPDF(time);
+                    }
+                } else {
+                    $status_text_holder.removeClass("right").text(error_text_date).fadeIn(1000);
+                }
+                if (email_register_succces) {
+                    createPDF(time);
+                }
+            }
             initDatepicker();
+            $('#create-removal-plan').click(function (e) {
+                e.preventDefault();
+                email_register_succces = false;
+                emailRegister();
+            });
         }
-
+        function init() {
+            initRemovalPlaner();
+        }
         return {
             init: function () {
                 return init();
@@ -245,5 +310,4 @@
         "use strict";
         de.is24.STATIC.umzugsplanerRubrikStartPage.init();
     });
-
 </script>

@@ -1,6 +1,10 @@
 <style scoped>
-    .magic-border {
-        overflow: visible !important;
+    #removalcost-calculator {
+        user-select: none;
+        -o-user-select:none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
     }
     #removalcost-calculator #headline {
         font-size: 1.4em;
@@ -171,15 +175,15 @@
 <div id="removalcost-calculator">
     <p id="headline" class="font-brandblue font-italic margin-bottom-m">Was kostet Ihr Umzug?</p>
     <div id="params-setter">
-        <div class="overflow-hidden slider-all-holder">
+        <div class="slider-all-holder">
             <p class="font-brandblue float-left one-half">Wohnfl&auml;che</p>
             <p class="slider-value-holder font-brandblue font-bold float-left one-half align-right">ca. <span id="square-meter-value"></span> m&sup2;</p>
-            <div id="square_meter_slider"></div>
+            <div id="square_meter_slider" class="clear-both"></div>
         </div>
-        <div class="overflow-hidden slider-all-holder">
+        <div class="slider-all-holder">
             <p class="font-brandblue float-left one-half">Entfernung</p>
             <p class="slider-value-holder font-brandblue font-bold float-right one-half align-right">ca. <span id="distance-value"></span> km</p>
-            <div id="distance_slider"></div>
+            <div id="distance_slider" class="clear-both"></div>
         </div>
         <div class="float-left one-half">
             <label class="block font-brandblue margin-bottom-xs">
@@ -263,7 +267,7 @@
 
         function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
             var button = $('#result .button-orange'),
-                $button_link = button.attr("data-original-href");
+                    $button_link = button.attr("data-original-href");
             $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
             button.attr("href", $button_link);
         }
@@ -323,7 +327,12 @@
             };
         }
 
+        function initMoehrmannStyle() {
+            $('.magic-border').css("overflow", "visible");
+        }
+
         function init() {
+            initMoehrmannStyle();
             initSliders();
             initSelecter();
             calculateRemovalCompanyCosts();
