@@ -5,6 +5,7 @@
         -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;
+        padding: 12px;
     }
     #removalcost-calculator #headline {
         font-size: 1.4em;
@@ -153,6 +154,11 @@
             margin-left: 12px;
             padding-left: 12px;
             padding-top: 50px;
+        }
+    }
+    @media screen and (min-width: 669px){
+        #removalcost-calculator {
+            padding: 0;
         }
     }
     @media screen and (min-width: 970px) {
@@ -328,7 +334,7 @@
         }
 
         function initMoehrmannStyle() {
-            $('.magic-border').css("overflow", "visible");
+            $('.magic-border-nomobile').css("overflow", "visible");
         }
 
         function init() {
