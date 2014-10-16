@@ -5,13 +5,11 @@
         -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;
+        padding: 12px;
     }
-    #removalcost-calculator #headline {
-        font-size: 1.4em;
-    }
-    #removalcost-calculator #result div {
-        padding-top: 16px;
-        padding-bottom: 12px;
+    #removalcost-calculator .headline {
+        font-size: 22px;
+        line-height: 22px;
     }
     #removalcost-calculator #result div #price {
         text-align: center;
@@ -22,7 +20,6 @@
     }
     #removalcost-calculator .slider-all-holder {
         position: relative;
-        margin-bottom: 12px;
     }
     #removalcost-calculator .slider-holder {
         padding-top: 14px;
@@ -68,10 +65,10 @@
         left: 1px;
         border-radius: 5px 0 0 5px;
     }
-    .selecter-holder {
+    #removalcost-calculator .selecter-holder {
         position: relative;
     }
-    .selecter-holder .selecter {
+    #removalcost-calculator .selecter-holder .selecter {
         border: 1px solid #979797;
         border-radius: 5px 0px 0px 5px;
         padding-top: 7px;
@@ -83,7 +80,7 @@
         cursor: pointer;
         text-align: center;
     }
-    .selecter-holder .selecter:before {
+    #removalcost-calculator .selecter-holder .selecter:before {
         content: "";
         position: absolute;
         top: -1px;
@@ -96,7 +93,7 @@
         height: 29px;
         border-radius: 0px 5px 5px 0px;
     }
-    .selecter-holder .selecter:after {
+    #removalcost-calculator .selecter-holder .selecter:after {
         content: "";
         position: absolute;
         top: 13px;
@@ -107,19 +104,19 @@
         width: 0;
         height: 0;
     }
-    .selecter-holder .selecter:hover {
+    #removalcost-calculator .selecter-holder .selecter:hover {
         color: #FF7500;
     }
-    .selecter-holder .selecter:hover::after {
+    #removalcost-calculator .selecter-holder .selecter:hover::after {
         border-color: #FF7500 transparent transparent;
     }
-    .selecter-holder .selecter.open {
+    #removalcost-calculator .selecter-holder .selecter.open {
         background: #ffffff;
         border-bottom: none;
         padding-bottom: 10px;
         border-radius: 5px 0px 0px 0px;
     }
-    .selecter-holder .select-options {
+    #removalcost-calculator .selecter-holder .select-options {
         display: none;
         border: 1px solid #979797;
         border-radius: 0px 0px 5px 5px;
@@ -130,16 +127,25 @@
         width: 58px;
         background-color: #ffffff;
     }
-    .selecter-holder .select-options p {
+    #removalcost-calculator .selecter-holder .select-options p {
         padding: 0 0 3px 0;
         text-align: center;
         cursor: pointer;
     }
-    .selecter-holder .select-options p:hover {
+    #removalcost-calculator .selecter-holder .select-options p:hover {
         color: #FF7500;
     }
-    .selecter-holder .select-options p.selected {
+    #removalcost-calculator .selecter-holder .select-options p.selected {
         color: #FF7500;
+    }
+    #removalcost-calculator #result #price {
+        font-size: 17px;
+    }
+    #removalcost-calculator #result #price span {
+        font-size: 25px;
+    }
+    #removalcost-calculator #result div {
+        padding-top: 12px;
     }
     @media screen and (min-width: 559px) and (max-width: 668px) {
         #removalcost-calculator #params-setter {
@@ -148,11 +154,27 @@
         }
         #removalcost-calculator #result {
             float: left;
-            width: 36%;
+            width: 33%;
             border-left: 1px solid #979797;
-            margin-left: 12px;
-            padding-left: 12px;
+            margin-left: 24px;
+            padding-left: 24px;
             padding-top: 50px;
+        }
+        #removalcost-calculator #result div .button-orange {
+            font-size: 12px;
+        }
+    }
+    @media screen and (min-width: 669px) {
+        #removalcost-calculator {
+            padding: 0;
+            margin: 12px 12px 0 12px;
+        }
+        #removalcost-calculator .headline {
+            font-size: 25px;
+        }
+        #removalcost-calculator #result div {
+            padding-bottom: 12px;
+            padding-top: 37px;
         }
     }
     @media screen and (min-width: 970px) {
@@ -162,18 +184,21 @@
         }
         #removalcost-calculator #result {
             float: left;
-            width: 36%;
+            width: 33%;
             border-left: 1px solid #979797;
-            margin-left: 12px;
-            padding-left: 12px;
+            margin-left: 24px;
+            padding-left: 24px;
             padding-top: 50px;
+        }
+        #removalcost-calculator #result div .button-orange {
+            font-size: 12px;
         }
     }
 </style>
 
 
 <div id="removalcost-calculator">
-    <p id="headline" class="font-brandblue font-italic margin-bottom-m">Was kostet Ihr Umzug?</p>
+    <p class="headline font-brandblue font-italic margin-bottom-m">Was kostet Ihr Umzug?</p>
     <div id="params-setter">
         <div class="slider-all-holder">
             <p class="font-brandblue float-left one-half">Wohnfl&auml;che</p>
@@ -232,10 +257,10 @@
 
     <div id="result">
         <div>
-            <p id="price" class="font-m font-brandorange margin-bottom-s">
-                ab<span id="price-result" class="font-xl font-bold margin-left-s"></span> <span class="font-xl font-bold">&euro;</span>
+            <p id="price" class="font-brandorange margin-bottom-s">
+                ab<span id="price-result" class="font-bold margin-left-s"></span> <span class="font-bold">&euro;</span>
             </p>
-            <a class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
+            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;ab_info&quot;:&quot;umz_hp_calculator&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
                 Jetzt informieren
             </a>
         </div>
@@ -328,7 +353,7 @@
         }
 
         function initMoehrmannStyle() {
-            $('.magic-border').css("overflow", "visible");
+            $('.magic-border-nomobile').css("overflow", "visible");
         }
 
         function init() {
