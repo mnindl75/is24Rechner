@@ -304,7 +304,10 @@
                     rooms =  parseInt($('#rooms').val(), 10),
                     number_boxes = (people * 4) + (rooms * 14.7) + (people * 0.6),
                     cbm = ((rooms * 9 + 12) * 0.4) + ((square_meter / 2) * 0.6) + (number_boxes * 0.06),
-                    price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2));
+                    price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2)),
+                    PRICE_ADJUSTMENT_FACTOR = 0.85;
+            price = price * PRICE_ADJUSTMENT_FACTOR;
+            price = Math.round(price / 25)*25;
             $('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
             changeRemovalCompaniesLinkParams(square_meter, people, rooms);
         }
