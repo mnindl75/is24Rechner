@@ -1,17 +1,20 @@
 <style scoped>
     #status-text {
         color: #b80000;
+        display: none;
     }
     #status-text.right {
         color: #1f7d00;
     }
+    #create-removal-plan {
+        cursor: pointer;
+    }
 </style>
 <input autocomplete="off" id="datepicker" type="text" class="input-text-stnd margin-bottom-s margin-top-s one-whole" placeholder="Datum"/>
 <input id="removal-planer-email" type="text" class="input-text-stnd margin-bottom-s one-whole" placeholder="E-Mail"/>
-<p id="status-text" class="font-s align-center margin-bottom-s"></p>
+<p id="status-text" class="font-s align-center margin-bottom-s">&nbsp;</p>
 <a id="create-removal-plan"
-   class="block icon-arrow tr-exit-link"
-   href="http://redirect.immobilienscout24.de/servlet/redirect?ref=/umzugsexpose/77081343&amp;location=http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=">
+   class="block icon-arrow">
     Umzugsplan erstellen
 </a>
 <script>
@@ -28,191 +31,6 @@
 var de = de || {};
 de.is24 = de.is24 || {};
 de.is24.umzug = de.is24.umzug || {};
-de.is24.umzug.tracking = de.is24.umzug.tracking ||
-        (function ($) {
-            "use strict";
-            var clickout_start_uri = "http://redirect.immobilienscout24.de/servlet/redirect?ref=",
-                    pathname = encodeURIComponent(window.location.pathname),
-                    comscorePixelURL;
-
-            function executeTeliumScript(props) {
-
-                var $tScriptContainer = $('#umzug-telium-infos'),
-                        cmsEtsUrlForPageview = extractEtsServer(),
-                        cmsEtsUrlParamObj = ( typeof etsUrlParam !== 'undefined' ) ? etsUrlParam : {},
-                        etsServer = $tScriptContainer.attr('data-ets-server'),
-                        etcUrl = cmsEtsUrlForPageview || ( '//' + etsServer + '/tr.js'),
-                        counterName = $tScriptContainer.attr('data-counter-name') || cmsEtsUrlParamObj.customCounterName,
-                        extraParameter = $tScriptContainer.attr('data-extra-parameter'),
-                        tScriptPath
-                        ;
-
-                function extractEtsServer() {
-
-                    var etcScriptPath = null,
-                            etcServerCMSGlobalVaretsUrlForPageview = ( typeof etsUrlForPageview !== 'undefined' ) ? etsUrlForPageview : null;
-
-                    //console.log( "etcServerCMSGlobalVaretsUrlForPageview: " + etcServerCMSGlobalVaretsUrlForPageview );
-                    if( etcServerCMSGlobalVaretsUrlForPageview ) {
-                        var result = new RegExp( "//[^/]+/tr.js", 'i' ).exec(etcServerCMSGlobalVaretsUrlForPageview);
-                        //console.log( "result: " + JSON.stringify( result || {} ) );
-                        if( result && result.length == 1 ) {
-                            etcScriptPath = result[0];
-                        }
-                    }
-
-                    return etcScriptPath;
-                }
-
-                function setExtraParameters( extraParameters ) {
-                    extraParameter = "";
-
-                    for( var name in extraParameters ){
-
-                        extraParameter += '&'
-                                + name
-                                + '='
-                                + ( extraParameters[name] ? encodeURIComponent(extraParameters[name]) : '' );
-                    }
-                    //console.log( "extraParameters: " + JSON.stringify( extraParameters ) );
-                    //console.log( "extraParameter: " + JSON.stringify( extraParameter ) );
-                }
-
-
-                //console.log( "TeliumScriptContainer: " + $tScriptContainer.size() );
-                //console.log( "cms var etsUrlForPageview is set : " + cmsEtsUrlForPageview );
-
-                if( $tScriptContainer.size() == 0 && !cmsEtsUrlForPageview ) return;
-
-                for( var key in ( props || {} ) ) {
-                    switch( key ){
-                        case 'counterNameSufix':
-                            counterName += props[key];
-                            //console.log( "TeliumScript counterName: " + counterName );
-                            break;
-                        case 'extraParameter':
-                            setExtraParameters( props[key] );
-                            //console.log( "TeliumScript extraParameter: " + extraParameter );
-                            break;
-                        default:
-                            //console.log( "Telium: Unbekannte Property: " + key );
-                            break;
-                    }
-                }
-
-                tScriptPath = etcUrl + '?cP--svc_module_name=umzug&customCounterName=' + counterName + extraParameter + "&addOnClick";
-                //console.log( "TeliumScriptPath: " + tScriptPath );
-                $.getScript( tScriptPath );
-            }
-
-            function extractComscorePixelURL() {
-
-                function removeBlackListParams(sitestatBaseUrl) {
-                    var blacklistParams = [ "ftc", "ns_campaign", "ns_campaign_t", "ns_event", "count_mnb",
-                                "ns_fee", "ns_source", "ns_mchannel", "icmp"],
-                            index, regexGroups;
-                    for( index = 0; index < blacklistParams.length; index = index + 1) {
-                        regexGroups = new RegExp('^(.*?)&?' + blacklistParams[index] + '=[^&]+(.*)$' ).exec(sitestatBaseUrl);
-                        if( regexGroups && regexGroups.length === 3 ) {
-                            sitestatBaseUrl = regexGroups[1] + regexGroups[2];
-                        }
-                    }
-
-                    //console.log("removeBlackListParams: '" + sitestatBaseUrl + "'");
-
-                    return sitestatBaseUrl;
-                }
-
-                comscorePixelURL =
-                        removeBlackListParams( $('noscript').filter(function(){
-                            //console.log("noscript-Text: '" + $(this).text() + "'" );
-                            return $(this).text().indexOf('de.sitestat.com') > -1;
-                        }).text().replace(/[\s\S]+?src="([^"]+)[\s\S]+/, "$1").replace(/&amp;noscript=true/,'').replace(/&amp;/g, "&") );
-
-                //console.log("ComscorePixelURL: '" + comscorePixelURL + "'");
-            }
-
-            function setTrackingPixelToTrackingHolder(ns_url, tracking_pixel_special_class) {
-                var tracking_pixel_image = document.createElement("IMG");
-                tracking_pixel_image.src = ns_url;
-                tracking_pixel_image.className = "is24qa-comscore-standard tracking-pixel-special-class-" + tracking_pixel_special_class;
-                document.getElementById("tracking-holder").appendChild(tracking_pixel_image);
-            }
-
-            function createTrackingPixel( $htmlElement, pixelProperties ){
-
-                var d = document, sitestatBaseUrl, pname, extraParams, ns_pixelUrl, isCounterNameSufix = false,
-                        tracking_test_identifier;
-
-                pixelProperties = pixelProperties || {};
-                if( !comscorePixelURL ) {
-                    //console.log("Kein Comstore-Pixel enthalten!");
-                    return;
-                }
-                if (typeof pixelProperties.counterNameSufix !== 'undefined') {
-                    isCounterNameSufix = true;
-                }
-
-                sitestatBaseUrl = isCounterNameSufix ? comscorePixelURL.replace(/(\?[^&]+)/, "$1" + pixelProperties.counterNameSufix ) : comscorePixelURL;
-                pname = $htmlElement.attr("data-tracking-pname");
-                extraParams = pixelProperties.extraparams || $htmlElement.attr("data-tracking-extraparams");
-                ns_pixelUrl = sitestatBaseUrl
-                        + ( typeof pixelProperties.ns_type !== 'undefined' ? "&ns_type=" + pixelProperties.ns_type : '' )
-                        + ( typeof pixelProperties.ns_event !== 'undefined' ? "&ns_event=" + pixelProperties.ns_event : '' )
-                        + ( pname ? "&pname=" + pname : '' )
-                        + ( pixelProperties.ns_url ? "&ns_url=[" + pixelProperties.ns_url + "]" : '' )
-                        + ( extraParams ? '&' + extraParams : '' )
-                        +  "&ns__t=" + (new Date().getTime()) + "&ns_c=" + (d.characterSet || d.defaultCharset)
-                        + "&ns_ti=" + encodeURIComponent(d.title) + "&ns_jspageurl=" + encodeURIComponent(d.URL)
-                        + "&ns_referrer=" + encodeURIComponent(d.referrer);
-                if (d.images) {
-                    if (isCounterNameSufix) {
-                        tracking_test_identifier = pixelProperties.counterNameSufix.substring(1);
-                    } else {
-                        tracking_test_identifier = pname;
-                    }
-                    setTrackingPixelToTrackingHolder(ns_pixelUrl, tracking_test_identifier);
-                } else {
-                    d.write('<'+'p><img class="is24qa-comscore-standard" src="'+ ns_pixelUrl +'" height="1" width="1" alt="*"><'+'/p>');
-                }
-            }
-
-            function createTrackingPixelClickListener(e) {
-                var $htmlElement = $(e.target);
-                createTrackingPixel( $htmlElement,
-                        {   ns_event: $htmlElement.attr("data-tracking-ns_event") || "11"
-                            ,ns_type: "hidden"
-                            ,ns_url: ($htmlElement.attr("href") || '').replace(/redirect\.immobilienscout24\.de.*&location=([^&]+).*/, "$1")
-                        }
-                );
-            }
-
-            function bindMarkedElementsWithTrackingListener() {
-                $('.tr-exit-link').each(function () {
-                    var url = $(this).attr("href");
-                    if ( url && (url.indexOf("http://redirect") <= -1)) {
-                        $(this).attr("href", clickout_start_uri + pathname + "&location=" + encodeURIComponent($(this).attr("href")));
-                    }
-                }).unbind("click", createTrackingPixelClickListener).click(createTrackingPixelClickListener);
-            }
-
-
-
-            function init() {
-                extractComscorePixelURL();
-                bindMarkedElementsWithTrackingListener();
-            }
-
-            $(init);
-
-            return {
-                bindMarkedElementsWithTrackingListener: bindMarkedElementsWithTrackingListener,
-                createTrackingPixel: createTrackingPixel,
-                setTrackingPixelToTrackingHolder: setTrackingPixelToTrackingHolder,
-                executeTeliumScript: executeTeliumScript
-            };
-
-        }(jQuery));
 
     de.is24.umzug.umzugsplanerRubrikStartPage = de.is24.umzug.umzugsplanerRubrikStartPage || {};
 
@@ -228,17 +46,11 @@ de.is24.umzug.tracking = de.is24.umzug.tracking ||
                 error_text_email_wrong = "Bitte geben Sie eine gültige Email Adresse ein oder lassen Sie das Feld frei.",
                 text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
                 error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
+
             function createPDF(time) {
-                var url = "http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=" + time;
-                de.is24.umzug.tracking.executeTeliumScript({
-                    extraParameter: {
-                        evt_event: '29',
-                        ns_type:'hidden',
-                        evt_downloadtype:'pdf',
-                        ns_url: encodeURIComponent( url )
-                    }
-                });
-                window.open(url, 'generatePDF', 'scrollbars=yes');
+                var generatePdfUrl = "http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=" +  time;
+                window.open(generatePdfUrl, 'generatePDF', 'scrollbars=yes');
+                IS24.TEALIUM.tracking.report({evt_event:"29", ns_type:"hidden", evt_downloadtype: "pdf", ns_url: encodeURIComponent(generatePdfUrl)});
             }
             function initDatepicker() {
 
@@ -256,7 +68,6 @@ de.is24.umzug.tracking = de.is24.umzug.tracking ||
                     showAnim: 'fold',
                     onSelect: function () {
                         $status_text_holder.hide();
-                        de.is24.umzug.tracking.bindMarkedElementsWithTrackingListener();
                     }
                 };
                 $.datepicker.setDefaults($.datepicker.regional.de);
