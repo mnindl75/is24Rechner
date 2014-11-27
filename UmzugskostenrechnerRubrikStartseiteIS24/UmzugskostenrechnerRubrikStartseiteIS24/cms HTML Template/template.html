@@ -18,15 +18,14 @@
         font-size: 24px;
         line-height: 22px;
     }
-    #removalcost-calculator div #price {
-        text-align: center;
-    }
     #removalcost-calculator div .button-orange {
         display: block;
         margin: 0 auto;
+        width: 200px;
     }
     #removalcost-calculator .slider-all-holder {
         position: relative;
+        width: 90%;
     }
     #removalcost-calculator .slider-holder {
         padding-top: 14px;
@@ -145,38 +144,41 @@
     #removalcost-calculator .selecter-holder .select-options p.selected {
         color: #FF7500;
     }
+    #removalcost-calculator #price {
+        margin-bottom: 12px;
+        text-align: center;
+    }
     #removalcost-calculator #price span {
         font-size: 30px;
-    }
-    #removalcost-calculator div {
-        padding-top: 12px;
+        line-height: 25px;
     }
     @media screen and (min-width: 559px) and (max-width: 668px) {
         #removalcost-calculator div .button-orange {
-            font-size: 12px;
+            font-size: 16px;
         }
     }
     @media screen and (min-width: 669px) {
         #removalcost-calculator {
-            width: 50%;
+            width: 48%;
             padding: 48px;
         }
         #removalcost-calculator .headline {
             font-size: 34px;
-            margin-bottom: 24px;
+            margin-bottom: 36px;
+            line-height: 32px;
         }
+
+    }
+    @media screen and (min-width: 869px) {
         #removalcost-calculator #price {
             float: left;
             width: 45%;
+            margin-bottom: 0;
+            text-align: left;
         }
         #removalcost-calculator a.button-orange {
             float: left;
             width: 45%;
-        }
-    }
-    @media screen and (min-width: 970px) {
-        #removalcost-calculator div .button-orange {
-            font-size: 12px;
         }
     }
 </style>
@@ -237,11 +239,11 @@
             </div>
         </div>
         <br class="clear-both" />
-        <div class="overflow-hidden margin-top-m">
-            <p id="price" class="font-brandorange margin-bottom-s">
-                <span id="price-result" class="font-bold margin-left-s"></span> <span class="font-bold">&euro;</span>
+        <div class="overflow-hidden margin-top-xl">
+            <p id="price" class="font-brandorange">
+                <span id="price-result" class="font-bold"></span> <span class="font-bold">&euro;</span>
             </p>
-            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;ab_info&quot;:&quot;umz_hp_calculator&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
+            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;ab_info&quot;:&quot;hp_umz_calculator&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
                 Jetzt informieren
             </a>
         </div>
@@ -272,17 +274,17 @@
         }
 
         function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
-            var button = $('#result .button-orange'),
+            var button = $('#removalcost-calculator .button-orange'),
                     $button_link = button.attr("data-original-href");
             $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
             button.attr("href", $button_link);
         }
 
         function calculateRemovalCompanyCosts() {
-            var square_meter = parseInt($('#square-meter-value').text(), 10),
+            var square_meter = parseInt($('#removalcost-calculator #square-meter-value').text(), 10),
                     distance = parseInt(removeSpaceAndDotAndCommaFromText($('#distance-value').text()), 10),
-                    people = parseInt($('#people').val(), 10),
-                    rooms =  parseInt($('#rooms').val(), 10),
+                    people = parseInt($('#removalcost-calculator #people').val(), 10),
+                    rooms =  parseInt($('#removalcost-calculator #rooms').val(), 10),
                     number_boxes = (people * 4) + (rooms * 14.7) + (people * 0.6),
                     cbm = ((rooms * 9 + 12) * 0.4) + ((square_meter / 2) * 0.6) + (number_boxes * 0.06),
                     price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2)),
@@ -293,7 +295,7 @@
             changeRemovalCompaniesLinkParams(square_meter, people, rooms);
         }
         function initSelecter() {
-            var $selecter_holder = $('.selecter-holder');
+            var $selecter_holder = $('#removalcost-calculator .selecter-holder');
             $selecter_holder.each(function() {
                 var $this = $(this),
                         $selecter_hidden_value_input = $('.selecter-value', $this),
@@ -326,8 +328,8 @@
         }
 
         function initSliders() {
-            var square_meter_slider = initSlider("#square_meter_slider", 10, 200, 50, "#square-meter-value", 10),
-                    distance_slider = initSlider("#distance_slider", 5, 1000, 50, "#distance-value", 5);
+            var square_meter_slider = initSlider("#removalcost-calculator #square_meter_slider", 10, 200, 50, "#removalcost-calculator #square-meter-value", 10),
+                    distance_slider = initSlider("#removalcost-calculator #distance_slider", 5, 1000, 50, "#removalcost-calculator #distance-value", 5);
             square_meter_slider.changeHandler = function () {
                 calculateRemovalCompanyCosts();
             };
@@ -336,12 +338,7 @@
             };
         }
 
-        function initMoehrmannStyle() {
-            $('.magic-border-nomobile').css("overflow", "visible");
-        }
-
         function init() {
-            initMoehrmannStyle();
             initSliders();
             initSelecter();
             calculateRemovalCompanyCosts();
