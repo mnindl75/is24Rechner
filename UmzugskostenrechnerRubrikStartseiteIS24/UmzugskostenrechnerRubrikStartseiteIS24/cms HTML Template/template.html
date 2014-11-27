@@ -1,0 +1,362 @@
+<style scoped>
+    #removalcost-calculator-holder {
+        background: url("/content/is24/deu/www/de/umzug/_jcr_content/par/sectionheader/image.adapt.1300.medium.jpg/1416825999854.jpg") no-repeat scroll 72% 50% / cover rgba(0, 0, 0, 0);
+        min-height: 430px;
+        width: 100%;
+    }
+    #removalcost-calculator {
+        user-select: none;
+        -o-user-select:none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        padding: 12px;
+        min-height: 430px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    #removalcost-calculator .headline {
+        font-size: 24px;
+        line-height: 22px;
+    }
+    #removalcost-calculator div #price {
+        text-align: center;
+    }
+    #removalcost-calculator div .button-orange {
+        display: block;
+        margin: 0 auto;
+    }
+    #removalcost-calculator .slider-all-holder {
+        position: relative;
+    }
+    #removalcost-calculator .slider-holder {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        margin-top: 18px;
+    }
+    #removalcost-calculator .slider {
+        position: relative;
+        height:7px;
+        border: 1px solid #979797;
+        border-radius: 5px;
+    }
+    #removalcost-calculator .slider-thumb {
+        left:0px;
+        position: absolute;
+        background-color: #ffffff;
+        background-image: none;
+        border: 1px solid #979797;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        border-radius: 21px;
+        top: -10px;
+    }
+    #removalcost-calculator .slider-thumb:before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 7px;
+        border-width: 4px;
+        border-color: #003468 #003468 #003468 #003468;
+        border-style: solid;
+        width: 0px;
+        height: 0;
+        border-radius: 8px;
+    }
+    #removalcost-calculator .slider-fill {
+        background-color: #003468;
+        background-image: none;
+        height:9px;
+        position: absolute;
+        top: -1px;
+        left: 1px;
+        border-radius: 5px 0 0 5px;
+    }
+    #removalcost-calculator .selecter-holder {
+        position: relative;
+    }
+    #removalcost-calculator .selecter-holder .selecter {
+        border: 1px solid #979797;
+        border-radius: 5px 0px 0px 5px;
+        padding-top: 7px;
+        background-color: #ffffff;
+        width: 58px;
+        height: 31px;
+        background: #ffffff;
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+    }
+    #removalcost-calculator .selecter-holder .selecter:before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        display: block;
+        right: -35px;
+        border-width: 1px;
+        border-color: #979797 #979797 #979797 transparent;
+        border-style: solid;
+        width: 33px;
+        height: 29px;
+        border-radius: 0px 5px 5px 0px;
+    }
+    #removalcost-calculator .selecter-holder .selecter:after {
+        content: "";
+        position: absolute;
+        top: 13px;
+        right: -24px;
+        border-width: 7px;
+        border-color: #335D86 transparent transparent;
+        border-style: solid;
+        width: 0;
+        height: 0;
+    }
+    #removalcost-calculator .selecter-holder .selecter:hover {
+        color: #FF7500;
+    }
+    #removalcost-calculator .selecter-holder .selecter:hover::after {
+        border-color: #FF7500 transparent transparent;
+    }
+    #removalcost-calculator .selecter-holder .selecter.open {
+        background: #ffffff;
+        border-bottom: none;
+        padding-bottom: 10px;
+        border-radius: 5px 0px 0px 0px;
+    }
+    #removalcost-calculator .selecter-holder .select-options {
+        display: none;
+        border: 1px solid #979797;
+        border-radius: 0px 0px 5px 5px;
+        border-top: none;
+        padding: 2px 0 2px 0;
+        position: absolute;
+        z-index: 999;
+        width: 58px;
+        background-color: #ffffff;
+    }
+    #removalcost-calculator .selecter-holder .select-options p {
+        padding: 0 0 3px 0;
+        text-align: center;
+        cursor: pointer;
+    }
+    #removalcost-calculator .selecter-holder .select-options p:hover {
+        color: #FF7500;
+    }
+    #removalcost-calculator .selecter-holder .select-options p.selected {
+        color: #FF7500;
+    }
+    #removalcost-calculator #price span {
+        font-size: 30px;
+    }
+    #removalcost-calculator div {
+        padding-top: 12px;
+    }
+    @media screen and (min-width: 559px) and (max-width: 668px) {
+        #removalcost-calculator div .button-orange {
+            font-size: 12px;
+        }
+    }
+    @media screen and (min-width: 669px) {
+        #removalcost-calculator {
+            width: 50%;
+            padding: 48px;
+        }
+        #removalcost-calculator .headline {
+            font-size: 34px;
+            margin-bottom: 24px;
+        }
+        #removalcost-calculator #price {
+            float: left;
+            width: 45%;
+        }
+        #removalcost-calculator a.button-orange {
+            float: left;
+            width: 45%;
+        }
+    }
+    @media screen and (min-width: 970px) {
+        #removalcost-calculator div .button-orange {
+            font-size: 12px;
+        }
+    }
+</style>
+
+<div id="removalcost-calculator-holder">
+    <div id="removalcost-calculator">
+        <h1 class="headline font-brandblue">Was kostet Ihr Umzug?</h1>
+        <div class="slider-all-holder">
+            <p class="font-brandblue float-left one-half">Wohnfl&auml;che</p>
+            <p class="slider-value-holder font-brandblue font-bold float-left one-half align-right">ca. <span id="square-meter-value"></span> m&sup2;</p>
+            <div id="square_meter_slider" class="clear-both"></div>
+        </div>
+        <div class="slider-all-holder">
+            <p class="font-brandblue float-left one-half">Entfernung</p>
+            <p class="slider-value-holder font-brandblue font-bold float-right one-half align-right">ca. <span id="distance-value"></span> km</p>
+            <div id="distance_slider" class="clear-both"></div>
+        </div>
+        <div class="float-left one-half">
+            <label class="block font-brandblue margin-bottom-xs">
+                Personen
+            </label>
+            <div class="selecter-holder">
+                <input class="selecter-value" type="hidden" id="people" name="people" value="1"/>
+                <div class="selecter font-brandblue font-bold"></div>
+                <div class="select-options">
+                    <p data-options-value="1">1</p>
+                    <p data-options-value="2">2</p>
+                    <p data-options-value="3">3</p>
+                    <p data-options-value="4">4</p>
+                    <p data-options-value="5">5</p>
+                    <p data-options-value="6">6</p>
+                    <p data-options-value="7">7</p>
+                    <p data-options-value="8">8</p>
+                    <p data-options-value="9">9</p>
+                    <p data-options-value="10">10</p>
+                </div>
+            </div>
+        </div>
+        <div class="float-left one-half">
+            <label class="block font-brandblue margin-bottom-xs">
+                Zimmer
+            </label>
+            <div class="selecter-holder">
+                <input class="selecter-value" type="hidden" id="rooms" name="rooms" value="1"/>
+                <div class="selecter font-brandblue font-bold"></div>
+                <div class="select-options">
+                    <p data-options-value="1">1</p>
+                    <p data-options-value="2">2</p>
+                    <p data-options-value="3">3</p>
+                    <p data-options-value="4">4</p>
+                    <p data-options-value="5">5</p>
+                    <p data-options-value="6">6</p>
+                    <p data-options-value="7">7</p>
+                    <p data-options-value="8">8</p>
+                    <p data-options-value="9">9</p>
+                    <p data-options-value="10">10</p>
+                </div>
+            </div>
+        </div>
+        <br class="clear-both" />
+        <div class="overflow-hidden margin-top-m">
+            <p id="price" class="font-brandorange margin-bottom-s">
+                <span id="price-result" class="font-bold margin-left-s"></span> <span class="font-bold">&euro;</span>
+            </p>
+            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;ab_info&quot;:&quot;umz_hp_calculator&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
+                Jetzt informieren
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    var de = de || {};
+    de.is24 = de.is24 || {};
+    de.is24.STATIC = de.is24.STATIC || {};
+    de.is24.STATIC.umzugskostenrechner = de.is24.STATIC.umzugskostenrechner || {};
+
+    de.is24.STATIC.umzugskostenrechner = (function ($) {
+        "use strict";
+
+        function addDecimalSeparatorsToNumberString(result) {
+            while (result.match(/^(\d+)(\d{3}\b)/)) {
+                result = result.replace(/^(\d+)(\d{3}\b)/, RegExp.$1 + '.' + RegExp.$2);
+            }
+            return result;
+        }
+
+        function removeSpaceAndDotAndCommaFromText(text) {
+            return text.toString().replace(/\s/g, "").replace(/\./g, "").replace(/\,/g, "");
+        }
+
+        function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
+            var button = $('#result .button-orange'),
+                    $button_link = button.attr("data-original-href");
+            $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
+            button.attr("href", $button_link);
+        }
+
+        function calculateRemovalCompanyCosts() {
+            var square_meter = parseInt($('#square-meter-value').text(), 10),
+                    distance = parseInt(removeSpaceAndDotAndCommaFromText($('#distance-value').text()), 10),
+                    people = parseInt($('#people').val(), 10),
+                    rooms =  parseInt($('#rooms').val(), 10),
+                    number_boxes = (people * 4) + (rooms * 14.7) + (people * 0.6),
+                    cbm = ((rooms * 9 + 12) * 0.4) + ((square_meter / 2) * 0.6) + (number_boxes * 0.06),
+                    price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2)),
+                    PRICE_ADJUSTMENT_FACTOR = 0.85;
+            price = price * PRICE_ADJUSTMENT_FACTOR;
+            price = Math.round(price / 25)*25;
+            $('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
+            changeRemovalCompaniesLinkParams(square_meter, people, rooms);
+        }
+        function initSelecter() {
+            var $selecter_holder = $('.selecter-holder');
+            $selecter_holder.each(function() {
+                var $this = $(this),
+                        $selecter_hidden_value_input = $('.selecter-value', $this),
+                        $selecter = $('.selecter', $this),
+                        $select_options = $('.select-options', $this),
+                        current_value = $selecter_hidden_value_input.val(),
+                        $current_option = $select_options.find('p[data-options-value="' + current_value + '"]');
+                $selecter.text($current_option.text());
+                $current_option.addClass("selected");
+                $selecter.click(function() {
+                    $('.selecter.open').each(function() {
+                        $(this).removeClass("open").next().fadeOut("fast");
+                    });
+                    $(this).toggleClass("open").next().fadeToggle("fast");
+                });
+                $('p', $select_options).click(function() {
+                    var $this = $(this),
+                            $this_all_options = $this.siblings(),
+                            $this_selecter_hidden_value_input = $($this.parent().parent().find('.selecter-value')),
+                            $this_select_options = $($this.parent()),
+                            $this_selecter = $($this_select_options.prev());
+                    $this_all_options.removeClass("selected");
+                    $this.addClass("selected");
+                    $this_selecter_hidden_value_input.val($this.attr("data-options-value")).trigger("change");
+                    $this_selecter.removeClass("open").text($this.text());
+                    $this_select_options.fadeToggle("fast");
+                    calculateRemovalCompanyCosts();
+                });
+            });
+        }
+
+        function initSliders() {
+            var square_meter_slider = initSlider("#square_meter_slider", 10, 200, 50, "#square-meter-value", 10),
+                    distance_slider = initSlider("#distance_slider", 5, 1000, 50, "#distance-value", 5);
+            square_meter_slider.changeHandler = function () {
+                calculateRemovalCompanyCosts();
+            };
+            distance_slider.changeHandler = function () {
+                calculateRemovalCompanyCosts();
+            };
+        }
+
+        function initMoehrmannStyle() {
+            $('.magic-border-nomobile').css("overflow", "visible");
+        }
+
+        function init() {
+            initMoehrmannStyle();
+            initSliders();
+            initSelecter();
+            calculateRemovalCompanyCosts();
+        }
+
+        return {
+            init: function () {
+                return init();
+            }
+        };
+    })(jQuery);
+    /*funktioniert leider nicht immer bei ready*/
+    jQuery(window).load(function () {
+        "use strict";
+        de.is24.STATIC.umzugskostenrechner.init();
+    });
+
+</script>
