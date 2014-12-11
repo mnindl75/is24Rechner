@@ -1,3 +1,4 @@
+
 <style scoped>
     #removalcost-calculator {
         user-select: none;
@@ -279,6 +280,8 @@
     de.is24.STATIC.umzugskostenrechner = (function ($) {
         "use strict";
 
+        var isTeliumActivated;
+
         function addDecimalSeparatorsToNumberString(result) {
             while (result.match(/^(\d+)(\d{3}\b)/)) {
                 result = result.replace(/^(\d+)(\d{3}\b)/, RegExp.$1 + '.' + RegExp.$2);
@@ -340,6 +343,9 @@
                     $this_selecter.removeClass("open").text($this.text());
                     $this_select_options.fadeToggle("fast");
                     calculateRemovalCompanyCosts();
+                    if (isTeliumActivated) {
+                        IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
+                    }
                 });
             });
         }
@@ -359,10 +365,27 @@
             $('.magic-border-nomobile').css("overflow", "visible");
         }
 
+        function initSliderTracking() {
+            var using = false;
+            $('#removalcost-calculator .slider-thumb').mousedown(function() {
+                using = true;
+            })
+            $('#removalcost-calculator .slider-thumb').mouseup(function() {
+                if (using && isTeliumActivated) {
+                    IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
+                }
+                using = false;
+            })
+        }
+
         function init() {
+            isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined',
             initMoehrmannStyle();
             initSliders();
             initSelecter();
+            setTimeout(function() {
+                initSliderTracking();
+            }, 1000);
             calculateRemovalCompanyCosts();
         }
 

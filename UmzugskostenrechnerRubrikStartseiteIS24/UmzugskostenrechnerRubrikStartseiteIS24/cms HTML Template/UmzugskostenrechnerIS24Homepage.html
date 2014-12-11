@@ -1,6 +1,7 @@
+
 <style scoped>
     #removalcost-calculator-holder {
-        background: url("/content/is24/deu/www/de/umzug/_jcr_content/par/sectionheader/image.adapt.1300.medium.jpg/1416825999854.jpg") no-repeat scroll 72% 50% / cover rgba(0, 0, 0, 0);
+        background: url("http://www.immobilienscout24.de/umzugsexpose/images/forCMSHTMLComponents/removalcostCalculator.jpg") no-repeat scroll 72% 50% / cover rgba(0, 0, 0, 0);
         min-height: 430px;
         width: 100%;
     }
@@ -13,6 +14,7 @@
         padding: 12px;
         min-height: 430px;
         background-color: rgba(255, 255, 255, 0.8);
+        /*comment*/
     }
     #removalcost-calculator .headline {
         font-size: 24px;
@@ -265,6 +267,8 @@
     de.is24.STATIC.umzugskostenrechner = (function ($) {
         "use strict";
 
+        var isTeliumActivated;
+
         function addDecimalSeparatorsToNumberString(result) {
             while (result.match(/^(\d+)(\d{3}\b)/)) {
                 result = result.replace(/^(\d+)(\d{3}\b)/, RegExp.$1 + '.' + RegExp.$2);
@@ -326,6 +330,9 @@
                     $this_selecter.removeClass("open").text($this.text());
                     $this_select_options.fadeToggle("fast");
                     calculateRemovalCompanyCosts();
+                    if (isTeliumActivated) {
+                        IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
+                    }
                 });
             });
         }
@@ -341,10 +348,27 @@
             };
         }
 
+        function initSliderTracking() {
+            var using = false;
+            $('#removalcost-calculator .slider-thumb').mousedown(function() {
+                using = true;
+            })
+            $('#removalcost-calculator .slider-thumb').mouseup(function() {
+                if (using && isTeliumActivated) {
+                    IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
+                }
+                using = false;
+            })
+        }
+
         function init() {
+            isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined',
             initSliders();
             initSelecter();
-            calculateRemovalCompanyCosts();
+            setTimeout(function() {
+                initSliderTracking();
+            }, 1000);
+            calculateRemovalCompanyCosts(true);
         }
 
         return {
