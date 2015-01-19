@@ -1,7 +1,7 @@
 
 <style scoped>
     #removalcost-calculator-holder {
-        background: url("http://www.immobilienscout24.de/umzugsexpose/images/forCMSHTMLComponents/removalcostCalculator.jpg") no-repeat scroll 72% 50% / cover rgba(0, 0, 0, 0);
+        background: url("/umzugsexpose/images/forCMSHTMLComponents/removalcostCalculator.jpg") no-repeat scroll 72% 50% / cover rgba(0, 0, 0, 0);
         min-height: 430px;
         width: 100%;
     }
@@ -69,8 +69,8 @@
         background-image: none;
         height:9px;
         position: absolute;
-        top: -1px;
-        left: 1px;
+        top: -2px;
+        left: 0px;
         border-radius: 5px 0 0 5px;
     }
     #removalcost-calculator .selecter-holder {
@@ -248,7 +248,7 @@
             <p id="price" class="font-brandorange">
                 <span id="price-result" class="font-bold"></span> <span class="font-bold">&euro;</span>
             </p>
-            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;ab_info&quot;:&quot;hp_umz_calculator&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
+            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;evt_count&quot;:&quot;umz_hp_rahmen&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
                 Jetzt informieren
             </a>
         </div>
@@ -363,7 +363,7 @@
 
         function init() {
             isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined',
-            initSliders();
+                    initSliders();
             initSelecter();
             setTimeout(function() {
                 initSliderTracking();
