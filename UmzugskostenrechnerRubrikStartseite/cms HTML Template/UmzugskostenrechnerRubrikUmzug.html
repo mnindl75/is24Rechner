@@ -15,7 +15,7 @@
     #removalcost-calculator #result div #price {
         text-align: center;
     }
-    #removalcost-calculator #result div .button-orange {
+    #removalcost-calculator #result .button-primary {
         display: block;
         margin: 0 auto;
     }
@@ -161,7 +161,7 @@
             padding-left: 12px;
             padding-top: 50px;
         }
-        #removalcost-calculator #result div .button-orange {
+        #removalcost-calculator #result .button-primary {
             font-size: 12px;
         }
     }
@@ -190,7 +190,7 @@
             padding-left: 12px;
             padding-top: 50px;
         }
-        #removalcost-calculator #result div .button-orange {
+        #removalcost-calculator #result .button-primary {
             font-size: 12px;
         }
     }
@@ -260,7 +260,7 @@
             <p id="price" class="font-brandorange margin-bottom-s">
                 ab<span id="price-result" class="font-bold margin-left-s"></span> <span class="font-bold">&euro;</span>
             </p>
-            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;evt_count&quot;:&quot;umz_hp_rahmen&quot; }" class="button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
+            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;evt_count&quot;:&quot;umz_hp_rahmen&quot; }" class="button-primary button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" >
                 Jetzt informieren
             </a>
         </div>
@@ -293,7 +293,7 @@
         }
 
         function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
-            var button = $('#result .button-orange'),
+            var button = $('#result .button-primary'),
                     $button_link = button.attr("data-original-href");
             $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
             button.attr("href", $button_link);
@@ -394,8 +394,7 @@
             }
         };
     })(jQuery);
-    /*funktioniert leider nicht immer bei ready*/
-    jQuery(window).load(function () {
+    jQuery(function () {
         "use strict";
         de.is24.STATIC.umzugskostenrechner.init();
     });
