@@ -3,34 +3,30 @@
         color: #b80000;
         display: none;
     }
-    #status-text.right {
-        color: #1f7d00;
-    }
     #create-removal-plan {
         cursor: pointer;
     }
 </style>
-<input autocomplete="off" id="datepicker" type="text" class="input-text-stnd margin-bottom-s margin-top-s one-whole" placeholder="Datum"/>
+<input autocomplete="off" id="datepicker" type="text" class="input-text-stnd margin-bottom-s margin-top-s one-whole" placeholder="Umzugsdatum"/>
 <input id="removal-planer-email" type="text" class="input-text-stnd margin-bottom-s one-whole" placeholder="E-Mail"/>
-<p id="status-text" class="font-s align-center margin-bottom-s">&nbsp;</p>
-<a id="create-removal-plan"
-   class="block icon-arrow">
-    Umzugsplan erstellen
+<p id="status-text" class="font-s align-center margin-bottom-s font-error">&nbsp;</p>
+<a id="create-removal-plan" class="icon-arrow">
+    Umzugstipps anfordern
 </a>
 <script>
 
 
-/*global window */
-/*global document */
-/*global $ */
-/*global alert */
-/*global google */
-/*global jQuery */
-/*global Image*/
-/*global de */
-var de = de || {};
-de.is24 = de.is24 || {};
-de.is24.umzug = de.is24.umzug || {};
+    /*global window */
+    /*global document */
+    /*global $ */
+    /*global alert */
+    /*global google */
+    /*global jQuery */
+    /*global Image*/
+    /*global de */
+    var de = de || {};
+    de.is24 = de.is24 || {};
+    de.is24.umzug = de.is24.umzug || {};
 
     de.is24.umzug.umzugsplanerRubrikStartPage = de.is24.umzug.umzugsplanerRubrikStartPage || {};
 
@@ -38,14 +34,14 @@ de.is24.umzug = de.is24.umzug || {};
         "use strict";
         function initRemovalPlaner() {
             var email_register_succces,
-                $datepicker = $('#datepicker'),
-                $email = $('#removal-planer-email'),
-                email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
-                $status_text_holder = $('#status-text'),
-                error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
-                error_text_email_wrong = "Bitte geben Sie eine gültige Email Adresse ein oder lassen Sie das Feld frei.",
-                text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
-                error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
+                    $datepicker = $('#datepicker'),
+                    $email = $('#removal-planer-email'),
+                    email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
+                    $status_text_holder = $('#status-text'),
+                    error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
+                    error_text_email_wrong = "Bitte geben Sie eine gültige Email Adresse ein oder lassen Sie das Feld frei.",
+                    text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
+                    error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
 
             function createPDF(time) {
                 var generatePdfUrl = "http://www.immobilienscout24.de/umzugsexpose/umzugsplaner/generatePDF?removal_date=" +  time;
@@ -85,7 +81,7 @@ de.is24.umzug = de.is24.umzug || {};
                             async: false,
                             data: {
                                 "movingDate" : removal_date.getDate().toString() + '.' +
-                                        ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear()
+                                ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear()
                                 , "email" : email_value
                                 , "faxnumber": ""
                             },
@@ -93,9 +89,9 @@ de.is24.umzug = de.is24.umzug || {};
                                 if (data.status === "500") {
                                     $status_text_holder.removeClass("right").text(error_text_server).fadeIn(1000);
                                 } else if (data.status === "200" && !data.email) {
-                                    $status_text_holder.removeClass("right").text(error_text_email_wrong).fadeIn(1000);
+                                    $status_text_holder.removeClass("font-confirm").text(error_text_email_wrong).fadeIn(1000);
                                 } else {
-                                    $status_text_holder.text(text_email_right).addClass("right").fadeIn(1000);
+                                    $status_text_holder.text(text_email_right).addClass("font-confirm").fadeIn(1000);
                                     email_register_succces = true;
                                 }
                             }
@@ -140,6 +136,5 @@ de.is24.umzug = de.is24.umzug || {};
         de.is24.umzug.umzugsplanerRubrikStartPage.init();
     });
 </script>
-
 
 
