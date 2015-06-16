@@ -266,8 +266,6 @@
     de.is24.STATIC.umzugskostenrechner = (function ($) {
         "use strict";
 
-        var isTeliumActivated;
-
         function addDecimalSeparatorsToNumberString(result) {
             while (result.match(/^(\d+)(\d{3}\b)/)) {
                 result = result.replace(/^(\d+)(\d{3}\b)/, RegExp.$1 + '.' + RegExp.$2);
@@ -300,6 +298,8 @@
             $('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
             changeRemovalCompaniesLinkParams(square_meter, people, rooms);
         }
+        
+        
         function initSelecter() {
             var $selecter_holder = $('#removalcost-calculator .selecter-holder');
             $selecter_holder.each(function() {
@@ -329,7 +329,7 @@
                     $this_selecter.removeClass("open").text($this.text());
                     $this_select_options.fadeToggle("fast");
                     calculateRemovalCompanyCosts();
-                    if (isTeliumActivated) {
+                    if (isTeliumActivated()) {
                         IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
                     }
                 });
@@ -353,16 +353,19 @@
                 using = true;
             })
             $('#removalcost-calculator .slider-thumb').mouseup(function() {
-                if (using && isTeliumActivated) {
+                if (using && isTeliumActivated()) {
                     IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
                 }
                 using = false;
             })
         }
-
+        
+        function isTeliumActivated() {
+            return typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined';
+        }
+            
         function init() {
-            isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined',
-                    initSliders();
+            initSliders();
             initSelecter();
             setTimeout(function() {
                 initSliderTracking();
