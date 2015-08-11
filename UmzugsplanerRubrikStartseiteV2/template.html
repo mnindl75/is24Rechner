@@ -1,0 +1,184 @@
+<link href="/corecss/core.css">
+<style scoped>
+    #removalplaner-box .list-check > li:before {
+        color: #ff7500;
+    }
+    #removalplaner-box #datepicker {
+        cursor: pointer;
+    }
+    #removalplaner-box .unit-icon {
+        margin-left: -2em;
+        cursor: pointer;
+    }
+
+</style>
+<div id="removalplaner-box" class="grid border padding-xxl">
+    <div class="grid-item three-fifths">
+        <div class="grid margin-bottom-xxl">
+            <div class="grid-item one-half margin-top-xs">
+                <span class="fa fa-calendar font-xl"></span>
+                <span class="font-l font-bold padding-horizontal-m">Ihr Umzugstermin</span>
+            </div>
+            <div class="grid-item one-half">
+                <input autocomplete="off" id="datepicker" type="text" class="input-text" placeholder="TT MM JJJJ"/>
+                <span class="unit-icon fa fa-calendar-o pointer" id="trigger"></span>
+            </div>
+            <p id="status-text-date" class="font-s align-center margin-bottom-s font-error">&nbsp;</p>
+        </div>
+        <div class="grid margin-bottom-xxl padding-top-m">
+            <div class="grid-item one-half margin-top-xs">
+                <span class="fa fa-envelope-o font-xl"></span>
+                <span class="font-l font-bold padding-horizontal-m">Ihre E-Mail-Adresse</span>    
+            </div>
+            <div class="grid-item one-half">
+                <input id="removal-planer-email" type="text" class="input-text" placeholder="muster@beispiel.de"/>
+            </div>
+            <p id="status-text-email" class="font-s align-center margin-bottom-s font-error">&nbsp;</p>
+        </div>
+        <div class="margin-bottom-l">
+            <input type="checkbox" class="input-checkbox" id="planer-agb" name="dataPrivacy"/>
+            <label for="planer-agb" class="label-radio">
+                Ich stimme der <a href="http://www.immobilienscout24.de/agb/datenschutz/Datenschutzeinwilligung/" target="_blank">Datenschutzeinwilligung</a>
+                von ImmobilienScout24 zu.
+            </label>
+            <p id="status-text-agb" class="font-s align-center margin-bottom-s font-error">&nbsp;</p>
+        </div>
+        <div class="align-center four-fifths">
+            <button id="create-removal-plan" class="button-primary padding-horizontal-xxl">Jetzt Umzug planen</button>
+            <p id="status-text" class="font-s align-center margin-bottom-s font-error">&nbsp;</p>
+        </div>
+    </div>
+    <div class="grid-item two-fifths">
+        <p class="font-l font-bold font-info margin-bottom-l margin-top-xs">Vorteile des Umzugsplaners:</p>
+        <ul class="list-check">
+            <li class="font-l">Individuellen Umzugsplan per E-Mail erhalten</li>
+            <li class="font-l">Erinnerungen für alle wichtigen Aufgaben</li>
+            <li class="font-l">Profitieren Sie von unseren Umzugs-Tipps</li>
+        </ul>
+    </div>
+</div>
+<script>
+
+
+    /*global window */
+    /*global document */
+    /*global $ */
+    /*global alert */
+    /*global google */
+    /*global jQuery */
+    /*global Image*/
+    /*global de */
+    var de = de || {};
+    de.is24 = de.is24 || {};
+    de.is24.umzug = de.is24.umzug || {};
+    
+
+    de.is24.umzug.umzugsplanerRubrikStartPageV2 = de.is24.umzug.umzugsplanerRubrikStartPageV2 || (function ($) {
+        "use strict";
+        function initRemovalPlaner() {
+            var $datepicker = $('#datepicker'),
+                $email = $('#removal-planer-email'),
+                $agb = $('#planer-agb'),
+                email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
+                $status_text = $('#status-text'),
+                $status_text_date = $('#status-text-date'),
+                $status_text_email = $('#status-text-email'),
+                $status_text_agb = $('#status-text-agb'),
+                error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
+                error_text_email_wrong = "Bitte geben Sie eine gültige Email Adresse ein.",
+                error_text_agb = "Bitte bestätigen Sie die AGB.",
+                text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
+                error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
+
+
+            function initDatepicker() {
+
+                $.datepicker.regional.de = {
+                    monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    weekHeader: 'Wo',
+                    dateFormat: 'dd.mm.yy',
+                    minDate: 1,
+                    showMonthAfterYear: true,
+                    showAnim: 'fold',
+                    onSelect: function () {
+                        $status_text_date.hide();
+                    }
+                };
+                $.datepicker.setDefaults($.datepicker.regional.de);
+                $datepicker.datepicker();
+            }
+            function register() {
+                var removal_date = $datepicker.datepicker("getDate"), 
+                    email_value = $email.val();
+                    
+                if ($datepicker.val().length > 0) {
+                    if (email_value.length > 0 ) {
+                        if($agb.is(':checked')) {
+                            $.ajax( {
+                                url: email_reg_link,
+                                async: false,
+                                data: {
+                                    "movingDate" : removal_date.getDate().toString() + '.' +
+                                    ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
+                                     "email" : email_value,
+                                     "faxnumber": "",
+                                    "dataPrivacy": true
+                                },
+                                success: function(data) {
+                                    if (data.status === "500") {
+                                        $status_text.removeClass("right").removeClass("font-confirm").text(error_text_server).fadeIn(1000);
+                                    } else if (data.status === "200" && !data.email) {
+                                        $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                                    } else {
+                                        $status_text.addClass("right").addClass("font-confirm").text(text_email_right).fadeIn(1000);
+                                    }
+                                }
+                            }); 
+                        } else {
+                            $status_text_agb.text(error_text_agb).fadeIn(1000);
+                        }
+                        
+                    } else {
+                        $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                    }
+                } else {
+                    $status_text_date.text(error_text_date).fadeIn(1000);
+                }
+                
+            }
+
+            function writeCSSForDatepickerInHead() {
+                var $head = $('head');
+                $head.append('<link type="text/css" href="/umzugsexpose/css/umzugsplaner/removalplanerForRemovalStartpage.css" rel="stylesheet"/>');
+            }
+
+            writeCSSForDatepickerInHead();
+            initDatepicker();
+            $('#trigger').click(function() {
+                $datepicker.datepicker('show');
+            });
+            $('#create-removal-plan').click(function (e) {
+                e.preventDefault();
+                register();
+            });
+        }
+        function init() {
+            initRemovalPlaner();
+        }
+        return {
+            init: init
+        };
+    })(jQuery);
+    /*funktioniert leider nicht immer bei ready*/
+    jQuery(window).load(function () {
+        "use strict";
+        de.is24.umzug.umzugsplanerRubrikStartPageV2.init();
+    });
+</script>
+
+
