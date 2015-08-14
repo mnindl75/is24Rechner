@@ -72,7 +72,8 @@
                                     ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
                                     "email" : email_value,
                                     "faxnumber": "",
-                                    "data-privacy": true
+                                    "dataPrivacy": true,
+                                    "successUrl": $('#removalplaner-box').attr('data-success-url')
                                 },
                                 success: function(data) {
                                     if (data.status === "500") {
@@ -84,10 +85,10 @@
                                             if (!data.email) {
                                                 $status_text_email.text(error_text_email_wrong).fadeIn(1000);
                                             }
-                                            if (!data.removal-date) {
+                                            if (!data.movingDate) {
                                                 $status_text_date.text(error_text_date).fadeIn(1000);
                                             }
-                                            if (!data.data-privacy) {
+                                            if (!data.dataPrivacy) {
                                                 $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
                                             }
                                         } else if (data.status === "200") {
