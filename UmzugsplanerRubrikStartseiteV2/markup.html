@@ -1,0 +1,61 @@
+<div id="removalplaner-box" class="border padding-xxl margin-horizontal-l">
+    <div class="grid gutter-horizontal-xxl">
+        <div class="grid-item palm-one-whole lap-one-whole desk-three-fifths">
+            <div id="removal-planer-error-box" class="hide status-message status-error margin-bottom-m">
+                <h4>Fehler</h4>
+                <p>Bitte überprüfen Sie die rot markierten Felder</p>
+            </div>
+            <div id="removal-planer-server-error-box" class="hide status-message status-error margin-bottom-m margin-right-m">
+                <h4>Fehler</h4>
+                <p>Der Umzugsplanerserver ist leider ausgefallen.</p>
+            </div>
+            <div id="removal-planer-success-box" class="hide status-message status-confirm margin-bottom-m margin-right-m">
+                <h4>Sie haben sich erfolgreich für die Erinnerungsmails registriert.</h4>
+            </div>
+
+            <div class="grid margin-bottom-m">
+                <div class="grid-item grid palm-one-whole lap-one-half desk-one-half margin-top-xs">
+                    <span class="grid-item one-eighth fa fa-calendar font-xl font-brandorange margin-top-xs"></span>
+                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-m">Ihr Umzugstermin</span>
+                </div>
+                <div id="datepicker-holder" class="grid-item palm-one-whole lap-one-half desk-one-half">
+                    <input autocomplete="off" id="datepicker" type="text" class="input-text one-whole" placeholder="TT MM JJJJ"/>
+                    <span class="unit-icon fa fa-calendar-o pointer" id="trigger"></span>
+                </div>
+                <p id="status-text-date" class="grid-item one-whole font-s margin-bottom-s font-error">&nbsp;</p>
+            </div>
+            <div class="grid margin-bottom-m">
+                <div class="grid-item grid palm-one-whole lap-one-half desk-one-half margin-top-xs">
+                    <span class="grid-item one-eighth fa fa-envelope-o font-xl font-brandorange margin-top-xs"></span>
+                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-m">Ihre E-Mail-Adresse</span>
+                </div>
+                <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                    <input id="removal-planer-email" type="text" class="input-text one-whole" placeholder="muster@beispiel.de"/>
+                </div>
+                <p id="status-text-email" class="grid-item one-whole font-s margin-bottom-s font-error">&nbsp;</p>
+            </div>
+            <div>
+                <input type="checkbox" class="input-checkbox" id="data-privacy" name="data-privacy"/>
+                <label for="data-privacy" class="label-radio">
+                    Ich stimme der <a href="http://www.immobilienscout24.de/agb/datenschutz/Datenschutzeinwilligung/" target="_blank">Datenschutzeinwilligung</a>
+                    von ImmobilienScout24 zu.
+                </label>
+                <p id="status-text-data-privacy" class="grid-item one-whole font-s margin-bottom-s font-error">&nbsp;</p>
+            </div>
+            <div class="align-center palm-one-whole lap-one-whole desk-four-fifths">
+                <button class="button-primary padding-horizontal-xxl font-m">Jetzt Umzug planen</button>
+            </div>
+            <p class="desk-hide">&nbsp;</p>
+        </div>
+        <div id="removalplaner-box-info" class="grid-item palm-one-whole lap-one-whole desk-two-fifths">
+            <p class="font-l font-semibold font-info margin-bottom-m margin-top-xs">Vorteile des Umzugsplaners:</p>
+            <ul class="list-check">
+                <li class="font-m margin-bottom-s">Individuellen Umzugsplan per E-Mail erhalten</li>
+                <li class="font-m margin-bottom-s">Erinnerungen für alle wichtigen Aufgaben</li>
+                <li class="font-m">Profitieren Sie von unseren Umzugs-Tipps</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>

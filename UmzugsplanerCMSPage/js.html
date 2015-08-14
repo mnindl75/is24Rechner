@@ -1,0 +1,151 @@
+/* framewok to include bei part javascript : /umzugsexpose/js/libs/jquery-ui.1.8.24.js */
+<script>
+
+
+    /*global window */
+    /*global document */
+    /*global $ */
+    /*global alert */
+    /*global google */
+    /*global jQuery */
+    /*global Image*/
+    /*global de */
+    var de = de || {};
+    de.is24 = de.is24 || {};
+    de.is24.umzug = de.is24.umzug || {};
+
+    de.is24.umzug.umzugsplanerRubrikStartPageV2 = de.is24.umzug.umzugsplanerRubrikStartPageV2 || (function ($) {
+        "use strict";
+        function initRemovalPlaner() {
+            var $removalPlanerErrorBox = $('#removal-planer-error-box'),
+                    $removalPlanerServerErrorBox = $('#removal-planer-server-error-box'),
+                    $removalPlanerSuccessBox = $('#removal-planer-success-box'),
+                    $datepicker = $('#datepicker'),
+                    $email = $('#removal-planer-email'),
+                    $dataPrivacy = $('#data-privacy'),
+                    email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
+                    $status_text = $('#status-text'),
+                    $status_text_date = $('#status-text-date'),
+                    $status_text_email = $('#status-text-email'),
+                    $status_text_dataPrivacy = $('#status-text-data-privacy'),
+                    error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
+                    error_text_email_wrong = "Bitte geben Sie eine gültige E-Mail Adresse ein.",
+                    error_text_dataPrivacy = "Bitte bestätigen Sie die AGB.",
+                    text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
+                    error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
+
+
+            function initDatepicker() {
+
+                $.datepicker.regional.de = {
+                    monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    weekHeader: 'Wo',
+                    dateFormat: 'dd.mm.yy',
+                    minDate: 1,
+                    showMonthAfterYear: true,
+                    showAnim: 'fold',
+                    onSelect: function () {
+                        $status_text_date.html('&nbsp;');
+                        $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                    }
+                };
+                $.datepicker.setDefaults($.datepicker.regional.de);
+                $datepicker.datepicker();
+            }
+            function register() {
+                var removal_date = $datepicker.datepicker("getDate"),
+                        email_value = $email.val();
+
+                if ($datepicker.val().length > 0) {
+                    if (email_value.length > 0 ) {
+                        if($dataPrivacy.is(':checked')) {
+                            $.ajax( {
+                                url: email_reg_link,
+                                async: false,
+                                data: {
+                                    "movingDate" : removal_date.getDate().toString() + '.' +
+                                    ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
+                                    "email" : email_value,
+                                    "faxnumber": "",
+                                    "data-privacy": true
+                                },
+                                success: function(data) {
+                                    if (data.status === "500") {
+                                        $removalPlanerServerErrorBox.removeClass("hide").addClass('block');
+                                    } else {
+                                        $removalPlanerServerErrorBox.removeClass("block").addClass('hide');
+                                        if (data.status === "400") {
+                                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                                            if (!data.email) {
+                                                $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                                            }
+                                            if (!data.removal-date) {
+                                                $status_text_date.text(error_text_date).fadeIn(1000);
+                                            }
+                                            if (!data.data-privacy) {
+                                                $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                                            }
+                                        } else if (data.status === "200") {
+                                            $removalPlanerSuccessBox.removeClass("hide").addClass('block');
+                                        }
+                                    }
+                                }
+                            });
+                        } else {
+                            $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
+
+                    } else {
+                        $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                        $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                    }
+                } else {
+                    $status_text_date.text(error_text_date).fadeIn(1000);
+                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                }
+
+            }
+
+            function writeCSSForDatepickerInHead() {
+                var $head = $('head');
+                $head.append('<link type="text/css" href="/umzugsexpose/css/umzugsplaner/removalplanerForRemovalStartpage.css" rel="stylesheet"/>');
+            }
+
+            writeCSSForDatepickerInHead();
+            initDatepicker();
+            $('#trigger').click(function() {
+                $datepicker.datepicker('show');
+            });
+            $email.focus(function() {
+                $status_text_email.html('&nbsp;');
+                $removalPlanerErrorBox.hide();
+                $removalPlanerErrorBox.removeClass('block').addClass('hide');
+            });
+            $dataPrivacy.click(function() {
+                $status_text_dataPrivacy.html('&nbsp;');
+                $removalPlanerErrorBox.removeClass('block').addClass('hide');
+            });
+            $('#removalplaner-box .button-primary').click(function (e) {
+                e.preventDefault();
+                register();
+            });
+        }
+        function init() {
+            initRemovalPlaner();
+        }
+        return {
+            init: init
+        };
+    })(jQuery);
+    /*funktioniert leider nicht immer bei ready*/
+    jQuery(window).load(function () {
+        "use strict";
+        de.is24.umzug.umzugsplanerRubrikStartPageV2.init();
+    });
+</script>
