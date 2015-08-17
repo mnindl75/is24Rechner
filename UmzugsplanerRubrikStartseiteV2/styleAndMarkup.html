@@ -1,9 +1,38 @@
-<div id="removalplaner-box" class="border padding-xxl margin-horizontal-l" data-success-url="kommt von lucas">
-    <div class="grid gutter-horizontal-xxl">
+<style scoped>
+    #removalplaner-box .list-check > li:before {
+        color: #ff7500;
+    }
+    #removalplaner-box #datepicker {
+        cursor: pointer;
+    }
+    #removalplaner-box #datepicker-holder {
+        position: relative;
+    }
+    #removalplaner-box .unit-icon {
+        position: absolute;
+        top: 8px;
+        right: 0%;
+        cursor: pointer;
+    }
+    @media (min-width: 500px) and (max-width: 1013px){
+        #removalplaner-box #removalplaner-box-info {
+            margin: 0 auto;
+            width: 410px !important;
+            float: none;
+        }
+    }
+    @media (min-width: 1013px) {
+        #removalplaner-box #removalplaner-box-info p, #removalplaner-box #removalplaner-box-info ul {
+            margin-left: 40px;
+        }
+    }
+</style>
+<div id="removalplaner-box" class="border padding-xl margin-horizontal-l" data-success-url="http://www.immobilienscout24.de/umzug/eigenregie/umzugsplanung/umzugsplaner_danke/">
+    <div class="grid">
         <div class="grid-item palm-one-whole lap-one-whole desk-three-fifths">
             <div id="removal-planer-error-box" class="hide status-message status-error margin-bottom-m">
                 <h4>Fehler</h4>
-                <p>Bitte überprüfen Sie die rot markierten Felder</p>
+                <p>Bitte überprüfen Sie die rot markierten Felder.</p>
             </div>
             <div id="removal-planer-server-error-box" class="hide status-message status-error margin-bottom-m margin-right-m">
                 <h4>Fehler</h4>
@@ -16,7 +45,7 @@
             <div class="grid margin-bottom-m">
                 <div class="grid-item grid palm-one-whole lap-one-half desk-one-half margin-top-xs">
                     <span class="grid-item one-eighth fa fa-calendar font-xl font-brandorange margin-top-xs"></span>
-                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-m">Ihr Umzugstermin</span>
+                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-s">Ihr Umzugstermin</span>
                 </div>
                 <div id="datepicker-holder" class="grid-item palm-one-whole lap-one-half desk-one-half">
                     <input autocomplete="off" id="datepicker" type="text" class="input-text one-whole" placeholder="TT MM JJJJ"/>
@@ -27,7 +56,7 @@
             <div class="grid margin-bottom-m">
                 <div class="grid-item grid palm-one-whole lap-one-half desk-one-half margin-top-xs">
                     <span class="grid-item one-eighth fa fa-envelope-o font-xl font-brandorange margin-top-xs"></span>
-                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-m">Ihre E-Mail-Adresse</span>
+                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-s">Ihre E-Mail-Adresse</span>
                 </div>
                 <div class="grid-item palm-one-whole lap-one-half desk-one-half">
                     <input id="removal-planer-email" type="text" class="input-text one-whole" placeholder="muster@beispiel.de"/>

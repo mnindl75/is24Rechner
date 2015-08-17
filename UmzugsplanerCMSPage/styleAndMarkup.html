@@ -1,7 +1,30 @@
-<div id="removalplaner-box" class="border padding-l" data-success-url="kommt von lucas">
+<style scoped>
+    #removalplaner-box .list-check > li:before {
+        color: #ff7500;
+    }
+    #removalplaner-box #datepicker {
+        cursor: pointer;
+    }
+    #removalplaner-box #datepicker-holder {
+        position: relative;
+    }
+    #removalplaner-box .unit-icon {
+        position: absolute;
+        top: 8px;
+        right: 0%;
+        cursor: pointer;
+    }
+    @media (min-width: 500px){
+        #removalplaner-box #removalplaner-box-info {
+            margin: 0 auto;
+            width: 410px !important;
+        }
+    }
+</style>
+<div id="removalplaner-box" class="border padding-l" data-success-url="http://www.immobilienscout24.de/umzug/eigenregie/umzugsplanung/umzugsplaner_danke/">
     <div id="removal-planer-error-box" class="hide status-message status-error margin-bottom-m">
         <h4>Fehler</h4>
-        <p>Bitte überprüfen Sie die rot markierten Felder</p>
+        <p>Bitte überprüfen Sie die rot markierten Felder.</p>
     </div>
     <div id="removal-planer-server-error-box" class="hide status-message status-error margin-bottom-m">
         <h4>Fehler</h4>
