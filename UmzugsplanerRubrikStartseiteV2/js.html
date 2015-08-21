@@ -49,6 +49,7 @@
                     onSelect: function () {
                         $status_text_date.html('&nbsp;');
                         $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                        $datepicker.removeClass('error');
                     }
                 };
                 $.datepicker.setDefaults($.datepicker.regional.de);
@@ -82,7 +83,7 @@
                                             if (!data.email) {
                                                 $status_text_email.text(error_text_email_wrong).fadeIn(1000);
                                             }
-                                            if (!data.removal-date) {
+                                            if (!data.movingDate) {
                                                 $status_text_date.text(error_text_date).fadeIn(1000);
                                             }
                                             if (!data.dataPrivacy) {
@@ -96,15 +97,18 @@
                             });
                         } else {
                             $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                            $dataPrivacy.addClass('error');
                             $removalPlanerErrorBox.removeClass('hide').addClass('block');
                         }
 
                     } else {
                         $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                        $email.addClass('error');
                         $removalPlanerErrorBox.removeClass('hide').addClass('block');
                     }
                 } else {
                     $status_text_date.text(error_text_date).fadeIn(1000);
+                    $datepicker.addClass('error');
                     $removalPlanerErrorBox.removeClass('hide').addClass('block');
                 }
 
@@ -122,11 +126,12 @@
             });
             $email.focus(function() {
                 $status_text_email.html('&nbsp;');
-                $removalPlanerErrorBox.hide();
+                $email.removeClass('error');
                 $removalPlanerErrorBox.removeClass('block').addClass('hide');
             });
             $dataPrivacy.click(function() {
                 $status_text_dataPrivacy.html('&nbsp;');
+                $dataPrivacy.removeClass('error');
                 $removalPlanerErrorBox.removeClass('block').addClass('hide');
             });
             $('#removalplaner-box .button-primary').click(function (e) {

@@ -24,15 +24,12 @@
                     $email = $('#removal-planer-email'),
                     $dataPrivacy = $('#data-privacy'),
                     email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
-                    $status_text = $('#status-text'),
                     $status_text_date = $('#status-text-date'),
                     $status_text_email = $('#status-text-email'),
                     $status_text_dataPrivacy = $('#status-text-data-privacy'),
                     error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
                     error_text_email_wrong = "Bitte geben Sie eine gültige E-Mail Adresse ein.",
-                    error_text_dataPrivacy = "Bitte bestätigen Sie die AGB.",
-                    text_email_right = "Sie haben sich erfolgreich für die Erinnerungsmails registriert.",
-                    error_text_server = "Der Umzugsplanerserver ist leider ausgefallen.";
+                    error_text_dataPrivacy = "Bitte bestätigen Sie die AGB.";
 
 
             function initDatepicker() {
@@ -52,6 +49,7 @@
                     onSelect: function () {
                         $status_text_date.html('&nbsp;');
                         $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                        $datepicker.removeClass('error');
                     }
                 };
                 $.datepicker.setDefaults($.datepicker.regional.de);
@@ -99,15 +97,18 @@
                             });
                         } else {
                             $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                            $dataPrivacy.addClass('error');
                             $removalPlanerErrorBox.removeClass('hide').addClass('block');
                         }
 
                     } else {
                         $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                        $email.addClass('error');
                         $removalPlanerErrorBox.removeClass('hide').addClass('block');
                     }
                 } else {
                     $status_text_date.text(error_text_date).fadeIn(1000);
+                    $datepicker.addClass('error');
                     $removalPlanerErrorBox.removeClass('hide').addClass('block');
                 }
 
@@ -125,11 +126,12 @@
             });
             $email.focus(function() {
                 $status_text_email.html('&nbsp;');
-                $removalPlanerErrorBox.hide();
+                $email.removeClass('error');
                 $removalPlanerErrorBox.removeClass('block').addClass('hide');
             });
             $dataPrivacy.click(function() {
                 $status_text_dataPrivacy.html('&nbsp;');
+                $dataPrivacy.removeClass('error');
                 $removalPlanerErrorBox.removeClass('block').addClass('hide');
             });
             $('#removalplaner-box .button-primary').click(function (e) {
