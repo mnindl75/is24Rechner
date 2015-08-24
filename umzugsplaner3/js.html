@@ -142,9 +142,10 @@
         }
         function init() {
             initRemovalPlaner();
-            $(document).click(function(event, target) {
-                if (event.target.id !== 'datepicker' && event.target.id !== 'trigger')
+            $(document).click(function(event) {
+                if (event.target.id !== 'datepicker' && event.target.id !== 'trigger' && !$(event.target).parent().parent().hasClass('ui-datepicker-header')) {
                     $('.hasDatepicker').datepicker('hide');
+                }
             });
         }
         return {
