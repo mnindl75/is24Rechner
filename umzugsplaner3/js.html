@@ -27,9 +27,9 @@
                     $status_text_date = $('#status-text-date'),
                     $status_text_email = $('#status-text-email'),
                     $status_text_dataPrivacy = $('#status-text-data-privacy'),
-                    error_text_date = "Bitte geben Sie Ihren Umzugstermin ein.",
+                    error_text_date = "Bitte wählen Sie einen Umzugstermin aus.",
                     error_text_email_wrong = "Bitte geben Sie eine gültige E-Mail Adresse ein.",
-                    error_text_dataPrivacy = "Bitte bestätigen Sie die AGB.";
+                    error_text_dataPrivacy = "Bitte bestätigen Sie die Datenschutzeinwilligung.";
 
 
             function initDatepicker() {
@@ -43,6 +43,7 @@
                     dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
                     weekHeader: 'Wo',
                     dateFormat: 'dd.mm.yy',
+                    inline: true,
                     minDate: 1,
                     showMonthAfterYear: true,
                     showAnim: 'fold',
@@ -57,61 +58,61 @@
             }
             function register() {
                 var removal_date = $datepicker.datepicker("getDate"),
-                        email_value = $email.val();
+                    datepicker_value = $datepicker.val(),
+                    email_value = $email.val(),
+                    is_data_privacy  = $dataPrivacy.is(':checked');
 
-                if ($datepicker.val().length > 0) {
-                    if (email_value.length > 0 ) {
-                        if($dataPrivacy.is(':checked')) {
-                            $.ajax( {
-                                url: email_reg_link,
-                                async: false,
-                                data: {
-                                    "movingDate" : removal_date.getDate().toString() + '.' +
-                                    ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
-                                    "email" : email_value,
-                                    "faxnumber": "",
-                                    "dataPrivacy": true,
-                                    "successUrl": $('#removalplaner-box').attr('data-success-url')
-                                },
-                                success: function(data) {
-                                    if (data.status === "500") {
-                                        $removalPlanerServerErrorBox.removeClass("hide").addClass('block');
-                                    } else {
-                                        $removalPlanerServerErrorBox.removeClass("block").addClass('hide');
-                                        if (data.status === "400") {
-                                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                                            if (!data.email) {
-                                                $status_text_email.text(error_text_email_wrong).fadeIn(1000);
-                                            }
-                                            if (!data.movingDate) {
-                                                $status_text_date.text(error_text_date).fadeIn(1000);
-                                            }
-                                            if (!data.dataPrivacy) {
-                                                $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
-                                            }
-                                        } else if (data.status === "200") {
-                                            $removalPlanerSuccessBox.removeClass("hide").addClass('block');
-                                        }
-                                    }
-                                }
-                            });
-                        } else {
-                            $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
-                            $dataPrivacy.addClass('error');
-                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                        }
-
-                    } else {
-                        $status_text_email.text(error_text_email_wrong).fadeIn(1000);
-                        $email.addClass('error');
-                        $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                    }
-                } else {
+                if (!datepicker_value.length > 0) {
                     $status_text_date.text(error_text_date).fadeIn(1000);
                     $datepicker.addClass('error');
                     $removalPlanerErrorBox.removeClass('hide').addClass('block');
                 }
+                if (!email_value.length > 0 ) {
+                    $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                    $email.addClass('error');
+                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                }
+                if(!is_data_privacy) {
+                    $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                    $dataPrivacy.addClass('error');
+                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                }
 
+                if (datepicker_value.length > 0 && email_value.length > 0 && is_data_privacy) {
+                    $.ajax( {
+                        url: email_reg_link,
+                        async: false,
+                        data: {
+                            "movingDate" : removal_date.getDate().toString() + '.' +
+                            ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
+                            "email" : email_value,
+                            "faxnumber": "",
+                            "dataPrivacy": true,
+                            "successUrl": $('#removalplaner-box').attr('data-success-url')
+                        },
+                        success: function(data) {
+                            if (data.status === "500") {
+                                $removalPlanerServerErrorBox.removeClass("hide").addClass('block');
+                            } else {
+                                $removalPlanerServerErrorBox.removeClass("block").addClass('hide');
+                                if (data.status === "400") {
+                                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                                    if (!data.email) {
+                                        $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                                    }
+                                    if (!data.movingDate) {
+                                        $status_text_date.text(error_text_date).fadeIn(1000);
+                                    }
+                                    if (!data.dataPrivacy) {
+                                        $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                                    }
+                                } else if (data.status === "200") {
+                                    $removalPlanerSuccessBox.removeClass("hide").addClass('block');
+                                }
+                            }
+                        }
+                    });
+                }
             }
 
             function writeCSSForDatepickerInHead() {
@@ -141,6 +142,10 @@
         }
         function init() {
             initRemovalPlaner();
+            $(document).click(function(event, target) {
+                if (event.target.id !== 'datepicker' && event.target.id !== 'trigger')
+                    $('.hasDatepicker').datepicker('hide');
+            });
         }
         return {
             init: init
