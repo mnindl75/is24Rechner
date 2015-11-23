@@ -1,0 +1,194 @@
+#removalcost-calculator {
+    user-select: none;
+    -o-user-select:none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    padding: 12px;
+}
+#removalcost-calculator .headline {
+    font-size: 22px;
+    line-height: 22px;
+}
+#removalcost-calculator #result div #price {
+    text-align: center;
+}
+#removalcost-calculator #result .button-primary {
+    display: block;
+    margin: 0 auto;
+}
+#removalcost-calculator .slider-all-holder {
+    position: relative;
+}
+#removalcost-calculator .slider-holder {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-top: 18px;
+}
+#removalcost-calculator .slider {
+    position: relative;
+    height:7px;
+    border: 1px solid #979797;
+    border-radius: 5px;
+}
+#removalcost-calculator .slider-thumb {
+    left:0px;
+    position: absolute;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #979797;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border-radius: 21px;
+    top: -10px;
+}
+#removalcost-calculator .slider-thumb:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 7px;
+    border-width: 4px;
+    border-color: #003468 #003468 #003468 #003468;
+    border-style: solid;
+    width: 0px;
+    height: 0;
+    border-radius: 8px;
+}
+#removalcost-calculator .slider-fill {
+    background-color: #003468;
+    background-image: none;
+    height:9px;
+    position: absolute;
+    top: -2px;
+    left: 0px;
+    border-radius: 5px 0 0 5px;
+}
+#removalcost-calculator .selecter-holder {
+    position: relative;
+}
+#removalcost-calculator .selecter-holder .selecter {
+    border: 1px solid #979797;
+    border-radius: 5px 0px 0px 5px;
+    padding-top: 7px;
+    background-color: #ffffff;
+    width: 58px;
+    height: 31px;
+    background: #ffffff;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+#removalcost-calculator .selecter-holder .selecter:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    display: block;
+    right: -35px;
+    border-width: 1px;
+    border-color: #979797 #979797 #979797 transparent;
+    border-style: solid;
+    width: 33px;
+    height: 29px;
+    border-radius: 0px 5px 5px 0px;
+}
+#removalcost-calculator .selecter-holder .selecter:after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: -24px;
+    border-width: 7px;
+    border-color: #335D86 transparent transparent;
+    border-style: solid;
+    width: 0;
+    height: 0;
+}
+#removalcost-calculator .selecter-holder .selecter:hover {
+    color: #FF7500;
+}
+#removalcost-calculator .selecter-holder .selecter:hover::after {
+    border-color: #FF7500 transparent transparent;
+}
+#removalcost-calculator .selecter-holder .selecter.open {
+    background: #ffffff;
+    border-bottom: none;
+    padding-bottom: 10px;
+    border-radius: 5px 0px 0px 0px;
+}
+#removalcost-calculator .selecter-holder .select-options {
+    display: none;
+    border: 1px solid #979797;
+    border-radius: 0px 0px 5px 5px;
+    border-top: none;
+    padding: 2px 0 2px 0;
+    position: absolute;
+    z-index: 999;
+    width: 58px;
+    background-color: #ffffff;
+}
+#removalcost-calculator .selecter-holder .select-options p {
+    padding: 0 0 3px 0;
+    text-align: center;
+    cursor: pointer;
+}
+#removalcost-calculator .selecter-holder .select-options p:hover {
+    color: #FF7500;
+}
+#removalcost-calculator .selecter-holder .select-options p.selected {
+    color: #FF7500;
+}
+#removalcost-calculator #result #price {
+    font-size: 17px;
+}
+#removalcost-calculator #result #price span {
+    font-size: 25px;
+}
+#removalcost-calculator #result div {
+    padding-top: 12px;
+}
+@media screen and (min-width: 559px) and (max-width: 668px) {
+    #removalcost-calculator #params-setter {
+        float: left;
+        width: 60%;
+    }
+    #removalcost-calculator #result {
+        float: left;
+        width: 35%;
+        border-left: 1px solid #979797;
+        margin-left: 12px;
+        padding-left: 12px;
+        padding-top: 50px;
+    }
+    #removalcost-calculator #result .button-primary {
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 669px) {
+    #removalcost-calculator {
+        padding: 0;
+    }
+    #removalcost-calculator .headline {
+        font-size: 25px;
+    }
+    #removalcost-calculator #result div {
+        padding-bottom: 12px;
+        padding-top: 37px;
+    }
+}
+@media screen and (min-width: 970px) {
+    #removalcost-calculator #params-setter {
+        float: left;
+        width: 60%;
+    }
+    #removalcost-calculator #result {
+        float: left;
+        width: 35%;
+        border-left: 1px solid #979797;
+        margin-left: 12px;
+        padding-left: 12px;
+        padding-top: 50px;
+    }
+    #removalcost-calculator #result .button-primary {
+        font-size: 12px;
+    }
+}
