@@ -341,7 +341,7 @@
                     $this_select_options.fadeToggle("fast");
                     calculateRemovalCompanyCosts();
                     if (isTeliumActivated()) {
-                        IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
+                        IS24.TEALIUM.tracking.report({evt_ga_category: 'relocation', evt_ga_action: 'calculator', evt_ga_label: 'calculate', ns_type: "hidden"});
                     }
                 });
             });
@@ -369,7 +369,7 @@
             })
             $('#removalcost-calculator .slider-thumb').mouseup(function() {
                 if (using && isTeliumActivated()) {
-                    IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
+                    IS24.TEALIUM.tracking.report({evt_ga_category: 'relocation', evt_ga_action: 'calculator', evt_ga_label: 'calculate', ns_type: "hidden"});
                 }
                 using = false;
             })
