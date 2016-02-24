@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Umzugskostenrechner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/is24Core.css">
+    <link rel="stylesheet" type="text/css" href="css/umzugskostenrechner.css">
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/umzugskostenrechner.js"></script>
+</head>
+<body>
+    <div id="removalcost-calculator">
+    <h1 class="headline font-brandblue margin-bottom-l">Was kostet Ihr Umzug?</h1>
+    <div id="params-setter">
+        <div class="slider-all-holder">
+            <p class="font-brandblue float-left one-half">Wohnfl&auml;che</p>
+            <p class="slider-value-holder font-brandblue font-bold float-left one-half align-right">ca. <span id="square-meter-value"></span> m&sup2;</p>
+            <div id="square_meter_slider" class="clear-both"></div>
+        </div>
+        <div class="slider-all-holder">
+            <p class="font-brandblue float-left one-half">Entfernung</p>
+            <p class="slider-value-holder font-brandblue font-bold float-right one-half align-right">ca. <span id="distance-value"></span> km</p>
+            <div id="distance_slider" class="clear-both"></div>
+        </div>
+        <div class="float-left one-half">
+            <label class="block font-brandblue margin-bottom-xs">
+                Personen
+            </label>
+            <div class="selecter-holder">
+                <input class="selecter-value" type="hidden" id="people" name="people" value="1"/>
+                <div class="selecter font-brandblue font-bold"></div>
+                <div class="select-options">
+                    <p data-options-value="1">1</p>
+                    <p data-options-value="2">2</p>
+                    <p data-options-value="3">3</p>
+                    <p data-options-value="4">4</p>
+                    <p data-options-value="5">5</p>
+                    <p data-options-value="6">6</p>
+                    <p data-options-value="7">7</p>
+                    <p data-options-value="8">8</p>
+                    <p data-options-value="9">9</p>
+                    <p data-options-value="10">10</p>
+                </div>
+            </div>
+        </div>
+        <div class="float-left one-half">
+            <label class="block font-brandblue margin-bottom-xs">
+                Zimmer
+            </label>
+            <div class="selecter-holder">
+                <input class="selecter-value" type="hidden" id="rooms" name="rooms" value="1"/>
+                <div class="selecter font-brandblue font-bold"></div>
+                <div class="select-options">
+                    <p data-options-value="1">1</p>
+                    <p data-options-value="2">2</p>
+                    <p data-options-value="3">3</p>
+                    <p data-options-value="4">4</p>
+                    <p data-options-value="5">5</p>
+                    <p data-options-value="6">6</p>
+                    <p data-options-value="7">7</p>
+                    <p data-options-value="8">8</p>
+                    <p data-options-value="9">9</p>
+                    <p data-options-value="10">10</p>
+                </div>
+            </div>
+        </div>
+        <br class="clear-both" />
+    </div>
+
+    <div id="result">
+        <div>
+            <p id="price" class="font-brandorange margin-bottom-s">
+                ab<span id="price-result" class="font-bold margin-left-s"></span> <span class="font-bold">CHF</span>
+            </p>
+            <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;evt_count&quot;:&quot;umz_hp_rahmen&quot; }" class="button-primary button-orange padding-horizontal-m" data-original-href="http://www.immoscout24.ch/is24web/public/content.aspx?key=umzugeasy&nav=5&subnav=6&lng&lng=de&wl=1" target="_self">
+                Jetzt informieren
+            </a>
+        </div>
+    </div>
+    <br class="clear-both" />
+</div>
+</body>
+</html>

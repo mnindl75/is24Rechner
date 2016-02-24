@@ -1,0 +1,350 @@
+<style scoped>
+    .fixed-page-navigation-wrapper{position:relative}
+    .fixed-page-navigation--fixed{position:fixed;top:0}
+    .fixed-page-navigation--fixed div.margin-top-l{background-color:#ffffff}
+    .anchor-navigation{display:inline-block;float:right}
+    .anchor-navigation ul{text-align:right}
+    .anchor-navigation li a{padding:8px 10px;padding:0.8rem 1rem;color:#ffffff;text-decoration:none;background-color:#4c4c4c}
+    .anchor-navigation li{font-size:13px;font-size:1.3rem;text-align:right;margin-bottom:18px;margin-bottom:1.8rem}
+    .anchor-navigation li.current a{background-color:#ff7500;-webkit-transition:background-color 0.25s ease-in-out}
+    .anchor-navigation li:hover a{background-color:#ff7500;-webkit-transition:background-color 0.25s ease-in-out}
+</style>
+
+<div id="sticky-nav">
+    <div class="fixed-page-navigation-wrapper" id="navigation">
+        <div class="fixed-page-navigation" style="width: 305px;">
+            <div class="anchor-navigation margin-top-m">
+                <ul id="anchor-navigation">
+                    <li class="current">
+                        <a href="#umzugskosten" title="zu den Umzugskosten">Umzugskosten</a>
+                    </li>
+                    <li class="">
+                        <a href="#umzugstypen" title="zu den Umzugstypen">Umzugstypen im Überblick</a>
+                    </li>
+                    <li class="">
+                        <a href="#fragen" title="zu den häufigen Fragen">Häufige Fragen zu Umzugskosten</a>
+                    </li>
+                    <li class="">
+                        <a href="#umzugsrechner" title="zum Umzugsrechner">Umzugsrechner</a>
+                    </li>
+                    <li class="">
+                        <a href="#annahmen" title="zu den Annahmen">Annahmen</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    (function($, window, document, undefined){
+
+        // our plugin constructor
+        var OnePageNav = function(elem, options){
+            this.elem = elem;
+            this.$elem = $(elem);
+            this.options = options;
+            this.metadata = this.$elem.data('plugin-options');
+            this.$win = $(window);
+            this.sections = {};
+            this.didScroll = false;
+            this.$doc = $(document);
+            this.docHeight = this.$doc.height();
+        };
+
+        // the plugin prototype
+        OnePageNav.prototype = {
+            defaults: {
+                navItems: 'a',
+                currentClass: 'current',
+                changeHash: true,
+                easing: 'swing',
+                filter: '',
+                scrollSpeed: 750,
+                scrollThreshold: 0.5,
+                begin: false,
+                end: false,
+                scrollChange: false
+            },
+
+            init: function() {
+                // Introduce defaults that can be extended either
+                // globally or using an object literal.
+                this.config = $.extend({}, this.defaults, this.options, this.metadata);
+
+                this.$nav = this.$elem.find(this.config.navItems);
+
+                //Filter any links out of the nav
+                if(this.config.filter !== '') {
+                    this.$nav = this.$nav.filter(this.config.filter);
+                }
+
+                //Handle clicks on the nav
+                this.$nav.on('click.onePageNav', $.proxy(this.handleClick, this));
+
+                //Get the section positions
+                this.getPositions();
+
+                //Handle scroll changes
+                this.bindInterval();
+
+                //Update the positions on resize too
+                this.$win.on('resize.onePageNav', $.proxy(this.getPositions, this));
+
+                return this;
+            },
+
+            adjustNav: function(self, $parent) {
+                self.$elem.find('.' + self.config.currentClass).removeClass(self.config.currentClass);
+                $parent.addClass(self.config.currentClass);
+            },
+
+            bindInterval: function() {
+                var self = this;
+                var docHeight;
+
+                self.$win.on('scroll.onePageNav', function() {
+                    self.didScroll = true;
+                });
+
+                self.t = setInterval(function() {
+                    docHeight = self.$doc.height();
+
+                    //If it was scrolled
+                    if(self.didScroll) {
+                        self.didScroll = false;
+                        self.scrollChange();
+                    }
+
+                    //If the document height changes
+                    if(docHeight !== self.docHeight) {
+                        self.docHeight = docHeight;
+                        self.getPositions();
+                    }
+                }, 250);
+            },
+
+            getHash: function($link) {
+                return $link.attr('href').split('#')[1];
+            },
+
+            getPositions: function() {
+                var self = this;
+                var linkHref;
+                var topPos;
+                var $target;
+
+                self.$nav.each(function() {
+                    linkHref = self.getHash($(this));
+                    $target = $('#' + linkHref);
+
+                    if($target.length) {
+                        topPos = $target.offset().top;
+                        self.sections[linkHref] = Math.round(topPos);
+                    }
+                });
+            },
+
+            getSection: function(windowPos) {
+                var returnValue = null;
+                var windowHeight = Math.round(this.$win.height() * this.config.scrollThreshold);
+
+                for(var section in this.sections) {
+                    if((this.sections[section] - windowHeight) < windowPos) {
+                        returnValue = section;
+                    }
+                }
+
+                return returnValue;
+            },
+
+            handleClick: function(e) {
+                var self = this;
+                var $link = $(e.currentTarget);
+                var $parent = $link.parent();
+                var newLoc = '#' + self.getHash($link);
+
+                if(!$parent.hasClass(self.config.currentClass)) {
+                    //Start callback
+                    if(self.config.begin) {
+                        self.config.begin();
+                    }
+
+                    //Change the highlighted nav item
+                    self.adjustNav(self, $parent);
+
+                    //Removing the auto-adjust on scroll
+                    self.unbindInterval();
+
+                    //Scroll to the correct position
+                    self.scrollTo(newLoc, function() {
+                        //Do we need to change the hash?
+                        if(self.config.changeHash) {
+                            window.location.hash = newLoc;
+                        }
+
+                        //Add the auto-adjust on scroll back in
+                        self.bindInterval();
+
+                        //End callback
+                        if(self.config.end) {
+                            self.config.end();
+                        }
+                    });
+                }
+
+                e.preventDefault();
+            },
+
+            scrollChange: function() {
+                var windowTop = this.$win.scrollTop();
+                var position = this.getSection(windowTop);
+                var $parent;
+
+                //If the position is set
+                if(position !== null) {
+                    $parent = this.$elem.find('a[href$="#' + position + '"]').parent();
+
+                    //If it's not already the current section
+                    if(!$parent.hasClass(this.config.currentClass)) {
+                        //Change the highlighted nav item
+                        this.adjustNav(this, $parent);
+
+                        //If there is a scrollChange callback
+                        if(this.config.scrollChange) {
+                            this.config.scrollChange($parent);
+                        }
+                    }
+                }
+            },
+
+            scrollTo: function(target, callback) {
+                var offset = $(target).offset().top;
+
+                $('html, body').animate({
+                    scrollTop: offset
+                }, this.config.scrollSpeed, this.config.easing, callback);
+            },
+
+            unbindInterval: function() {
+                clearInterval(this.t);
+                this.$win.unbind('scroll.onePageNav');
+            }
+        };
+
+        OnePageNav.defaults = OnePageNav.prototype.defaults;
+
+        $.fn.onePageNav = function(options) {
+            return this.each(function() {
+                new OnePageNav(this, options).init();
+            });
+        };
+
+    })( jQuery, window , document );
+
+
+    var IS24 = IS24 || {};
+    IS24.STATIC = IS24.STATIC || {};
+
+    IS24.STATIC.fixPageNavigation = (function () {
+
+        var $window,
+                $fixedElementWrapper,
+                $fixedElement,
+                isFixedClass,
+                fixedPoint,
+                currentOffset,
+                currentWrapperWidth, newWrapperWidth,
+                isFixed = false,
+                throttle,
+                throttleTimeout = 1000;
+
+        function updateCurrentOffset() {
+            currentOffset = $window.scrollTop();
+        }
+
+        function updateFixedPoint() {
+            fixedPoint = $fixedElementWrapper.offset().top;
+        }
+        function updateWrapperWidth() {
+            newWrapperWidth = $fixedElementWrapper.width();
+        }
+
+        function toggleFixed() {
+            if ((currentOffset < fixedPoint && isFixed)) {
+                $fixedElement.removeClass(isFixedClass);
+                isFixed = false;
+            } else if (currentOffset > fixedPoint && !isFixed) {
+                $fixedElement.addClass(isFixedClass);
+                isFixed = true;
+            }
+        }
+
+        function toggleWidth() {
+            if (currentWrapperWidth !== newWrapperWidth) {
+                $fixedElement.css("width", newWrapperWidth + "px");
+                currentWrapperWidth = newWrapperWidth;
+            }
+        }
+
+        function resizeHandler() {
+            // update values
+            updateFixedPoint();
+            updateCurrentOffset();
+            updateWrapperWidth();
+
+            // update state
+            toggleFixed();
+            toggleWidth();
+        }
+
+        //selective scroll handler to reduce computing time if scroll events are fired in rapid succession
+
+        function throttledScrollHandler() {
+            if (!throttle) {
+                throttle = window.setTimeout(function () {
+                    throttle = null;
+                }, throttleTimeout);
+
+                // put stuff here that should only run every so often
+                updateFixedPoint();
+            }
+            // put stuff here that needs to run every time for responsiveness
+            updateCurrentOffset();
+            toggleFixed();
+        }
+
+        function init() {
+            $window = jQuery(window);
+
+            $fixedElementWrapper = jQuery(".fixed-page-navigation-wrapper");
+            $fixedElement = jQuery(".fixed-page-navigation");
+            isFixedClass = "fixed-page-navigation--fixed";
+
+            if ($fixedElementWrapper.length < 1 || $fixedElement.length < 1) { return; }
+            if (!window.matchMedia) { return; }
+
+            $window.on("resize", resizeHandler);
+            $window.on("scroll", throttledScrollHandler);
+
+            // get initial values
+            updateFixedPoint();
+            updateCurrentOffset();
+            updateWrapperWidth();
+
+            // initial execution
+            toggleFixed();
+            toggleWidth();
+        }
+
+        return { init: init };
+    }());
+    jQuery(function () {
+        "use strict";
+        IS24.STATIC.fixPageNavigation.init();
+        jQuery('#anchor-navigation').onePageNav();
+    });
+</script>
