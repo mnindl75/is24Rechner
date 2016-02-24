@@ -1,7 +1,8 @@
-
 <style scoped>
     #removalcost-calculator-holder {
-        background: url("/umzugsexpose/images/forCMSHTMLComponents/bgRemovalCostCalcIS24Homepage2.jpg") no-repeat scroll 92% 50% / cover rgba(0, 0, 0, 0);
+        background-repeat: no-repeat;
+        background-position: 92% 50%;
+        background-size: cover;
         min-height: 430px;
         width: 100%;
     }
@@ -187,9 +188,9 @@
     }
 </style>
 
-<div id="removalcost-calculator-holder">
+<div id="removalcost-calculator-holder" data-background-image-src="/umzugsexpose/images/forCMSHTMLComponents/bgRemovalCostCalcIS24Homepage2.jpg">
     <div id="removalcost-calculator">
-        <h1 class="headline font-brandblue">Was kostet Ihr Umzug?</h1>
+        <div class="headline font-brandblue">Was kostet Ihr Umzug?</div>
         <div class="slider-all-holder">
             <p class="font-brandblue float-left one-half">Wohnfl&auml;che</p>
             <p class="slider-value-holder font-brandblue font-bold float-left one-half align-right">ca. <span id="square-meter-value"></span> m&sup2;</p>
@@ -254,6 +255,286 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    /** Created: 30.11.2012 by Florian Gößler @ ImmobilienScout24 GmbH
+     * Please report bugs and issues to florian.goessler@immobilienscout24.de or alexander.krebs@immobilienscout24.de !
+     * */
+
+    /** With this function you can create a slider(incl. labels and an input field) from an existing input element.
+     * The following attributes of the input element will be parsed:
+     * - class: all class styles will be assigned to the new surrounding div.
+     * - min: the minimum value of the slider
+     * - max: the maximum value of the slider
+     * - step: The step size to which the sliders values will be rounded - defaults to 1000.
+     * - placeholder: this string will be used as lefthand label
+     * - value: the current value will be assigned to the slider too
+     * - data-digits: the number of shown digits after the decimal point - defaults to 0.
+     * - data-unit: the unit string on the right side of the input field
+     * All attributes(except the class attribute) will be kept on the input element.
+     * @param inputSelector A valid selector for the input element, which shall be transformed.
+     * @return HTMLElement The slider element as an "advanced" HTMLElement (like from initSlider).
+     */
+    var generateSliderFromInputElement = function(inputSelector) {
+        var obj = new Object(),
+                input = document.querySelector(inputSelector);
+
+        //create new elements
+        obj.frame = document.createElement("div");
+        obj.lbl = document.createElement("label");
+        obj.lbl_r = document.createElement("span");
+        obj.sliderHolder = document.createElement("div");
+
+        //remove input field
+        input.parentNode.replaceChild(obj.frame, input);
+
+        //init frame
+        obj.frame.setAttribute("class", "pos-rel "+input.getAttribute("class"));
+        //init labels
+        obj.lbl.setAttribute("class","float-left margin-top-s");
+        obj.lbl.innerHTML = input.getAttribute("placeholder");
+        obj.frame.appendChild(obj.lbl);
+        obj.lbl_r.setAttribute("class","lbl-right");
+        obj.lbl_r.innerHTML = input.getAttribute("data-unit");
+        obj.frame.appendChild(obj.lbl_r);
+        //add input
+        obj.input = input;
+        obj.input.setAttribute("class","padding-right-xl align-right one-half float-right");
+        obj.frame.appendChild(obj.input);
+        //init slider
+        obj.sliderHolder.setAttribute("data-id",input.name+"_slider");
+        obj.sliderHolder.setAttribute("class", "clear-both");
+        obj.frame.appendChild(obj.sliderHolder);
+        obj.sliderHolder = initSlider("[data-id="+input.name+"_slider]",
+                parseFloat(input.getAttribute("min")),
+                parseFloat(input.getAttribute("max")),
+                parseFloat(input.value),
+                inputSelector,
+                parseFloat(input.getAttribute("step")),
+                parseFloat(input.getAttribute("data-digits"))
+        );
+
+        return obj.sliderHolder;
+    };
+
+    /** With this function you can create a simple slider. All you need in HTML is a block element which will be the slider holder.
+     * All further HTML is auto generated on runtime when you call initSlider.
+     * To style the slider you can use the css classes slider, slider-holder, slider-fill and slider-thumb. For an example/default styling see input.less.
+     * If you provide a connectedInputFieldSelector, the slider will update its current value directly to the input field and vice versa.
+     *
+     * Public Properties:
+     * - value (readonly): The current value of the slider.
+     * - valueDisplay (readonly): The HTMLElement in which the value will be displayed as a number. Prints via innerHTML or the value
+     * 		attribute (if its an input element). If its an input element changing the elements value will also change the slider value.
+     * - changeHandler: A reference to function which will be executed when the the value of the slider changed.
+     *
+     * Public Functions:
+     * - setValue(value): Sets the slider to the given value.
+     *
+     * @param sliderSelector A normal css selector for a block element which will contain the slider.
+     * @param min The minimum value of the slider - defaults to 0.
+     * @param max The maximum value of the slider - default to 10000.
+     * @param cur The current value of the slider - defaults to max/2.
+     * @param valueDisplay A normal css selector for a HTMLElement in which the value will be displayed as a number.
+     * 		Prints via innerHTML or the value attribute (if its an input element). If its an input element changing the
+     * 		elements value will also change the slider value. May be left undefined.
+     * @param stepSize The step size to which the sliders values will be rounded - defaults to 1000.
+     * @param digits The number of shown digits after the decimal point.
+     * @return HTMLElement The sliderSelector element as an "advanced" HTMLElement.
+     */
+    var initSlider = function(sliderSelector, min, max, cur, valueDisplay, stepSize, digits) {
+        var s = document.querySelector(sliderSelector);
+        //##########################################################
+        //PUBLIC METHODS/PROPERTIES
+        //##########################################################
+        s.value = 0;  //read-only from extern!
+        s.valueDisplay = document.querySelector(valueDisplay);   //read-only from extern!
+        s.changeHandler = undefined;
+
+        s.setValue = function(val){
+            if(isNaN(val) || val === undefined) val = s.min;
+            s.value = val;
+            s.cursorPosition = (s.value- s.min) / s.valPerPixel;
+            s.recalculateViews();
+        };
+
+        //##########################################################
+        //PRIVATE METHODS/PROPERTIES - can be accessed from outside but not write save!
+        //##########################################################
+        //generate HTML
+        s.innerHTML = '<div class="slider"><span class="slider-fill"></span><span class="slider-thumb"></span></div><div class="slider-dots-holder"></div>';
+        s.setAttribute("class", s.getAttribute("class")?(s.getAttribute("class")+" "+"slider-holder"):"slider-holder");
+
+        //set variables
+        s.min = min?min:0;
+        s.max = max?max:10000;
+        if(cur === undefined || isNaN(cur)) s.value= s.max/2;
+        else s.value= cur;
+        s.stepSize = stepSize?stepSize:1000;
+        s.digits = digits?digits:0;
+
+        s.valPerPixel = (s.max - s.min) / (s.offsetWidth - document.querySelector(sliderSelector + " .slider-thumb").offsetWidth);
+
+        s.eventOffset = 0;
+        s.cursorPosition = (s.value- s.min) / s.valPerPixel;
+
+        s.active = false;
+        s.keyActive = false;
+
+        s.maxCursorPosition = function() {
+            if(!s._maxCursorPosition || (s.offsetWidth - document.querySelector(sliderSelector + " .slider-thumb").offsetWidth) > 0) s._maxCursorPosition = (s.offsetWidth - document.querySelector(sliderSelector + " .slider-thumb").offsetWidth);
+            return s._maxCursorPosition;
+        };
+
+        //helper functions - for number formation; IE support
+        Number.prototype.formatNumber = function(c, d, t){
+            var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+            return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+        };
+        var removeNumberFormatter = function(str) {
+            return str.replace(/\./g, "").replace(/,/g, ".");;
+        };
+        var addEvent = function(ele, eventname, func) {
+            if(ele.addEventListener) {
+                ele.addEventListener(eventname, func, false);
+            } else if(s.attachEvent) {
+                ele.attachEvent("on"+eventname, func);
+            }
+        };
+
+        //event handlers for slider dragging
+        s.moveEvent = function(event) {
+            if(!s.active) return false;
+            if(event.preventDefault) event.preventDefault();
+            var X = 0;
+            if(event.touches) {
+                X = event.touches[0].pageX?event.touches[0].pageX:event.touches[0].clientX;
+            } else {
+                X = event.pageX?event.pageX:event.clientX;
+            }
+            if(s.cursorPosition + X - s.eventOffset >= s.maxCursorPosition()){	//no scrolling beyond max
+                s.cursorPosition = s.maxCursorPosition();
+                s.eventOffset = X;
+                s.value= s.max;
+            } else if(s.cursorPosition + X - s.eventOffset < 0) {	//no scrolling below min
+                s.cursorPosition = 0;
+                s.eventOffset = X;
+                s.value= s.min;
+            } else {
+                s.cursorPosition = s.cursorPosition + X - s.eventOffset;
+                s.eventOffset = X;
+                if(s.stepSize >= 1) s.value= Math.round((s.cursorPosition * s.valPerPixel) / s.stepSize)*s.stepSize + s.min;
+                else s.value= Math.round((s.cursorPosition * s.valPerPixel) * 1/s.stepSize)*s.stepSize + s.min;
+            }
+            s.recalculateViews();
+        };
+        s.touchStart = function(event) {
+            if(event.touches) pageX = event.touches[0].pageX;
+            else if(event.pageX) pageX = event.pageX;
+            else if(event.clientX) pageX = event.clientX;
+            s.eventOffset = pageX;
+            s.active = true;
+        };
+        s.touchEnd = function(event) {
+            s.active = false;
+        };
+        s.keypress = function(event) {
+            if(!s.keyActive) return;
+            event = event || window.event;
+            if(event.keyCode == 37 || event.keyCode == 39) {
+                s.value = s.value + s.stepSize;
+                if(event.keyCode == 37) s.value = s.value - 2* s.stepSize;
+                if(s.value < s.min) s.value = s.min;
+                if(s.value > s.max) s.value = s.max;
+                s.cursorPosition = (s.value- s.min) / s.valPerPixel;
+                s.recalculateViews();
+            }
+        };
+
+        //event handler for slider click positioning
+        s.click = function(event) {
+            if(event.target == document.querySelector(sliderSelector + " .slider-thumb")) return false;
+            if(event.touches) pageX = event.touches[0].pageX;
+            else if(event.pageX) pageX = event.pageX;
+            else if(event.clientX) pageX = event.clientX;
+            s.eventOffset = pageX;
+            s.cursorPosition = pageX - s.getBoundingClientRect().left;
+            if(s.cursorPosition >= s.maxCursorPosition()) s.cursorPosition = s.maxCursorPosition();
+            if(s.stepSize >= 1) s.value= Math.round((s.cursorPosition * s.valPerPixel) / s.stepSize)*s.stepSize + s.min;
+            else s.value= Math.round((s.cursorPosition * s.valPerPixel) * 1/s.stepSize)*s.stepSize + s.min;
+            s.recalculateViews();
+        };
+
+        //updates all views
+        s.recalculateViews = function() {
+            if(s.cursorPosition > s.maxCursorPosition()) s.cursorPosition = s.maxCursorPosition();
+            if(s.cursorPosition  < 0) s.cursorPosition = 0;
+            document.querySelector(sliderSelector + " .slider-thumb").style.left = s.cursorPosition + "px";
+            document.querySelector(sliderSelector + " .slider-fill").style.width = s.cursorPosition + "px";
+            if(s.valueDisplay && s.valueDisplay.tagName == "INPUT") s.valueDisplay.value = s.value.formatNumber(s.digits, ",", ".");
+            if(s.valueDisplay && s.valueDisplay.tagName != "INPUT") s.valueDisplay.innerHTML = s.value.formatNumber(s.digits, ",", ".");
+            //fire change event
+            //s.numberOfPoints = 10;
+            //s.generateDots();
+            if(s.changeHandler) s.changeHandler();	//"fire event"
+        };
+
+        s.generateDots = function() {
+            if(s.numberOfPoints > 0) {
+                var str = "";
+                var margin = (s.offsetWidth / s.numberOfPoints) - (10 + 10/ s.numberOfPoints);
+                for(var i=0;i <= s.numberOfPoints;i++){
+                    if(i == s.numberOfPoints) margin = 0;
+                    str = str + "<span class='slider-dot' style='margin-right:"+margin+"px'></span>";
+                }
+                s.querySelector(".slider-dots-holder").innerHTML = str;
+            }
+        };
+
+        //register event handlers
+        addEvent(s, 'touchmove',s.moveEvent);
+        addEvent(document.querySelector(sliderSelector + " .slider-thumb"), 'touchstart', s.touchStart);
+        addEvent(document.querySelector(sliderSelector + " .slider-thumb"), 'touchend', s.touchEnd);
+        addEvent(document.querySelector(sliderSelector + " .slider-thumb"), 'mousedown', s.touchStart);
+        addEvent(document.querySelector(sliderSelector + " .slider-thumb"), 'mouseup', s.touchEnd);
+        addEvent(document, 'mousemove',s.moveEvent);
+        addEvent(document, 'mouseup', s.touchEnd);
+        addEvent(s, 'click', s.click);
+        addEvent(s, "mouseover",function(){s.keyActive = true});
+        addEvent(s, "mouseout",function(){s.keyActive = false});
+        addEvent(document, 'keydown', s.keypress);
+        //register winMobile event handler
+        if (window.navigator.msPointerEnabled) {
+            addEvent(s, 'MSPointerMove',s.moveEvent);
+            addEvent(document.querySelector(sliderSelector + " .slider-thumb"), "MSPointerDown", s.touchStart);
+            addEvent(document.querySelector(sliderSelector + " .slider-thumb"), "MSPointerUp", s.touchEnd);
+        }
+
+        //register event handler to recieve changes from the connected input field
+        if(s.valueDisplay && s.valueDisplay.tagName == "INPUT") addEvent(s.valueDisplay, "change",function(){
+            var val = parseFloat(removeNumberFormatter(s.valueDisplay.value));
+            if(isNaN(val) || val === undefined) val = s.min;
+            s.value = val;
+            s.valueDisplay.value = s.value.formatNumber(s.digits, ",", ".");
+            s.cursorPosition = (s.value- s.min) / s.valPerPixel;
+            if(s.cursorPosition > s.maxCursorPosition()) s.cursorPosition = s.maxCursorPosition();
+            if(s.cursorPosition  < 0) s.cursorPosition = 0;
+
+            document.querySelector(sliderSelector + " .slider-thumb").style.left = s.cursorPosition + "px";
+            document.querySelector(sliderSelector + " .slider-fill").style.width = s.cursorPosition + "px";
+        });
+
+        //register event handler to catch resizing events
+        addEvent(window, "resize",function(event){
+            if((s.offsetWidth - document.querySelector(sliderSelector + " .slider-thumb").offsetWidth) > 0) s.valPerPixel = (s.max - s.min) / (s.offsetWidth - document.querySelector(sliderSelector + " .slider-thumb").offsetWidth);
+            s.cursorPosition = (s.value- s.min) / s.valPerPixel;
+            s.recalculateViews();
+        });
+
+        s.recalculateViews();
+
+        return s;
+    };
+</script>
 
 <script type="text/javascript">
 
@@ -263,7 +544,7 @@
     de.is24.STATIC = de.is24.STATIC || {};
     de.is24.STATIC.umzugskostenrechner = de.is24.STATIC.umzugskostenrechner || {};
 
-    de.is24.STATIC.umzugskostenrechner = (function ($) {
+    de.is24.STATIC.umzugskostenrechner = (function () {
         "use strict";
 
         function addDecimalSeparatorsToNumberString(result) {
@@ -278,51 +559,51 @@
         }
 
         function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
-            var button = $('#removalcost-calculator .button-primary'),
+            var button = jQuery('#removalcost-calculator .button-primary'),
                     $button_link = button.attr("data-original-href");
             $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
             button.attr("href", $button_link);
         }
 
         function calculateRemovalCompanyCosts() {
-            var square_meter = parseInt($('#removalcost-calculator #square-meter-value').text(), 10),
-                    distance = parseInt(removeSpaceAndDotAndCommaFromText($('#distance-value').text()), 10),
-                    people = parseInt($('#removalcost-calculator #people').val(), 10),
-                    rooms =  parseInt($('#removalcost-calculator #rooms').val(), 10),
+            var square_meter = parseInt(jQuery('#removalcost-calculator #square-meter-value').text(), 10),
+                    distance = parseInt(removeSpaceAndDotAndCommaFromText(jQuery('#distance-value').text()), 10),
+                    people = parseInt(jQuery('#removalcost-calculator #people').val(), 10),
+                    rooms =  parseInt(jQuery('#removalcost-calculator #rooms').val(), 10),
                     number_boxes = (people * 4) + (rooms * 14.7) + (people * 0.6),
                     cbm = ((rooms * 9 + 12) * 0.4) + ((square_meter / 2) * 0.6) + (number_boxes * 0.06),
                     price = (cbm * 25) + (distance * 0.8) + ((3 * (2 * cbm)) + (cbm * 2)),
                     PRICE_ADJUSTMENT_FACTOR = 0.85;
             price = price * PRICE_ADJUSTMENT_FACTOR;
             price = Math.round(price / 25)*25;
-            $('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
+            jQuery('#price span#price-result').text(addDecimalSeparatorsToNumberString(price.toFixed(0)));
             changeRemovalCompaniesLinkParams(square_meter, people, rooms);
         }
-        
-        
+
+
         function initSelecter() {
-            var $selecter_holder = $('#removalcost-calculator .selecter-holder');
+            var $selecter_holder = jQuery('#removalcost-calculator .selecter-holder');
             $selecter_holder.each(function() {
-                var $this = $(this),
-                        $selecter_hidden_value_input = $('.selecter-value', $this),
-                        $selecter = $('.selecter', $this),
-                        $select_options = $('.select-options', $this),
+                var $this = jQuery(this),
+                        $selecter_hidden_value_input = jQuery('.selecter-value', $this),
+                        $selecter = jQuery('.selecter', $this),
+                        $select_options = jQuery('.select-options', $this),
                         current_value = $selecter_hidden_value_input.val(),
                         $current_option = $select_options.find('p[data-options-value="' + current_value + '"]');
                 $selecter.text($current_option.text());
                 $current_option.addClass("selected");
                 $selecter.click(function() {
-                    $('.selecter.open').each(function() {
-                        $(this).removeClass("open").next().fadeOut("fast");
+                    jQuery('.selecter.open').each(function() {
+                        jQuery(this).removeClass("open").next().fadeOut("fast");
                     });
-                    $(this).toggleClass("open").next().fadeToggle("fast");
+                    jQuery(this).toggleClass("open").next().fadeToggle("fast");
                 });
-                $('p', $select_options).click(function() {
-                    var $this = $(this),
+                jQuery('p', $select_options).click(function() {
+                    var $this = jQuery(this),
                             $this_all_options = $this.siblings(),
-                            $this_selecter_hidden_value_input = $($this.parent().parent().find('.selecter-value')),
-                            $this_select_options = $($this.parent()),
-                            $this_selecter = $($this_select_options.prev());
+                            $this_selecter_hidden_value_input = jQuery($this.parent().parent().find('.selecter-value')),
+                            $this_select_options = jQuery($this.parent()),
+                            $this_selecter = jQuery($this_select_options.prev());
                     $this_all_options.removeClass("selected");
                     $this.addClass("selected");
                     $this_selecter_hidden_value_input.val($this.attr("data-options-value")).trigger("change");
@@ -348,22 +629,25 @@
         }
 
         function initSliderTracking() {
-            var using = false;
-            $('#removalcost-calculator .slider-thumb').mousedown(function() {
+            var using = false,
+                    $sliderThumb = jQuery('#removalcost-calculator .slider-thumb');
+
+            $sliderThumb.mousedown(function() {
                 using = true;
-            })
-            $('#removalcost-calculator .slider-thumb').mouseup(function() {
+            });
+
+            $sliderThumb.mouseup(function() {
                 if (using && isTeliumActivated()) {
                     IS24.TEALIUM.tracking.report({evt_event: "umz_calculate", ns_type: "hidden"});
                 }
                 using = false;
-            })
+            });
         }
-        
+
         function isTeliumActivated() {
             return typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined';
         }
-            
+
         function init() {
             initSliders();
             initSelecter();
@@ -374,14 +658,11 @@
         }
 
         return {
-            init: function () {
-                return init();
-            }
+            init: init
         };
-    })(jQuery);
-    jQuery(function () {
-        "use strict";
-        de.is24.STATIC.umzugskostenrechner.init();
-    });
+    })();
 
+    if ("addEventListener" in document) {
+        document.addEventListener("DOMContentLoaded", de.is24.STATIC.umzugskostenrechner.init);
+    }
 </script>
