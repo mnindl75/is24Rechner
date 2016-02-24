@@ -271,7 +271,11 @@
                                                 <div>
                                                     <p id="price" class="font-brandorange margin-bottom-s">ab<span id="price-result" class="font-bold margin-left-s"></span> <span class="font-bold">&euro;</span>
                                                     </p>
-                                                    <a data-event="evtrack" data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;evt_count&quot;:&quot;umz_hp_rahmen&quot; }" class="button-primary button-orange padding-horizontal-m" data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" target="_self">
+                                                    <a data-event="evtrack"
+                                                       data-tracking="{&quot;ns_type&quot;:&quot;hidden&quot;,&quot;evt_count&quot;:&quot;umz_hp_rahmen&quot; }"
+                                                       class="button-primary button-orange padding-horizontal-m"
+                                                       data-original-href="http://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html?cmp_id=10-03536&amp;cmp_name=relocation_leadengine&amp;cmp_position=relocation_content&amp;cmp_creative=umzugskosten_relocationcalculator"
+                                                       target="_self">
                                                         Jetzt informieren
                                                     </a>
                                                 </div>
@@ -313,7 +317,7 @@
                 function changeRemovalCompaniesLinkParams(square_meter, people, rooms) {
                     var button = $('#result .button-primary'),
                             $button_link = button.attr("data-original-href");
-                    $button_link = $button_link + "?qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
+                    $button_link = $button_link + "&qm=" + square_meter + "&zimmer=" + rooms + "&personen=" + people;
                     button.attr("href", $button_link);
                 }
 
@@ -543,3 +547,5 @@
         </div>
     </section>
 </div>
+
+
