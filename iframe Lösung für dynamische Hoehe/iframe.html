@@ -1,0 +1,175 @@
+<script>
+    (function () {
+
+        // define functions only in scope
+        function move(element, delta, to) {
+
+            var initial_height = element.clientHeight;
+            var diff = initial_height - to;
+
+            if (diff >= 0 && diff <= 150) return true;
+
+            animate({
+                delay: 10,
+                duration: 1000, // 1 sec by default
+                delta: delta,
+                step: function (delta) {
+                    element.style.height = initial_height - (diff * delta) + "px";
+                }
+            })
+
+
+        }
+
+        function quad(progress) {
+            return Math.pow(progress, 4)
+        }
+
+
+        function animate(opts) {
+
+            var start = new Date
+
+            var id = setInterval(function () {
+                var timePassed = new Date - start
+                var progress = timePassed / opts.duration
+
+                if (progress > 1) progress = 1
+
+                var delta = opts.delta(progress)
+                opts.step(delta)
+
+                if (progress == 1) {
+                    clearInterval(id)
+                }
+            }, opts.delay || 10)
+
+        }
+
+        function getSearchParameters() {
+            var prmstr = window.location.search.substr(1);
+            return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+        }
+
+        function transformToAssocArray(prmstr) {
+            var params = {};
+            var prmarr = prmstr.split("&");
+            for (var i = 0; i < prmarr.length; i++) {
+                var tmparr = prmarr[i].split("=");
+                params[tmparr[0]] = decodeURIComponent(tmparr[1]);
+            }
+            return params;
+        }
+
+        function getElementByClass(matchClass, offset) {
+            offset = typeof offset !== 'undefined' ? offset : 0;
+            var elems = document.getElementsByTagName('div'), i;
+            for (i in elems) {
+                if ((' ' + elems[i].className + ' ').indexOf(' ' + matchClass + ' ') > -1) {
+                    if (offset == 0)
+                        return elems[i];
+                    else
+                        offset--;
+                }
+            }
+        }
+
+        try {
+
+
+            var frame = document.createElement('iframe');
+
+//        url = "https://partner.post-nachsendeauftrag.com/";
+            url = "https://partner.post-nachsendeauftrag.com/";
+            url += "step1_new.html?"
+            url += "pid=ims24"
+            url += "&amp;restrict=none"
+            url += "&amp;style=collapsed"
+
+            try { // try overloading in encapsulated procedure
+                var search_params = getSearchParameters();
+                var overloaded_params = "";
+                for (var prop in search_params) {
+                    if (prop.indexOf('na_partner_overload') == 0) {
+                        overloaded_params += "&amp;" + prop + "=" + encodeURIComponent(search_params[prop]);
+                    }
+                }
+                url += overloaded_params;
+            } catch (err) {
+            }
+
+            frame.src = url;
+            frame.style.padding = "0";
+            frame.style.border = "none";
+            frame.style.height = "1000px";
+            frame.style.width = "100%";
+            frame.style.margin = "0"
+
+            frame.setAttribute("scrolling", "no");
+
+            frame.setAttribute("id", "nachsendeauftrag_frame");
+
+            frame.setAttribute("frameborder", "0");
+            frame.setAttribute("name", "nachsendeauftrag");
+            var scriptTag = document.getElementsByTagName('script');
+            scriptTag = scriptTag[scriptTag.length - 1];
+            var parentTag = scriptTag.parentNode;
+            parentTag.appendChild(frame);
+
+        } catch (err) {
+        } // fail gracefully
+
+        (function () {
+            try { // try to bind the handlers (cross-browser) but fail gracefully
+                if (window.addEventListener) {
+                    window.addEventListener("message", ReceiveMessage, false);
+                } else {
+                    window.attachEvent("onmessage", ReceiveMessage);
+                }
+            } catch (err) {
+            }
+
+            function ReceiveMessage(e) {
+                move(document.getElementById('nachsendeauftrag_frame'), quad, parseInt(e.data) + 70);
+            }
+        })();
+
+    })();
+
+
+    function init_4dad22a5566c93198b929218fab7d201() {
+        if (typeof jQuery == "undefined" || typeof jQuery.fn.Zebra_Form == "undefined") {
+            setTimeout("init_4dad22a5566c93198b929218fab7d201()", 100);
+            return
+        } else {
+            $(document).ready(function () {
+                $("#form").Zebra_Form({
+                    scroll_to_error: true,
+                    tips_position: 'left',
+                    close_tips: false,
+                    validate_on_the_fly: false,
+                    validate_all: false,
+                    clientside_disabled: false,
+                    validation_rules: {
+                        "service_start_preselect": {"required": ["Sie m\u00fcssen die Art des Startzeitpunkt ausw\u00e4hlen."]},
+                        "service_start": {"regexp": ["^\\d{2}\\.\\d{2}\\.\\d{4}$", "Das Datum f\u00fcr den Beginn der Nachsendung hat das falsche Format. Bitte im Format: TT.MM.JJJJ angeben."]},
+                        "service_end": {"regexp": ["^\\d{2}\\.\\d{2}\\.\\d{4}$", "Das Datum f\u00fcr das Ende der Nachsendung hat das falsche Format. Bitte im Format: TT.MM.JJJJ angeben."]},
+                        "service_type": {"required": ["Sie haben einen unbekannte Art des Nachsendeauftrag ausgew\u00e4hlt [Nur Privat und Gesch\u00e4ftlich]"]}
+                    }
+                })
+            })
+        }
+    }
+    init_4dad22a5566c93198b929218fab7d201()
+
+
+</script>
+
+
+
+
+
+
+
+
+

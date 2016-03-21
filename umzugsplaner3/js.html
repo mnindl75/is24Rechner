@@ -16,6 +16,7 @@
 
     de.is24.umzug.umzugsplaner3 = de.is24.umzug.umzugsplaner3 || (function ($) {
         "use strict";
+        var isTeliumActivated;
         function initRemovalPlaner() {
             var $removalPlanerErrorBox = $('#removal-planer-error-box'),
                     $removalPlanerServerErrorBox = $('#removal-planer-server-error-box'),
@@ -108,6 +109,13 @@
                                     }
                                 } else if (data.status === "200") {
                                     $removalPlanerSuccessBox.removeClass("hide").addClass('block');
+                                    if (isTeliumActivated) {
+                                        IS24.TEALIUM.tracking.report({
+                                            evt_ga_category: 'relocation',
+                                            evt_ga_action: 'planner',
+                                            evt_ga_label: 'generate'
+                                        });
+                                    }
                                 }
                             }
                         }
@@ -141,6 +149,7 @@
             });
         }
         function init() {
+            isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined';
             initRemovalPlaner();
         }
         return {
