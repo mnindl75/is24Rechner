@@ -23,7 +23,7 @@
             height: 45px;
         }
         #eon-widget .button-primary {
-            margin-top: 48px;
+            margin-top: 43px;
         }
         .ui-menu {
             list-style: none;
@@ -55,16 +55,26 @@
             zoom: 1;
             color: #444444;
         }
+        @media screen and (min-width: 669px) {
+            #eon-widget .button-primary {
+                margin-top: 0px;
+            }
+            #eon-widget .slider-all-holder {
+                position: relative;
+                top: -2px;
+            }
+        }
+
     </style>
 
-    <div id="eon-widget" class="grid margin-m">
-        <div class="grid-item palm-one-whole lap-one-third">
-            <label class="block font-l margin-bottom-m" for="eon-widget-plz">Ihre Postleitzahl</label>
-            <input id="eon-widget-plz" type="text" class="input-text one-half" placeholder="PLZ"/>
+    <div id="eon-widget" class="grid margin-m desk-one-half">
+        <div class="grid-item palm-one-whole lap-one-third desk-one-third">
+            <label class="block font-l margin-bottom-s" for="eon-widget-plz">Ihre Postleitzahl</label>
+            <input id="eon-widget-plz" type="text" class="input-text palm-one-half lap-nine-tenths desk-nine-tenths" placeholder="PLZ"/>
         </div>
-        <div class="grid-item palm-one-whole lap-one-third margin-top-xl">
+        <div class="grid-item palm-one-whole lap-two-fifths desk-two-fifths margin-top-xl margin-right-s">
             <div class="slider-all-holder">
-                <ul class="margin-bottom-m">
+                <ul class="margin-bottom-s">
                     <li class="fa fa-user font-brandorange one-sixth"></li>
                     <li class="fa fa-user font-lightgray one-sixth"></li>
                     <li class="fa fa-user font-lightgray one-sixth"></li>
@@ -75,10 +85,10 @@
                 <div id="people-slider" class="clear-both"></div>
             </div>
         </div>
-        <div class="grid-item palm-one-whole lap-one-third grid">
+        <div class="grid-item palm-one-whole lap-one-fourth desk-one-fourth grid">
             <div class="grid-item palm-one-half">
-                <label class="block font-l margin-bottom-m" for="eon-widget-consumption">Ihr Verbrauch</label>
-                <input id="eon-widget-consumption" type="text" class="input-text font-l font-bold palm-eight-tenths lap-one-whole dek-one-whole"/>
+                <label class="block font-l margin-bottom-s" for="eon-widget-consumption">Ihr Verbrauch</label>
+                <input id="eon-widget-consumption" type="text" class="input-text font-l font-bold palm-eight-tenths lap-one-whole desk-one-whole"/>
                 <span class="input-unity">&nbsp;kWh</span>
             </div>
             <div class="grid-item palm-one-half">
