@@ -5,23 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="core.css">
     <link rel="stylesheet" type="text/css" href="umzugskostenrechner.css">
+    <link rel="stylesheet" type="text/css" href="jquery.ui.autocomplete.css">
     <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.10.4.custom.js"></script>
 </head>
 <body>
+    <style scoped>
+        #eon-widget .fa-user {
+            font-size: 30px;
+        }
+        #eon-widget .input-unity {
+            position: relative;
+            left: 75px;
+            top: -32px;
+        }
+        #eon-widget #eon-widget-consumption {
+            height: 45px;
+        }
+        #eon-widget .button-primary {
+            margin-top: 48px;
+        }
+        .ui-menu {
+            list-style: none;
+            padding: 2px;
+            margin: 0;
+            display: block;
+        }
+        .ui-autocomplete {
+            position: absolute;
+            cursor: default;
+            background-color: #ffffff;
+            cursor: pointer;
+            z-index: 999;
+        }
+        .ui-widget-content {
+            border: 1px solid #aaaaaa;
+            color: #222222;
+        }
+        .ui-menu .ui-menu-item {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .ui-menu .ui-menu-item a {
+            text-decoration: none;
+            display: block;
+            padding: .2em .4em;
+            line-height: 1.5;
+            zoom: 1;
+            color: #444444;
+        }
+    </style>
 
-    <div id="eon-widget" class="grid">
+    <div id="eon-widget" class="grid margin-m">
         <div class="grid-item palm-one-whole lap-one-third">
-            <label class="block" for="eon-widget-plz">Ihre Postleitzahl</label>
-            <input id="eon-widget-plz" type="text" class="input-text" placeholder="PLZ"/>
+            <label class="block font-l margin-bottom-m" for="eon-widget-plz">Ihre Postleitzahl</label>
+            <input id="eon-widget-plz" type="text" class="input-text one-half" placeholder="PLZ"/>
         </div>
-        <div class="grid-item palm-one-whole lap-one-third margin-vertical-l">
+        <div class="grid-item palm-one-whole lap-one-third margin-top-xl">
             <div class="slider-all-holder">
+                <ul class="margin-bottom-m">
+                    <li class="fa fa-user font-brandorange one-sixth"></li>
+                    <li class="fa fa-user font-lightgray one-sixth"></li>
+                    <li class="fa fa-user font-lightgray one-sixth"></li>
+                    <li class="fa fa-user font-lightgray one-sixth"></li>
+                    <li class="fa fa-user font-lightgray one-sixth"></li>
+                    <li class="fa fa-user font-lightgray"></li>
+                </ul>
                 <div id="people-slider" class="clear-both"></div>
             </div>
         </div>
-        <div class="grid-item palm-one-whole lap-one-third">
-            <label class="block" for="eon-widget-consumption"></label>
-            <input id="eon-widget-consumption" type="text" class="input-text"/>
+        <div class="grid-item palm-one-whole lap-one-third grid">
+            <div class="grid-item palm-one-half">
+                <label class="block font-l margin-bottom-m" for="eon-widget-consumption">Ihr Verbrauch</label>
+                <input id="eon-widget-consumption" type="text" class="input-text font-l font-bold palm-eight-tenths lap-one-whole dek-one-whole"/>
+                <span class="input-unity">&nbsp;kWh</span>
+            </div>
+            <div class="grid-item palm-one-half">
+                <button class="button-primary padding-horizontal-l">Preis berechnen</button>
+            </div>
+
         </div>
     </div>
 
@@ -318,8 +381,39 @@
         "use strict";
 
 
+        function initPlzAutocomplate() {
+            var $plz = $('#eon-widget-plz');
+            $plz.autocomplete({
+                source: function (request, response) {
+                    var result = [];
+                    if (request.term.length > 2) {
+                        $.ajax({
+                            url: "https://api.eon.de/cooperation/zipcodes/1.2?clientId=immoscout&limit=10&query=" + request.term,
+                            type: "GET",
+                            xhrFields: {withCredentials: !1},
+                            beforeSend: function(xhr){xhr.setRequestHeader('Authorization', "Bearer 9PSu_BHzTlLVSSszCwxPg0WHNCQa");},
+                            success: function(data) {
+                                console.log('Success!' + data);
+                                console.log(data);
+
+                                $.map(data.zipCodes, function(entry) {
+                                    var plz = entry.zipCode,
+                                        city = entry.cities[0].city;
+                                    result.push(plz + " " + city);
+                                });
+                                response(result);
+                            }
+                        });
+                    }
+                },
+                select: function(event, ui) {
+                    console.log("test")
+                }
+            });
+        }
+
         function initSliders() {
-            var people_slider = initSlider("#eon-widget #people-slider", 0, 6, 1, "notSet_ChangeHandler_do_it", 1);
+            var people_slider = initSlider("#eon-widget #people-slider", 1, 6, 1, "notSet_ChangeHandler_do_it", 1);
             $('#eon-widget #eon-widget-consumption').val("1.500");
             people_slider.changeHandler = function (value) {
                 var khw = "1.500";
@@ -337,6 +431,14 @@
                     case 6: khw = "7.000";
                         break;
                 }
+                $('#eon-widget .fa-user').each(function(key, elem) {
+                    var $elem = $(elem);
+                    if((key) < people_slider.value ) {
+                        $elem.removeClass("font-lightgray").addClass("font-brandorange");
+                    } else {
+                        $elem.removeClass("font-brandorange").addClass("font-lightgray");
+                    }
+                });
                 $('#eon-widget #eon-widget-consumption').val(khw);
             };
 
@@ -344,6 +446,7 @@
 
 
         function init() {
+            initPlzAutocomplate();
             initSliders();
         }
 
