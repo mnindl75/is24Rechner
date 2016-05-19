@@ -15,6 +15,7 @@
     <style scoped>
         #eon-widget .fa-user {
             font-size: 30px;
+            cursor: pointer;
         }
         #eon-widget #eon-widget-consumption {
             height: 45px;
@@ -39,7 +40,7 @@
         }
 
         #eon-widget .slider-thumb {
-            top: -10px;
+            top: -9px;
             position: absolute;
             width: 26px;
             height: 26px;
@@ -151,12 +152,12 @@
         <div class="grid-item palm-one-whole lap-two-fifths desk-two-fifths margin-top-xl margin-right-s">
             <div class="slider-all-holder">
                 <ul class="margin-bottom-s">
-                    <li class="fa fa-user font-brandorange one-sixth"></li>
-                    <li class="fa fa-user font-lightgray one-sixth"></li>
-                    <li class="fa fa-user font-lightgray one-sixth"></li>
-                    <li class="fa fa-user font-lightgray one-sixth"></li>
-                    <li class="fa fa-user font-lightgray one-sixth"></li>
-                    <li class="fa fa-user font-lightgray"></li>
+                    <li class="fa fa-user font-brandorange one-sixth" data-slider-value="1"></li>
+                    <li class="fa fa-user font-lightgray one-sixth" data-slider-value="2"></li>
+                    <li class="fa fa-user font-lightgray one-sixth" data-slider-value="3"></li>
+                    <li class="fa fa-user font-lightgray one-sixth" data-slider-value="4"></li>
+                    <li class="fa fa-user font-lightgray one-sixth" data-slider-value="5"></li>
+                    <li class="fa fa-user font-lightgray" data-slider-value="6"></li>
                 </ul>
                 <div id="people-slider" class="clear-both"></div>
             </div>
@@ -167,8 +168,10 @@
                 <input id="eon-widget-consumption" type="text" class="input-text font-l font-bold palm-eight-tenths lap-one-whole desk-one-whole"/>
             </div>
             <div class="grid-item palm-one-half">
-                <button class="button-primary padding-horizontal-l">Preis berechnen</button>
+                <a href="" data-original-href="https://eon.sandbox-immobilienscout24.de/tarifInformation.html?productType=Strom&productName=E.ON+ImmobilienScout24+Strom&tariffType=et&customerType=pk" class="button-primary padding-horizontal-l">Preis berechnen</a>
             </div>
+
+
 
         </div>
     </div>
@@ -401,9 +404,30 @@
         de.is24.STATIC.eonWidget = (function () {
             "use strict";
 
+            var people_slider,
+                $plz = $('#eon-widget-plz'),
+                $consumption = $('#eon-widget #eon-widget-consumption'),
+                $button = $('#eon-widget .button-primary'),
+                originalUrl = $button.attr("data-original-href");
+
+            function changeParamsTarifpagelink() {
+                var zipCodeParam,
+                    cityParam,
+                    consumptionParam,
+                    target = $plz.val(),
+                    differIndex = target.indexOf(" "),
+                    changedHref;
+
+                if (target.length > 0) {
+                    zipCodeParam = target.substring(0, differIndex);
+                    cityParam = target.substring(differIndex + 1);
+                    consumptionParam = $consumption.val().replace(/\./g, '');
+                    changedHref = originalUrl + "&zipCode=" + zipCodeParam + "&city=" + cityParam + "&consumption=" + consumptionParam;
+                    $button.attr("href", changedHref);
+                }
+            }
 
             function initPlzAutocomplate() {
-                var $plz = $('#eon-widget-plz');
                 $plz.autocomplete({
                     source: function (request, response) {
                         var result = [];
@@ -414,9 +438,6 @@
                                 xhrFields: {withCredentials: !1},
                                 beforeSend: function(xhr){xhr.setRequestHeader('Authorization', "Bearer 9PSu_BHzTlLVSSszCwxPg0WHNCQa");},
                                 success: function(data) {
-                                    console.log('Success!' + data);
-                                    console.log(data);
-
                                     $.map(data.zipCodes, function(entry) {
                                         var plz = entry.zipCode,
                                             city = entry.cities[0].city;
@@ -428,14 +449,15 @@
                         }
                     },
                     select: function(event, ui) {
-                        console.log("test")
+                        $plz.val(ui.item.value);
+                        changeParamsTarifpagelink()
                     }
                 });
             }
 
             function initSliders() {
-                var people_slider = initSlider("#eon-widget #people-slider", 1, 6, 1, "notSet_ChangeHandler_do_it", 1);
-                $('#eon-widget #eon-widget-consumption').val("1.500");
+                people_slider = initSlider("#eon-widget #people-slider", 1, 6, 1, "notSet_ChangeHandler_do_it", 1);
+                $consumption.val("1.500");
                 people_slider.changeHandler = function (value) {
                     var khw = "1.500";
                     switch (people_slider.value) {
@@ -460,13 +482,23 @@
                             $elem.removeClass("font-brandorange").addClass("font-lightgray");
                         }
                     });
-                    $('#eon-widget #eon-widget-consumption').val(khw);
+                    $consumption.val(khw);
+                    changeParamsTarifpagelink()
                 };
             }
+
+            function initClickHandlerForUserIcons() {
+                $('#eon-widget .fa-user').click(function() {
+                    people_slider.setValue(parseInt($(this).attr("data-slider-value"), 10));
+                })
+            }
+
             function init() {
                 initPlzAutocomplate();
                 initSliders();
+                initClickHandlerForUserIcons();
             }
+
             return {
                 init: init
             };
