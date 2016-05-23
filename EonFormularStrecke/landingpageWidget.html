@@ -411,6 +411,7 @@
                 originalUrl = $button.attr("data-original-href");
 
             function changeParamsTarifpagelink() {
+                console.log("ufruf");
                 var zipCodeParam,
                     cityParam,
                     consumptionParam,
@@ -424,10 +425,11 @@
                     consumptionParam = $consumption.val().replace(/\./g, '');
                     changedHref = originalUrl + "&zipCode=" + zipCodeParam + "&city=" + cityParam + "&consumption=" + consumptionParam;
                     $button.attr("href", changedHref);
+                    $('#eon-widget .button-primary').removeAttr("disabled");
                 }
             }
 
-            function initPlzAutocomplate() {
+            function initPlzAutocomplete() {
                 $plz.autocomplete({
                     source: function (request, response) {
                         var result = [];
@@ -494,9 +496,13 @@
             }
 
             function init() {
-                initPlzAutocomplate();
+                initPlzAutocomplete();
                 initSliders();
                 initClickHandlerForUserIcons();
+                if($('#eon-widget #eon-widget-plz').val().length === 0) {
+                    $('#eon-widget .button-primary').attr("disabled", true);
+                }
+
             }
 
             return {
