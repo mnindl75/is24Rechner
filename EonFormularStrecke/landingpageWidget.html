@@ -9,10 +9,7 @@
 </head>
 <body>
 
-
-
-
-    <style scoped>
+    <style id="eon-widget-styles" scoped>
         #eon-widget .fa-user {
             font-size: 30px;
             cursor: pointer;
@@ -411,7 +408,6 @@
                 originalUrl = $button.attr("data-original-href");
 
             function changeParamsTarifpagelink() {
-                console.log("ufruf");
                 var zipCodeParam,
                     cityParam,
                     consumptionParam,
@@ -495,7 +491,16 @@
                 })
             }
 
+            function writeStylesInHead() {
+                // autocomplete layer is direct under body. style scoped in firefox is going and no correct layout is tge result
+                var $eonWidgetStyles = $('#eon-widget-styles'),
+                    $head = $('head');
+                $head.append('<style>' + $eonWidgetStyles.html() + '</style>');
+                $eonWidgetStyles.html('');
+            }
+
             function init() {
+                writeStylesInHead();
                 initPlzAutocomplete();
                 initSliders();
                 initClickHandlerForUserIcons();
