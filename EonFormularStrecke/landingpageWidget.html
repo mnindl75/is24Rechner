@@ -165,7 +165,7 @@
                 <input id="eon-widget-consumption" type="text" class="input-text font-l font-bold palm-eight-tenths lap-one-whole desk-one-whole"/>
             </div>
             <div class="grid-item palm-one-half">
-                <a href="" data-original-href="https://eon.sandbox-immobilienscout24.de/tarifInformation.html?productType=Strom&productName=E.ON+ImmobilienScout24+Strom&tariffType=et&customerType=pk" class="button-primary padding-horizontal-l">Preis berechnen</a>
+                <a href="" data-original-href="https://eon.sandbox-immobilienscout24.de/tarifInformation.html?productType=Strom&amp;productName=E.ON+ImmobilienScout24+Strom&amp;tariffType=et&amp;customerType=pk" class="button-primary padding-horizontal-l">Preis berechnen</a>
             </div>
 
 
@@ -419,7 +419,7 @@
                     zipCodeParam = target.substring(0, differIndex);
                     cityParam = target.substring(differIndex + 1);
                     consumptionParam = $consumption.val().replace(/\./g, '');
-                    changedHref = originalUrl + "&zipCode=" + zipCodeParam + "&city=" + cityParam + "&consumption=" + consumptionParam;
+                    changedHref = originalUrl + "&amp;zipCode=" + zipCodeParam + "&amp;city=" + cityParam + "&amp;consumption=" + consumptionParam;
                     $button.attr("href", changedHref);
                     $('#eon-widget .button-primary').removeAttr("disabled");
                 }
