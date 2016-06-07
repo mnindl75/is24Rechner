@@ -419,7 +419,7 @@
                     zipCodeParam = target.substring(0, differIndex);
                     cityParam = target.substring(differIndex + 1);
                     consumptionParam = $consumption.val().replace(/\./g, '');
-                    changedHref = originalUrl + "&amp;zipCode=" + zipCodeParam + "&amp;city=" + cityParam + "&amp;consumption=" + consumptionParam;
+                    changedHref = originalUrl + "&zipCode=" + zipCodeParam + "&city=" + cityParam + "&consumption=" + consumptionParam;
                     $button.attr("href", changedHref);
                     $('#eon-widget .button-primary').removeAttr("disabled");
                 }
