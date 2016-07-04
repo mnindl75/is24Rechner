@@ -456,10 +456,21 @@
             }
 
             function initSliders() {
-                people_slider = initSlider("#eon-widget #people-slider", 1, 6, 1, "notSet_ChangeHandler_do_it", 1);
-                $consumption.val("1.500");
+                function setPeopleIcons() {
+                    $('#eon-widget .fa-user').each(function(key, elem) {
+                        var $elem = $(elem);
+                        if((key) < people_slider.value ) {
+                            $elem.removeClass("font-lightgray").addClass("font-brandorange");
+                        } else {
+                            $elem.removeClass("font-brandorange").addClass("font-lightgray");
+                        }
+                    });
+                }
+                people_slider = initSlider("#eon-widget #people-slider", 1, 6, 2, "notSet_ChangeHandler_do_it", 1);
+                setPeopleIcons();
+                $consumption.val("2.500");
                 people_slider.changeHandler = function (value) {
-                    var khw = "1.500";
+                    var khw = "2.500";
                     switch (people_slider.value) {
                         case 1: khw = "1.500";
                             break;
@@ -474,14 +485,7 @@
                         case 6: khw = "7.000";
                             break;
                     }
-                    $('#eon-widget .fa-user').each(function(key, elem) {
-                        var $elem = $(elem);
-                        if((key) < people_slider.value ) {
-                            $elem.removeClass("font-lightgray").addClass("font-brandorange");
-                        } else {
-                            $elem.removeClass("font-brandorange").addClass("font-lightgray");
-                        }
-                    });
+                    setPeopleIcons();
                     $consumption.val(khw);
                     changeParamsTarifpagelink()
                 };
