@@ -405,7 +405,8 @@
                 $plz = $('#eon-widget-plz'),
                 $consumption = $('#eon-widget #eon-widget-consumption'),
                 $button = $('#eon-widget .button-primary'),
-                originalUrl = $button.attr("data-original-href");
+                originalUrl = $button.attr("data-original-href"),
+                useAutoComplete = false;
 
             function changeParamsTarifpagelink() {
                 var zipCodeParam,
@@ -415,14 +416,13 @@
                     differIndex = target.indexOf(" "),
                     changedHref;
 
-                if (target.length > 0) {
+                if (target.length > 0 && useAutoComplete) {
                     zipCodeParam = target.substring(0, differIndex);
                     cityParam = target.substring(differIndex + 1);
                     consumptionParam = $consumption.val().replace(/\./g, '');
                     if (zipCodeParam.length > 0 && cityParam.length > 0) {
                         changedHref = originalUrl + "&zipCode=" + zipCodeParam + "&city=" + cityParam + "&consumption=" + consumptionParam;
                         $button.attr("href", changedHref);
-                        $('#eon-widget .button-primary').removeAttr("disabled");
                     }
                 }
             }
@@ -449,10 +449,19 @@
                         }
                     },
                     select: function(event, ui) {
+                        useAutoComplete = true;
                         $plz.val(ui.item.value);
-                        changeParamsTarifpagelink()
+                        changeParamsTarifpagelink();
+                        $('#eon-widget .button-primary').removeAttr("disabled");
                     }
                 });
+                $plz.keyup(function(event) {
+                    if (event.keyCode != 13) {
+                        useAutoComplete = false;
+                        $('#eon-widget .button-primary').attr("disabled", true);
+                        $button.attr("href", "");
+                    }
+                })
             }
 
             function initSliders() {
@@ -501,11 +510,20 @@
                 $eonWidgetStyles.html('');
             }
 
+            function initButton() {
+                $button.click(function(e) {
+                    if (!useAutoComplete) {
+                        e.preventDefault();
+                    }
+                });
+            }
+
             function init() {
                 writeStylesInHead();
                 initPlzAutocomplete();
                 initSliders();
                 initClickHandlerForUserIcons();
+                initButton();
                 if($('#eon-widget #eon-widget-plz').val().length === 0) {
                     $('#eon-widget .button-primary').attr("disabled", true);
                 }
