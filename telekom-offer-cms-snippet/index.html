@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>telekom offer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="core.css">
+    <script type="text/javascript" src="jquery-1.9.0.min.js"></script>
+</head>
+<body>
+<style scoped>
+    .selecter-holder {
+        position: relative;
+        float: right;
+    }
+    .selecter {
+        border: 1px solid #E0E0E0;
+        padding: 0.7142em;
+        background-color: #ffffff;
+        width: 95px;
+        line-height: 20px;
+        position: relative;
+        cursor: pointer;
+        min-height: 42px;
+    }
+    .selecter:after {
+             content: "";
+             position: absolute;
+             top: 1.3em;
+             right: 7px;
+             border-width: 7px;
+             border-color: #343434 transparent transparent;
+             border-style: solid;
+             width: 0;
+             height: 0;
+    }
+    .selecter-holder:hover {
+        color: #ff2200;
+    }
+    .selecter-holder:hover:after {
+        border-color: #ff2200 transparent transparent;
+    }
+    .selecter-holder.open {
+         padding-bottom: 10px;
+         border-color: #969696;
+    }
+    .selecter-holder.error {
+        border-color: red;
+    }
+    .selecter-holder.select-options {
+        display: none;
+        border: 1px solid #969696;
+        border-top: none;
+        padding: 2px 0 2px 2px;
+        position: absolute;
+        z-index: 999;
+        width: 100%;
+        background-color: #ffffff;
+    .selecter-holder.select-options p {
+        padding: 0 0 3px 6px;
+        cursor: pointer;
+    }
+    .selecter-holder.select-options p:hover {
+         color: #ff2200;
+    }
+    .selecter-holder.select-options p.selected {
+         color: #ff2200;
+     }
+
+
+</style>
+<div id="telekom-offer-cms-snippet">
+    <p class="font-xl margin-bottom-l">Der Umzugsservice der Telekom</p>
+    <p class="margin-bottom-l">
+        Unabhängig davon, ob Sie bereits Telekom Kunde sind oder derzeit noch einen Vertrag bei einen anderen Anbieter
+        haben - die Telekom macht Ihnen ein attraktives Angebot und begleitet Sie bei Ihrem Umzug. Nutzen Sie jetzt den
+        kostenlosen <span class="font-bold">Rückrufservice</span> der Telekom und lassen sich unverbindlich beraten.
+    </p>
+    <form>
+        <div class="grid">
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <input class="input-text" name="firstname"/>
+            </div>
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <input class="input-text" name="lastname"/>
+            </div>
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <input class="input-text" name="mobile"/>
+            </div>
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <div name="preferedPeriod" class="selecter-holder one-whole" >
+                    <div class="selecter">Rückrufzeit auswählen</div>
+                    <div class="select-options">
+                        <p options-value="8.00-12.00">8.00-12.00</p>
+                        <p options-value="12.00-15.00">12.00-15.00</p>
+                        <p options-value="15.00-19.00">15.00-19.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+
+
+    var de = de || {};
+    de.is24 = de.is24 || {};
+    de.is24.STATIC = de.is24.STATIC || {};
+    de.is24.STATIC.telekomOfferCallBack = de.is24.STATIC.telekomOfferCallBack || {};
+
+    de.is24.STATIC.telekomOfferCallBack = (function ($) {
+        "use strict";
+
+        function init() {
+
+        }
+
+        return {
+            init: function () {
+                return init();
+            }
+        };
+    })(jQuery);
+    jQuery(function () {
+        "use strict";
+        de.is24.STATIC.telekomOfferCallBack.init();
+    });
+
+</script>
+
+
+</body>
+</html>
