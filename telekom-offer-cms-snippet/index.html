@@ -9,6 +9,9 @@
 </head>
 <body>
 <style scoped>
+    #telekom-offer-cms-snippet .font-error {
+        display: none;
+    }
     #telekom-offer-cms-snippet .selecter-holder {
         position: relative;
         float: right;
@@ -20,8 +23,8 @@
         padding-bottom: 10px;
         border-color: #E0E0E0;
     }
-    #telekom-offer-cms-snippet .selecter-holder.error {
-        border-color: #ff2200;
+    #telekom-offer-cms-snippet .selecter.error {
+        border-color: #b80000;
     }
     #telekom-offer-cms-snippet .selecter:hover {
         color: #f57000;
@@ -126,7 +129,13 @@
          margin-right: 15px;
     }
     #telekom-offer-cms-snippet label.checkbox.error {
-         color: #b80000 !important;
+         color: #b80000;
+    }
+    #telekom-offer-cms-snippet label.checkbox.error i:before {
+        border-color: #b80000;
+    }
+    #telekom-offer-cms-snippet .status-message {
+        display: none;
     }
 
 </style>
@@ -137,45 +146,56 @@
         haben - die Telekom macht Ihnen ein attraktives Angebot und begleitet Sie bei Ihrem Umzug. Nutzen Sie jetzt den
         kostenlosen <span class="font-bold">Rückrufservice</span> der Telekom und lassen sich unverbindlich beraten.
     </p>
-    <div class="grid gutter-horizontal-l gutter-vertical-l">
-        <div class="grid-item palm-one-whole lap-one-half desk-one-half">
-            <input class="input-text one-whole" name="telekom-offer-firstname" placeholder="Vorname*"/>
-            <p class="font-error font-s">Geben Sie bitte Ihren Vornamen an.</p>
-        </div>
-        <div class="grid-item palm-one-whole lap-one-half desk-one-half">
-            <input class="input-text one-whole" name="telekom-offer-lastname" placeholder="Nachname*"/>
-            <p class="font-error font-s">Geben Sie bitte Ihren Nachnamen an.</p>
-        </div>
-        <div class="grid-item palm-one-whole lap-one-half desk-one-half">
-            <input class="input-text one-whole" name="telekom-offer-mobile" placeholder="Mobiltelefon-Nr.*"/>
-            <p class="font-error font-s">Geben Sie bitte eine richtige Mobilnummer an.</p>
-        </div>
-        <div class="grid-item palm-one-whole lap-one-half desk-one-half">
-            <div class="selecter-holder one-whole" >
-                <input type="hidden" name="telekom-offer-prefered-period" value="" />
-                <div class="selecter">Rückrufzeit auswählen*</div>
-                <div class="select-options padding-vertical-m padding-left-s">
-                    <p class="padding-bottom-s" data-options-value="8.00 - 12.00 Uhr">8.00 - 12.00 Uhr</p>
-                    <p class="padding-bottom-s" data-options-value="12.00 - 15.00 Uhr">12.00 - 15.00 Uhr</p>
-                    <p data-options-value="15.00 - 19.00 Uhr">15.00 - 19.00 Uhr</p>
-                </div>
+    <div id="whole-form">
+        <div class="grid gutter-horizontal-l gutter-vertical-l">
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <input class="input-text one-whole" name="telekom-offer-firstname" placeholder="Vorname*"/>
+                <p class="font-error font-s" id="telekom-offer-firstname-error">Geben Sie bitte Ihren Vornamen an.</p>
             </div>
-            <p class="font-error font-s">Wählen Sie bitte Ihre Rückrufzeit aus.</p>
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <input class="input-text one-whole" name="telekom-offer-lastname" placeholder="Nachname*"/>
+                <p class="font-error font-s" id="telekom-offer-lastname-error">Geben Sie bitte Ihren Nachnamen an.</p>
+            </div>
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <input class="input-text one-whole" name="telekom-offer-mobile" placeholder="Mobiltelefon-Nr.*"/>
+                <p class="font-error font-s" id="telekom-offer-mobile-error">Geben Sie bitte eine richtige Mobilnummer an.</p>
+            </div>
+            <div class="grid-item palm-one-whole lap-one-half desk-one-half">
+                <div class="selecter-holder one-whole" >
+                    <input type="hidden" name="telekom-offer-prefered-period" value="" />
+                    <div class="selecter">Rückrufzeit auswählen*</div>
+                    <div class="select-options padding-vertical-m padding-left-s">
+                        <p class="padding-bottom-s" data-options-value="8.00 - 12.00 Uhr">8.00 - 12.00 Uhr</p>
+                        <p class="padding-bottom-s" data-options-value="12.00 - 15.00 Uhr">12.00 - 15.00 Uhr</p>
+                        <p data-options-value="15.00 - 19.00 Uhr">15.00 - 19.00 Uhr</p>
+                    </div>
+                </div>
+                <p class="font-error font-s" id="telekom-offer-prefered-period-error">Wählen Sie bitte Ihre Rückrufzeit aus.</p>
+            </div>
+        </div>
+        <label data-value-selected="true" data-value-deselected="false"
+               class="checkbox long-label block margin-bottom-xs grey-background">
+            <i class="fa"></i>
+            Ja, ich möchte innerhalb von 48 Stunden einen kostenlosen Rückruf vom Umzugsteam erhalten und
+            unverbindlich zum Thema Umzug beraten werden.
+        </label>
+        <p class="font-error font-s" id="telekom-offer-agb-error">Bestätigen Sie bitte die AGB.</p>
+        <div class="lap-hide desk-hide one-whole align-center margin-top-m">
+            <button class="button-primary padding-horizontal-l font-m">Absenden</button>
+        </div>
+        <div class="palm-hide one-whole align-right margin-top-l">
+            <button class="button-primary padding-horizontal-l font-m">Absenden</button>
         </div>
     </div>
-    <label data-value-selected="true" data-value-deselected="false"
-           class="checkbox long-label block margin-bottom-xs grey-background">
-        <i class="fa"></i>
-        Ja, ich möchte innerhalb von 48 Stunden einen kostenlosen Rückruf vom Umzugsteam erhalten und
-        unverbindlich zum Thema Umzug beraten werden.
-    </label>
-    <p class="font-error font-s">Bestätigen Sie bitte die AGB.</p>
-    <div class="lap-hide desk-hide one-whole align-center margin-top-m">
-        <button class="button-primary padding-horizontal-l font-m">Absenden</button>
+
+    <div class="status-message status-confirm">
+        <h2 class="font-l padding-top-none">Vielen Dank</h2>
+        <p class="align-center font-confirm">
+            Sie erhalten in den nächsten Minuten eine SMS mit einem Bestätigungslink. Bitte bestätigen sie diesen.
+        </p>
     </div>
-    <div class="palm-hide one-whole align-right margin-top-l">
-        <button class="button-primary padding-horizontal-l font-m">Absenden</button>
-    </div>
+
+
 </div>
 <script type="text/javascript">
 
@@ -188,11 +208,20 @@
     de.is24.STATIC.telekomOfferCallBack = (function ($) {
         "use strict";
 
+        function initInputFields() {
+            $('#telekom-offer-cms-snippet .input-text').keyup(function() {
+                $('.font-error').hide();
+                $('.input-text').removeClass('error');
+            })
+        }
+
         function initSelectbox() {
             var $selecter =  $('#telekom-offer-cms-snippet .selecter'),
                 $selectOptionContainer =  $('#telekom-offer-cms-snippet .select-options'),
                 $hiddenInputSelecter = $('#telekom-offer-cms-snippet .selecter-holder input[type="hidden"]');
             $selecter.click(function() {
+                $selecter.removeClass('error');
+                $('#telekom-offer-prefered-period-error').hide();
                 $selecter.addClass("open");
                 $selectOptionContainer.css('display','block');
             });
@@ -215,40 +244,79 @@
         function initCheckbox() {
             var $checkbox = $('#telekom-offer-cms-snippet .checkbox');
             $checkbox.click(function() {
-                $(this).toggleClass("selected");
+                $('#telekom-offer-agb-error').hide();
+                $(this).removeClass('error').toggleClass("selected");
             });
         }
 
         function initSubmitButton(){
+            var firstname,
+                lastname,
+                mobile,
+                preferedPeriod;
             $('#telekom-offer-cms-snippet .button-primary').click(function() {
-                var restAPICall = "http://localhost:8080/umzugsexpose/rest/availableservices/doubleoptin";
-                $.ajax(restAPICall, {
-                    method: 'POST',
-                    headers: {
-                        "X-UMZUG-TOKEN": "GGwDfn9Um6o2qPuiZhi69YSTS55H9Pf0/ugCQ6P0v91U7prZxpMyVSzsHjjBDz6N"
-                    },
-                    data: {
-                        "lastname": "Nindl",
-                        "firstname": "Rainer",
-                        "mobile": "01785140138",
-                        "preferedPeriod": "8.00-12.00 Uhr"
-                    }
-                }).done(function(result){
+                var restAPICall = "https://www.sandbox-immobilienscout24.de/umzugsexpose/rest/availableservices/doubleoptin",
+                    checkFields = function() {
+                        firstname = $('input[name="telekom-offer-firstname"]').val();
+                        lastname = $('input[name="telekom-offer-lastname"]').val();
+                        mobile = $('input[name="telekom-offer-mobile"]').val();
+                        preferedPeriod = $('input[name="telekom-offer-prefered-period"]').val();
+                        if (firstname.length === 0) {
+                            $('input[name="telekom-offer-firstname"]').addClass('error');
+                            $('#telekom-offer-firstname-error').show();
+                            return false;
+                        } else if(lastname.length === 0) {
+                            $('input[name="telekom-offer-lastname"]').addClass('error');
+                            $('#telekom-offer-lastname-error').show();
+                            return false;
+                        } else if(mobile.length === 0) {
+                            $('input[name="telekom-offer-mobile"]').addClass('error');
+                            $('#telekom-offer-mobile-error').show();
+                            return false;
+                        } else if(preferedPeriod.length === 0) {
+                            $('#telekom-offer-cms-snippet .selecter').addClass('error');
+                            $('#telekom-offer-prefered-period-error').show();
+                            return false;
+                        } else if (!($('#telekom-offer-cms-snippet .checkbox').hasClass('selected'))) {
+                            $('#telekom-offer-cms-snippet .checkbox').addClass('error');
+                            $('#telekom-offer-agb-error').show();
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    };
 
-                    console.log("ging oder")
-                    console.log(result)
+                if (checkFields()) {
+                    $.ajax(restAPICall, {
+                        method: 'POST',
+                        headers: {
+                            "X-UMZUG-TOKEN": "GGwDfn9Um6o2qPuiZhi69YSTS55H9Pf0/ugCQ6P0v91U7prZxpMyVSzsHjjBDz6N",
+                        },
+                        contentType : 'application/json',
+                        data: JSON.stringify({
+                            "firstname": firstname,
+                            "lastname": lastname,
+                            "mobile": mobile,
+                            "preferedPeriod": preferedPeriod
+                        })
+                    }).done(function(result){
+                        if (result.status === "invalid" && result.message === "wrong mobile format") {
+                            $('input[name="telekom-offer-mobile"]').addClass('error');
+                            $('#telekom-offer-mobile-error').show();
+                        } else {
+                            $('#telekom-offer-cms-snippet #whole-form').hide();
+                            $('#telekom-offer-cms-snippet .status-message').show();
+                        }
 
-                }).fail(function(jqXHR, textStatus, errorThrown){
-
-                    console.log("ging nicht wa")
-                    console.log(textStatus)
-
-                });
-
+                    }).fail(function(jqXHR, textStatus, errorThrown){
+                        alert("Leider ist steht Service momentan nicht zur Verfügung!")
+                    });
+                }
             })
         }
 
         function init() {
+            initInputFields();
             initSelectbox();
             initCheckbox();
             initSubmitButton();
