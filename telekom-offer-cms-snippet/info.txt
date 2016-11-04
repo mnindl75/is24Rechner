@@ -1,0 +1,6 @@
+
+
+das ist der Teaser zum öffnen
+https://cms.rz.is/cf#/content/campaigns/is24/expose/accordion/kabeldeutschland-teaser.html
+der ist der layer der geöffnet wird, so wie er in der index.html steht
+https://cms.rz.is/cf#/content/campaigns/is24/expose/accordion/telekom-offer-call-back.html
