@@ -198,7 +198,7 @@
             <button class="button-primary one-whole">Absenden</button>
         </div>
         <div class="palm-hide one-whole align-right margin-top-l">
-            <button class="button-primary padding-horizontal-l">Absenden</button>
+            <button class="button-primary padding-horizontal-l" data-ng-click="report()">Absenden</button>
         </div>
     </div>
 
@@ -218,9 +218,22 @@
     de.is24 = de.is24 || {};
     de.is24.STATIC = de.is24.STATIC || {};
     de.is24.STATIC.telekomOfferCallBack = de.is24.STATIC.telekomOfferCallBack || {};
+    IS24.TEALIUM.tracking = IS24.TEALIUM.tracking || {};
 
     de.is24.STATIC.telekomOfferCallBack = (function ($) {
         "use strict";
+
+        function reportToGoogle(label) {
+            var gaParams = {
+                "pag_pagetitle": window.COUNTERNAME + ".expose",
+                "evt_ga_category": "expose",
+                "evt_ga_action": "accordion",
+                "evt_ga_label": label
+            };
+            if (IS24.TEALIUM) {
+                IS24.TEALIUM.tracking.report(gaParams);
+            }
+        }
 
         function initInputFields() {
             $('#telekom-offer-cms-snippet .input-text').keyup(function() {
@@ -269,6 +282,7 @@
                     mobile,
                     preferedPeriod;
             $('#telekom-offer-cms-snippet .button-primary').click(function() {
+
                 var restAPICall = "/umzugsexpose/rest/availableservices/doubleoptin",
                         checkFields = function() {
                             firstname = $('input[name="telekom-offer-firstname"]').val();
@@ -317,14 +331,19 @@
                         if (result.status === "invalid" && result.message === "wrong mobile format") {
                             $('input[name="telekom-offer-mobile"]').addClass('error');
                             $('#telekom-offer-mobile-error').show();
+                            reportToGoogle("internet_error");
                         } else {
                             $('#telekom-offer-cms-snippet #whole-form').hide();
                             $('#telekom-offer-cms-snippet .status-message').show();
+                            reportToGoogle("internet_success");
                         }
 
                     }).fail(function(jqXHR, textStatus, errorThrown){
                         alert("Leider steht der Service momentan nicht zur Verfügung!")
+                        reportToGoogle("internet_error");
                     });
+                } else {
+                    reportToGoogle("internet_error");
                 }
             })
         }
@@ -346,7 +365,6 @@
         "use strict";
         de.is24.STATIC.telekomOfferCallBack.init();
     });
-
 </script>
 
 
