@@ -13,11 +13,11 @@
         background-color: #f6f6f6;
         border: 1px solid #e0e0e0;
     }
+    #telekom-offer-cms-snippet .form-grid .grid-item {
+        height: 48px;
+    }
     #telekom-offer-cms-snippet .input-text {
         font-size: 1em;
-    }
-    #telekom-offer-cms-snippet .grid-item {
-        height: 48px;
     }
     #telekom-offer-cms-snippet .font-error {
         display: none;
@@ -96,7 +96,7 @@
     #telekom-offer-cms-snippet label.checkbox i {
         font-size: 14px;
         position: relative;
-        top: 5px;
+        top: 1px;
         margin-right: 6px;
     }
     #telekom-offer-cms-snippet label.checkbox i:before {
@@ -132,13 +132,14 @@
         content: "\f00c";
         position: absolute;
         z-index: 10;
-        top: 5px;
-        right: 3px;
+        top: 3px;
+        right: 5px;
         cursor: pointer;
     }
     #telekom-offer-cms-snippet label.checkbox.long-label i {
         display: block;
-        height: 150px;
+        height: 30px;
+        width: 24px;
         float: left;
         margin-right: 15px;
     }
@@ -148,20 +149,34 @@
     #telekom-offer-cms-snippet label.checkbox.error i:before {
         border-color: #b80000;
     }
+    #telekom-offer-cms-snippet label.checkbox span {
+        display: block;
+        width: 70%;
+    }
     #telekom-offer-cms-snippet .status-message {
         display: none;
     }
 
 </style>
 <div id="telekom-offer-cms-snippet" class="padding-xl">
-    <p class="font-m font-light">Der Umzugsservice der Telekom</p>
-    <p class="margin-bottom-l">
-        Unabhängig davon, ob Sie bereits Telekom Kunde sind oder derzeit noch einen Vertrag bei einem anderen Anbieter
-        haben - die Telekom macht Ihnen ein attraktives Angebot und begleitet Sie bei Ihrem Umzug. Nutzen Sie jetzt den
-        kostenlosen <span class="font-bold">Rückrufservice</span> der Telekom und lassen sich unverbindlich beraten.
+    <p class="font-m font-light margin-bottom-s">Internet- und Telefonanschluss umziehen</p>
+    <div class="grid margin-bottom-m">
+        <div class="grid-item palm-one-whole lap-two-thirds desk-two-thirds">
+            <p>
+                Egal, ob Sie Telekom Kunde sind oder noch nicht - die Telekom macht Ihnen ein attraktives Angebot und begleitet
+                Sie beim Umzug Ihres Internet- und Telefonanschluss.
+            </p>
+        </div>
+        <div class="grid-item palm-one-whole lap-one-third desk-one-third align-center">
+            <img width="61" height="30" src="//www.immobilienscout24.de/content/dam/is24/umzug/bilder/Partner/telekom-logo-callbackservice.png"  alt="telekom"/>
+        </div>
+    </div>
+    <p class="margin-bottom-m">
+        Nutzen Sie jetzt den kostenlosen <span class="font-bold">Rückrufservice</span> der Telekom und lassen sich
+        unverbindlich beraten.
     </p>
     <div id="whole-form">
-        <div class="grid gutter-horizontal-l gutter-vertical-l">
+        <div class="grid gutter-horizontal-l gutter-vertical-l form-grid">
             <div class="grid-item palm-one-whole lap-one-half desk-one-half">
                 <input class="input-text one-whole" name="telekom-offer-firstname" placeholder="Vorname*"/>
                 <p class="font-error font-s" id="telekom-offer-firstname-error">Geben Sie bitte Ihren Vornamen an.</p>
@@ -181,25 +196,31 @@
                     <div class="select-options padding-vertical-m padding-left-s">
                         <p class="padding-bottom-s" data-options-value="8.00 - 12.00 Uhr">8.00 - 12.00 Uhr</p>
                         <p class="padding-bottom-s" data-options-value="12.00 - 15.00 Uhr">12.00 - 15.00 Uhr</p>
-                        <p data-options-value="15.00 - 19.00 Uhr">15.00 - 19.00 Uhr</p>
+                        <p class="padding-bottom-s" data-options-value="15.00 - 19.00 Uhr">15.00 - 19.00 Uhr</p>
+                        <p data-options-value="jederzeit">jederzeit</p>
                     </div>
                 </div>
                 <p class="font-error font-s" id="telekom-offer-prefered-period-error">Wählen Sie bitte Ihre Rückrufzeit aus.</p>
             </div>
         </div>
         <label data-value-selected="true" data-value-deselected="false"
-               class="checkbox long-label block margin-bottom-xs grey-background">
+               class="checkbox long-label block margin-bottom-xs grey-background overflow-hidden">
             <i class="fa"></i>
-            Ja, ich möchte innerhalb von 48 Stunden einen kostenlosen Rückruf vom Umzugsteam der Telekom erhalten und
-            unverbindlich zum Thema Umzug beraten werden.
+            <span class="float-left">
+                Ja, ich möchte innerhalb von 48 Stunden einen kostenlosen Rückruf vom Umzugsteam der Telekom erhalten und
+                unverbindlich zum Thema Umzug beraten werden.*
+            </span>
         </label>
         <p class="font-error font-s" id="telekom-offer-agb-error">Bestätigen Sie bitte die AGB.</p>
-        <div class="lap-hide desk-hide one-whole align-center margin-top-m">
-            <button class="button-primary one-whole">Absenden</button>
+        <div class="grid one-whole margin-top-m">
+            <div class="grid-item one-half">
+                <p class="font-s font-lightgray margin-left-xl margin-top-s">* erforderliche Angabe</p>
+            </div>
+            <div class="grid-item one-half align-right">
+                <button class="button-primary padding-horizontal-l" data-ng-click="report()">Absenden</button>
+            </div>
         </div>
-        <div class="palm-hide one-whole align-right margin-top-l">
-            <button class="button-primary padding-horizontal-l" data-ng-click="report()">Absenden</button>
-        </div>
+
     </div>
 
     <div class="status-message status-confirm">
@@ -211,6 +232,10 @@
 
 
 </div>
+
+
+
+
 <script type="text/javascript">
 
 
