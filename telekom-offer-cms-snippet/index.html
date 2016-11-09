@@ -260,11 +260,27 @@
             }
         }
 
+        function getUserinformation() {
+            $.get('/umzugsexpose/login/userInfo', function(data) {
+                var dataObj = data.userContactDetails,
+                    isPhoneMobile;
+                $('input[name="telekom-offer-firstname"]').val(dataObj.firstname);
+                $('input[name="telekom-offer-lastname"]').val(dataObj.lastname);
+                if (dataObj.phoneNumber !== null) {
+                    isPhoneMobile = /^(\+490?|0)1\d{8,10}$/.test( dataObj.phoneNumber.replace(/[/ ]+/g, "") );
+                    if (isPhoneMobile) {
+                        $('input[name="telekom-offer-mobile"]').val(dataObj.phoneNumber);
+                    }
+                }
+            })
+        }
+
         function initInputFields() {
             $('#telekom-offer-cms-snippet .input-text').keyup(function() {
                 $('.font-error').hide();
                 $('.input-text').removeClass('error');
             })
+            getUserinformation();
         }
 
         function initSelectbox() {
