@@ -46,7 +46,7 @@
             <div class="grid margin-bottom-m">
                 <div class="grid-item grid palm-one-whole lap-one-half desk-one-half margin-top-xs">
                     <span class="grid-item one-eighth fa fa-calendar font-xl font-brandorange margin-top-xs"></span>
-                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-s">Ihr Umzugstermin</span>
+                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-s">Ihr Umzugstermin*</span>
                 </div>
                 <div id="datepicker-holder" class="grid-item palm-one-whole lap-one-half desk-one-half">
                     <input readonly="readonly" autocomplete="off" id="datepicker" type="text" class="input-text one-whole" placeholder="TT MM JJJJ"/>
@@ -57,7 +57,7 @@
             <div class="grid margin-bottom-m">
                 <div class="grid-item grid palm-one-whole lap-one-half desk-one-half margin-top-xs">
                     <span class="grid-item one-eighth fa fa-envelope-o font-xl font-brandorange margin-top-xs"></span>
-                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-s">Ihre E-Mail-Adresse</span>
+                    <span class="grid-item seven-eighths font-l font-semibold font-info padding-horizontal-s">Ihre E-Mail-Adresse*</span>
                 </div>
                 <div class="grid-item palm-one-whole lap-one-half desk-one-half">
                     <input id="removal-planer-email" type="text" class="input-text one-whole" placeholder="muster@beispiel.de"/>
@@ -68,10 +68,11 @@
                 <input type="checkbox" class="input-checkbox" id="data-privacy" name="data-privacy"/>
                 <label for="data-privacy" class="label-radio">
                     Ich stimme der <a href="https://www.immobilienscout24.de/agb/datenschutz/Datenschutzeinwilligung/" target="_blank">Datenschutzeinwilligung</a>
-                    von ImmobilienScout24 zu.
+                    von ImmobilienScout24 zu.*
                 </label>
                 <p id="status-text-data-privacy" class="grid-item one-whole font-s margin-bottom-s font-error">&nbsp;</p>
             </div>
+            <p class="margin-bottom-m">*Pflichtangabe</p>
             <div class="align-center palm-one-whole lap-one-whole desk-four-fifths">
                 <button class="button-secondary padding-horizontal-xxl font-m">Jetzt Umzug planen</button>
             </div>
@@ -89,3 +90,166 @@
     </div>
 
 </div>
+<script>
+
+
+    /*global window */
+    /*global document */
+    /*global $ */
+    /*global alert */
+    /*global google */
+    /*global jQuery */
+    /*global Image*/
+    /*global de */
+    var de = de || {};
+    de.is24 = de.is24 || {};
+    de.is24.umzug = de.is24.umzug || {};
+
+    de.is24.umzug.umzugsplaner3 = de.is24.umzug.umzugsplaner3 || (function ($) {
+                "use strict";
+                var isTeliumActivated;
+                function initRemovalPlaner() {
+                    var $removalPlanerErrorBox = $('#removal-planer-error-box'),
+                            $removalPlanerServerErrorBox = $('#removal-planer-server-error-box'),
+                            $removalPlanerSuccessBox = $('#removal-planer-success-box'),
+                            $datepicker = $('#datepicker'),
+                            $email = $('#removal-planer-email'),
+                            $dataPrivacy = $('#data-privacy'),
+                            email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
+                            $status_text_date = $('#status-text-date'),
+                            $status_text_email = $('#status-text-email'),
+                            $status_text_dataPrivacy = $('#status-text-data-privacy'),
+                            error_text_date = "Bitte wählen Sie einen Umzugstermin aus.",
+                            error_text_email_wrong = "Bitte geben Sie eine gültige E-Mail Adresse ein.",
+                            error_text_dataPrivacy = "Bitte bestätigen Sie die Datenschutzeinwilligung.";
+
+
+                    function initDatepicker() {
+                        $.datepicker.regional.de = {
+                            monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
+                                'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                            monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                                'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                            dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+                        };
+                        $.datepicker.setDefaults($.datepicker.regional.de);
+                        $datepicker.datepicker({
+                            inline: true,
+                            dateFormat: 'dd.mm.yy',
+                            onSelect: function() {
+                                $status_text_date.html('&nbsp;');
+                                $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                                $datepicker.removeClass('error');
+                            },
+                            minDate: 1
+                        });
+                    }
+                    function register() {
+                        var removal_date = $datepicker.datepicker("getDate"),
+                                datepicker_value = $datepicker.val(),
+                                email_value = $email.val(),
+                                is_data_privacy  = $dataPrivacy.is(':checked');
+
+                        if (!datepicker_value.length > 0) {
+                            $status_text_date.text(error_text_date).fadeIn(1000);
+                            $datepicker.addClass('error');
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
+                        if (!email_value.length > 0 ) {
+                            $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                            $email.addClass('error');
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
+                        if(!is_data_privacy) {
+                            $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                            $dataPrivacy.addClass('error');
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
+
+                        if (datepicker_value.length > 0 && email_value.length > 0 && is_data_privacy) {
+                            $.ajax( {
+                                url: email_reg_link,
+                                async: false,
+                                data: {
+                                    "movingDate" : removal_date.getDate().toString() + '.' +
+                                    ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
+                                    "email" : email_value,
+                                    "faxnumber": "",
+                                    "dataPrivacy": true,
+                                    "successUrl": $('#removalplaner-box').attr('data-success-url')
+                                },
+                                success: function(data) {
+                                    if (data.status === "500") {
+                                        $removalPlanerServerErrorBox.removeClass("hide").addClass('block');
+                                    } else {
+                                        $removalPlanerServerErrorBox.removeClass("block").addClass('hide');
+                                        if (data.status === "400") {
+                                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                                            if (!data.email) {
+                                                $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                                                $email.addClass('error');
+                                            }
+                                            if (!data.movingDate) {
+                                                $status_text_date.text(error_text_date).fadeIn(1000);
+                                                $datepicker.addClass('error');
+                                            }
+                                            if (!data.dataPrivacy) {
+                                                $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                                                $dataPrivacy.addClass('error');
+                                            }
+                                        } else if (data.status === "200") {
+                                            $removalPlanerSuccessBox.removeClass("hide").addClass('block');
+                                            if (isTeliumActivated) {
+                                                IS24.TEALIUM.tracking.report({
+                                                    evt_ga_category: 'relocation',
+                                                    evt_ga_action: 'planner',
+                                                    evt_ga_label: 'generate'
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+
+                    function writeCSSForDatepickerInHead() {
+                        var $head = $('head');
+                        $head.append('<link type="text/css" href="/umzugsexpose/css/umzugsplaner/removalplanerForRemovalStartpage.css" rel="stylesheet"/>');
+                    }
+
+                    writeCSSForDatepickerInHead();
+                    initDatepicker();
+                    $('#trigger').click(function() {
+                        $datepicker.datepicker('show');
+                    });
+                    $email.focus(function() {
+                        $status_text_email.html('&nbsp;');
+                        $email.removeClass('error');
+                        $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                    });
+                    $dataPrivacy.click(function() {
+                        $status_text_dataPrivacy.html('&nbsp;');
+                        $dataPrivacy.removeClass('error');
+                        $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                    });
+                    $('#removalplaner-box .button-secondary').click(function (e) {
+                        e.preventDefault();
+                        register();
+                    });
+                }
+                function init() {
+                    isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined';
+                    initRemovalPlaner();
+                }
+                return {
+                    init: init
+                };
+            })(jQuery);
+    /*funktioniert leider nicht immer bei ready*/
+    jQuery(window).load(function () {
+        "use strict";
+        de.is24.umzug.umzugsplaner3.init();
+    });
+</script>
