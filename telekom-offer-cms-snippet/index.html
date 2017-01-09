@@ -264,16 +264,18 @@
             $.get('/umzugsexpose/login/userInfo', function(data) {
                 var dataObj = data.userContactDetails,
                     isPhoneMobile;
-                if (dataObj.firstname !== null) {
-                    $('input[name="telekom-offer-firstname"]').val(dataObj.firstname);
-                }
-                if (dataObj.lastname !== null) {
-                    $('input[name="telekom-offer-lastname"]').val(dataObj.lastname);
-                }
-                if (dataObj.phoneNumber !== null) {
-                    isPhoneMobile = /^(\+490?|0)1\d{8,10}$/.test( dataObj.phoneNumber.replace(/[/ ]+/g, "") );
-                    if (isPhoneMobile) {
-                        $('input[name="telekom-offer-mobile"]').val(dataObj.phoneNumber);
+                if (dataObj !== null) {
+                    if (dataObj.firstname !== null) {
+                        $('input[name="telekom-offer-firstname"]').val(dataObj.firstname);
+                    }
+                    if (dataObj.lastname !== null) {
+                        $('input[name="telekom-offer-lastname"]').val(dataObj.lastname);
+                    }
+                    if (dataObj.phoneNumber !== null) {
+                        isPhoneMobile = /^(\+490?|0)1\d{8,10}$/.test( dataObj.phoneNumber.replace(/[/ ]+/g, "") );
+                        if (isPhoneMobile) {
+                            $('input[name="telekom-offer-mobile"]').val(dataObj.phoneNumber);
+                        }
                     }
                 }
             })
