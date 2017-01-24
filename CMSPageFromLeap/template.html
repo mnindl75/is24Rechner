@@ -1,0 +1,671 @@
+<style scoped>
+    .content-wrapper .grid{margin-right:-16px !important;margin-left:-16px !important;}
+    .content-wrapper .grid-item{padding-right:16px !important;padding-left:16px !important;}
+    .content-wrapper img{max-width:100%;}
+    p{font-size:13px;margin-bottom:15px;}
+    .sectionheader__background{background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugsplaner-teaser.jpg") no-repeat;min-height:450px;border-bottom:1px solid #e0e0e0;}
+    .interactive-steps{display:none;background:#fff;padding:30px 20px;width:100%;max-width:700px;min-height:250px;margin-top:75px;}
+    .interactive-steps#start{display:inline-block;}
+    h1{font-size:28px;color:#343434;line-height:140%;margin:0 0 15px 0;font-weight:400;}
+    input.error, select.error, textarea.error{border:1px solid #b80000!important;background-color:#ffdddc!important;}
+    .font-error{color:#b80000!important;}
+    .mail-message{display:none;font-size:12px;text-align:left;margin-top:5px;margin-bottom:0;}
+
+    h2.back-to{position:relative;font-size:26px;display:inline-block;font-weight:400;margin-bottom:45px;margin-top:5px;line-height:120%;}
+    h2.back-to span{position:absolute;top:0;left:-50px;width:30px;cursor:pointer;}
+    h2.back-to span:before{display:inline-block;content:"\f104";font-family:FontAwesome;font-size:30px;}
+    h2.back-to strong{color:#ff7500;}
+    .interactive-answerbox{display:inline-block;}
+    .interactive-answerbox div:first-child{margin-left:0;}
+    .interactive-answerbox div{height:80px;border:3px solid #e0e0e0;border-radius:5px;width:180px;display:table;float:left;margin-left:22px;cursor:pointer;}
+    .interactive-answerbox div:hover{border-color:#ff7500;}
+    .interactive-answerbox p{display:table-cell;vertical-align:middle;font-size:14px;}
+    .interactive-list-content{text-align:center;}
+    .interactive-list-content ul{display:inline-block;text-align:left;margin-bottom:20px;}
+    .interactive-list-content ul li{display:inline-block;padding-left:25px;margin-left:30px;font-size:13px;position:relative;}
+    .interactive-list-content ul li:before{font-family:FontAwesome;position:absolute;top:-2px;left:0;font-size:16px;}
+    .interactive-list-content ul li:first-child{margin-left:0;}
+    .interactive-form-content{background:#ebebeb;padding:40px 20px;margin:0 -20px -30px -20px;}
+    .interactive-form-content div:first-child{width:275px;display:inline-block;vertical-align:top;}
+    .interactive-form-content div:last-child{width:390px;display:inline-block;vertical-align:top;}
+    .interactive-form-content .input-checkbox{margin-top:9px;display:inline-block;vertical-align:top;float:none;}
+    .interactive-form-content label{font-size:12px;width:245px;text-align:left;display:inline-block;vertical-align:top;margin:5px 0 0 10px;}
+    .interactive-form-content input#email{height:50px;border:1px solid #e0e0e0;border-right:0;border-radius:5px 0 0 5px;padding-left:20px;width:240px;display:inline-block;}
+    .interactive-form-content .button-primary{width:145px;height:50px;line-height:50px;padding:0;text-align:center;border-radius:0 5px 5px 0;display:inline-block;margin-left:-4px;}
+    .interactive-form-content  .mail-message{margin-bottom:-24px;}
+
+    #frage h2.back-to{font-size:25px;line-height:140%;}
+
+    #umzugsplaner{max-width:770px;margin-top:45px;}
+    #umzugsplaner h2.back-to{margin-bottom:20px;}
+    #umzugsplaner h2.back-to span{left:-60px;top:17px;}
+    #umzugsplaner .interactive-list-content ul li.first-listpoint:before{content:"\f0ea";}
+    #umzugsplaner .interactive-list-content ul li.second-listpoint:before{content:"\f0f3";}
+    #umzugsplaner .interactive-list-content ul li.third-listpoint:before{content:"\f0eb";}
+
+    #umzugsfirma{max-width:770px;margin-top:40px;padding-top:25px;}
+    #umzugsfirma h2.back-to{margin-bottom:20px;margin-top:0;}
+    #umzugsfirma h2.back-to span{left:-90px;top:17px;}
+    #umzugsfirma .interactive-form-content{padding:24px 20px 0px 20px;}
+    #umzugsfirma .interactive-list-content ul li{margin-left:20px;}
+    #umzugsfirma .interactive-list-content ul li:first-child{margin-left:0;}
+    #umzugsfirma .interactive-list-content ul li.first-listpoint:before{content:"\f132";}
+    #umzugsfirma .interactive-list-content ul li.second-listpoint:before{content:"\f02b";}
+    #umzugsfirma .interactive-list-content ul li.third-listpoint:before{content:"\f00c";}
+    #umzugsfirma .label-box{width:115px;margin-right:25px;display:inline-block;vertical-align:top;}
+    #umzugsfirma .label-box input{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:100%;height:50px;border:1px solid #e0e0e0;border-radius:5px;text-align:center;}
+    #umzugsfirma .interactive-form-content label{width:100%;font-size:14px;font-weight:700;text-align:center;text-transform:uppercase;line-height:28px;margin:0;}
+    #umzugsfirma .cta-content{width:345px;display:inline-block;margin-top:28px;}
+    #umzugsfirma .cta-content .button-primary{width:100%;border-radius:5px;margin-bottom:5px;}
+
+    #transporter, #umzugkarton{max-width:770px;margin-top:55px;padding-bottom:40px;}
+    #transporter h2.back-to, #umzugkarton h2.back-to{margin-bottom:30px;}
+    #transporter h2.back-to span{left:-120px;top:17px;}
+    #umzugkarton h2.back-to span{left:-90px;top:17px;}
+    #transporter .interactive-list-content, #umzugkarton .interactive-list-content{margin-bottom:15px;}
+    #transporter .interactive-list-content ul li.first-listpoint:before{content:"\f02b";}
+    #transporter .interactive-list-content ul li.second-listpoint:before{content:"\f00c";}
+    #transporter .interactive-list-content ul li.third-listpoint:before{content:"\f007";}
+    #umzugkarton .interactive-list-content ul li.first-listpoint:before{content:"\f02b";}
+    #umzugkarton .interactive-list-content ul li.second-listpoint:before{content:"\f005";}
+    #umzugkarton .interactive-list-content ul li.third-listpoint:before{content:"\f0d1";}
+    #transporter .button-primary, #umzugkarton .button-primary{height:50px;line-height:50px;padding:0 35px;font-weight:700;border-radius:5px;}
+
+    .select-headline{font-size:13px;color:#ff7500;line-height:160%;margin:0 0 10px 0;}
+    .select-content{display:block;margin-bottom:25px;}
+    .select-content select{width:115px;height:50px;background:#fff;display:inline-block;border-radius:0;}
+    .pretty-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding-left:20px;cursor:pointer;}
+    #select-umzugsmonat{border:1px solid #e0e0e0;border-radius:5px 0 0 5px;}
+    #select-umzugsjahr{border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;padding-left:30px;font-weight:700;}
+    .pretty-select-icon{position:relative;pointer-events:none;vertical-align:middle;display:inline-block;margin-left:-57px;width:50px;}
+    .pretty-select-icon:after{content:"\f107";display:inline-block;font-size:20px;font-family:FontAwesome;}
+    .cta{width:90px;height:50px;border-radius:0 5px 5px 0;padding:0;line-height:50px;}
+    .interactive-link{font-size:13px;line-height:140%;color:#2a7dc3;cursor:pointer;display:inline-block;}
+    .interactive-link:hover{text-decoration:underline;color:#ff7500;}
+    .interactive-link:after{display:inline-block;margin:0 0 0 5px;content:"\f105";color:#ff7500;font-family:FontAwesome;font-size:14px;}
+    .textimage{position:absolute;bottom:0;width:100%;height:50px;text-align:center;}
+    .textimage:before{width:100%;content:"";display:block;background:#fff;height:50px;position:absolute;z-index:1;opacity:0.7;}
+    .textimage div{position:relative;z-index:2;display:inline-block;}
+    .textimage div a{font-size:13px;line-height:50px;display:inline-block;padding:0 38px;}
+    .checklist-content{margin-top:24px;}
+    .checklist-content .grid{border-bottom:1px solid #e0e0e0;}
+    .checklist-headline{margin-bottom:0;}
+    div.titleblock{margin-top:70px;}
+    div.titleblock div h2{margin:0 0 50px 0;font-size:24px;font-weight:400;}
+    .advantage-content{position:relative;}
+    .advantage-umzugsfirma, .advantage-privatumzug{float:left;width:50%;}
+    .advantage-headline{background:#ebebeb;height:90px;}
+    .advantage-headline p{font-size:14px;line-height:140%;margin:0;text-align:center;padding-top:20px;}
+    .advantage-headline p:before{display:inline-block;content:"";height:38px;}
+    .advantage-umzugsfirma p:before{background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugsfirma-icon.png") no-repeat;width:86px;}
+    .advantage-privatumzug .advantage-listbox{padding-left:20px;border-left:1px solid #e0e0e0;}
+    .advantage-privatumzug p:before{background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/privatumzug-icon.png") no-repeat;width:71px;}
+    .advantage-headline p strong{display:block;}
+    .advantage-or{position:absolute;top:30px;left:50%;margin-left:-64px;width:128px;height:30px;font-size:14px;line-height:30px;text-align:center;background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/or-icon-horizontal.gif") no-repeat;display:block;}
+    .advantage-listbox{margin-top:25px;padding-right:15px;}
+    .advantage-listbox ul{padding-left:10px;}
+    .advantage-listbox ul li{font-size:13px;line-height:160%;padding-left:20px;position:relative;}
+    .advantage-listbox ul.positive-list{margin-bottom:10px;}
+    .advantage-listbox ul.positive-list li:before{content:"\f055";font-family:FontAwesome;display:block;color:#f57000;position:absolute;left:0;top:1px;}
+    .advantage-listbox ul.negative-list li:before{content:"\f056";font-family:FontAwesome;display:block;position:absolute;left:0;top:1px;}
+    div.titleblock hr{border-top:1px solid #e0e0e0;}
+    div.icon-headline div h2{margin-bottom:30px;}
+    .umzug-experten-headline span.headline-icon{position:relative;background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzug-experten-icon.png") center no-repeat #fff;width:139px;height:64px;display:inline-block;margin-top:-35px;margin-bottom:20px;}
+    ul.checklist{margin-bottom:30px;}
+    ul.checklist li{margin-bottom:8px;font-size:13px;line-height:140%;}
+    .umzug-experten-content .ctabox{margin-top:35px;}
+    .umzugskartons-content .ctabox{margin-top:30px;max-width:460px;}
+    .ctabox{text-align:center;max-width:476px;margin-top:25px;}
+    .ctabox .button-primary{padding:15px 35px;font-weight:700;}
+    .ctabox p{margin-top:5px;}
+    .umzugsplaner-headline span.headline-icon{position:relative;background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugsplaner-icon.png") center no-repeat #fff;width:95px;height:57px;display:inline-block;margin-top:-30px;margin-bottom:20px;}
+    .umzugsplaner-form-content{background:#ebebeb;padding:20px;max-width:460px;margin-top:-15px;}
+    .umzugsplaner-form-content form:after{content:"";display:block;clear:both;}
+    .umzugsplaner-form-content .input-checkbox{margin-top:4px;}
+    .umzugsplaner-form-content label{font-size:12px;margin-bottom:15px;}
+    .umzugsplaner-form-content input#email2{height:50px;border:1px solid #e0e0e0;border-right:0;border-radius:5px;padding-left:20px;width:100%;margin-right:-145px;padding-right:145px;float:left;}
+    .umzugsplaner-form-content .button-primary{width:145px;height:50px;line-height:50px;padding:0;text-align:center;float:left;border-radius:0 5px 5px 0;}
+    #umzugsplanerForm2 div:after{clear:both;display:block;content:"";}
+    .transporter-headline span.headline-icon{position:relative;background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/transporter-icon.png") center no-repeat #fff;width:172px;height:49px;display:inline-block;margin-top:-25px;margin-bottom:20px;}
+    .umzugskartons-content{margin-bottom:50px;}
+    .umzugskartons-content img{margin-top:5px;}
+    .umzugskartons-headline span.headline-icon{position:relative;background:url("https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugskartons-icon.png") center no-repeat #fff;width:145px;height:46px;display:inline-block;margin-top:-22px;margin-bottom:30px;}
+
+
+
+    @media (min-width: 768px){
+        .content-wrapper .grid-item{padding-right:24px !important;padding-left:24px !important;}
+        .content-wrapper .grid{margin-right:-24px !important;margin-left:-24px !important;}
+        .no-padding-left{padding-left:-0 !important;}
+        .content-layout main>*, .content-layout aside>*{margin-bottom:0;}
+        .content-layout--no-sidebar main{margin-bottom:10px;}
+        .no-desktop{display:none;}
+        .right-content{float:right;}
+    }
+
+    @media (max-width: 1484px){
+        .textimage div a{padding: 0 30px;}
+        .umzugsfirma-description br, .umzug-experten-content br, .transporter-content br, .umzugskartons-content br, .umzugsplaner-content br{display:none;}
+    }
+
+    @media (max-width: 1014px){
+        .textimage div a{padding: 0 5px;}
+        #transporter, #umzugkarton, #umzugsplaner, #umzugsfirma{max-width:750px;}
+        #umzugsfirma .interactive-list-content ul li{margin-left:10px;}
+        .advantage-umzugsfirma, .advantage-privatumzug{width:100%;float:none;text-align:center;}
+        .advantage-listbox{padding:0!important;text-align:left;display:inline-block;width:100%;max-width:280px;margin-top:20px;}
+        .advantage-privatumzug .advantage-listbox{padding-left:10px;border:0;}
+        .advantage-or{position:inherit;top:0;left:50%;width:44px;height:79px;font-size:12px;line-height:79px;background:url(https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/or-icon-vertical.gif) no-repeat;color:#fff;margin:30px 0 30px -22px;}
+
+        .umzugsplaner-form-content input#email2{margin-right:-125px;padding-right:125px;padding-left:10px;font-size:12px;}
+        .umzugsplaner-form-content .button-primary{font-size:12px;width:125px;}
+    }
+
+    @media (max-width: 767px){
+        .no-mobile{display:none;}
+        .content-wrapper{padding:0 16px;}
+        .content-wrapper--negate-padding{margin-left:-16px;margin-right:-16px;}
+        .lap-one-half, .lap-two-fourths, .lap-four-eighths, .lap-three-sixths, .lap-five-tenths, .lap-six-twelfths, .lap-one-third, .lap-two-sixths, .lap-four-twelfths{width:100%!important;}
+        .sectionheader__background{background-size:cover;min-height:100%;}
+        .interactive-content-bg{padding:30px 15px 120px 15px;}
+        .interactive-steps{max-width:100%!important;padding:25px 20px!important;min-height:100%!important;margin:0!important;}
+        h1{font-size:24px;}
+        .select-headline{font-size:15px;}
+        .interactive-link{margin:0;}
+        .checklist-content{margin-top:40px;}
+        .checklist-content .grid-item{margin-bottom:20px;}
+        .checklist-content .grid div:last-child{margin-bottom:40px;}
+        .checklist-content .grid{border:0;}
+        div.titleblock{margin-top:60px;}
+        div.titleblock.umzugsfirma-headline{margin-top:0;padding-top:40px;border-top:1px solid #e0e0e0;}
+        div.titleblock div h2{margin-bottom:20px;}
+        .advantage-or{margin-top:25px;margin-bottom:25px;}
+        .ctabox{margin-top:0!important;max-width:100%!important;}
+        .umzug-experten-content .ctabox p{margin-bottom:0;}
+        .umzug-experten-content img, .transporter-content img, .umzugskartons-content img{margin:10px 0 20px 0;}
+        ul.checklist{margin-bottom:20px;}
+        .umzugsplaner-content .checklist{margin-top:-10px;}
+        .umzugsplaner-form-content{margin-top:25px;}
+        .umzugskartons-content{margin-bottom:35px;}
+        .advantage-content{text-align:center;}
+        .advantage-umzugsfirma, .advantage-privatumzug{max-width:400px;display:inline-block;}
+        .interactive-answerbox div{float:none;margin:0 0 10px 0;width:250px;height:60px;}
+        h2.back-to{font-size:24px !important;margin-bottom:20px !important;display:block !important;margin-top:0 !important;line-height:140% !important;padding:0 20px;}
+        h2.back-to span{top:-10px !important;left:-10px !important;}
+        h2.back-to br{display:none;}
+        .select-content select{width:110px;}
+        .interactive-answerbox p br{display:none;}
+        .interactive-list-content ul{margin-bottom:10px;}
+        .interactive-list-content ul li{margin:0 0 10px 0 !important;display:block !important;}
+        .interactive-list-content ul li:last-child{margin:0 !important;}
+        #umzugsfirma form, #umzugsplaner form{width:320px;display:inline-block;}
+        #umzugsfirma .interactive-form-content, #umzugsplaner .interactive-form-content{margin-top:15px;}
+        #umzugsfirma .cta-content{width:100%;display:inline-block;margin-top:20px;margin-left:2px;}
+        #umzugsfirma .label-box{width:45%;margin-right:0;float:right;display:block;}
+        #umzugsfirma .label-box:first-child{float:left;}
+        .interactive-form-content{padding:20px;}
+        .interactive-form-content div:first-child{text-align:left;display:block;width:100%;margin-bottom:5px;}
+        .interactive-form-content .input-checkbox{margin-top:4px;}
+        .interactive-form-content label{width:290px;margin-top:0;}
+        .interactive-form-content div:last-child{width:320px;}
+        .interactive-form-content input#email{width:195px;padding-left:15px;}
+        .interactive-form-content .button-primary{width:125px;}
+        .umzugsplaner-form-content input#email2, .umzugsplaner-form-content .button-primary{font-size:14px;}
+        .interactive-form-content .mail-message{margin-bottom:0;}
+
+        .textimage{height:115px;text-align:left;}
+        .textimage:before{height:115px;}
+        .textimage div{width:50%;float:left;padding:0 15px;margin:15px 0;}
+        .textimage div a{padding:0;line-height:140%;display:block;margin-bottom:14px;position:relative;padding-left:15px;}
+        .textimage div a:before{content:"\f105";font-family:FontAwesome;display:inline-block;color:#ff7500;position:absolute;left:0;top:0;}
+    }
+
+    @media (max-width: 499px){
+        .sectionheader__background{background:url(https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugsplaner-teaser-mobile.jpg) no-repeat;background-size:cover;}
+    }
+
+    @media (max-width: 399px){
+        h2.back-to{font-size:22px !important;}
+        .select-content select{width:90px;padding-left:15px;}
+        #select-umzugsjahr{padding-left:20px;}
+        .cta{width:65px;}
+        .textimage div a{font-size:12px;}
+        .ctabox .button-primary{padding:10px;}
+        .umzugsplaner-form-content{margin-left:-16px;margin-right:-16px;padding:15px;}
+        .umzugsplaner-form-content input#email2, .umzugsplaner-form-content .button-primary{font-size:12px;}
+        #umzugsfirma form, #umzugsplaner form{width:100%;}
+        .pretty-select-icon{width:30px;margin-left:-36px;}
+        .interactive-form-content label{width:220px;}
+        .interactive-form-content div:last-child{width:100%;}
+        .interactive-form-content input#email{width:100%;padding-left:15px;border-right:1px solid #e0e0e0;border-radius:5px;margin-bottom:10px;}
+        .interactive-form-content .button-primary{width:100%;border-radius:5px;}
+        #transporter .button-primary, #umzugkarton .button-primary{padding:0 25px;}
+        #umzugsfirma .cta-content .button-primary{font-size:12px;}
+    }
+</style>
+<article>
+        <div class="par parsys">
+            <div class="sectionheader parbase section tmteaser">
+                <div class="sectionheader__background background-swap  content-wrapper--negate-padding absolute-container">
+                    <div class="parsys">
+                        <div class="flexigrid gridcomponent section">
+                            <div class="grid gutter">
+                                <div class="grid-item align-center">
+                                    <div class="interactive-content-bg">
+                                        <div class="interactive-steps" id="start">
+                                            <h1>Wissen Sie schon, wann Sie umziehen wollen?</h1>
+                                            <p class="select-headline"><strong>Bitte wählen Sie aus:</strong></p>
+                                            <div class="select-content">
+                                                <select name="umzugsmonat" tabindex="1" class="pretty-select" id="select-umzugsmonat">
+                                                    <option value="01">&nbsp;&nbsp;&nbsp;&nbsp;01</option>
+                                                    <option value="02">&nbsp;&nbsp;&nbsp;&nbsp;02</option>
+                                                    <option value="03">&nbsp;&nbsp;&nbsp;&nbsp;03</option>
+                                                    <option value="04">&nbsp;&nbsp;&nbsp;&nbsp;04</option>
+                                                    <option value="05">&nbsp;&nbsp;&nbsp;&nbsp;05</option>
+                                                    <option value="06">&nbsp;&nbsp;&nbsp;&nbsp;06</option>
+                                                    <option value="07">&nbsp;&nbsp;&nbsp;&nbsp;07</option>
+                                                    <option value="08">&nbsp;&nbsp;&nbsp;&nbsp;08</option>
+                                                    <option value="09">&nbsp;&nbsp;&nbsp;&nbsp;09</option>
+                                                    <option value="10">&nbsp;&nbsp;&nbsp;&nbsp;10</option>
+                                                    <option value="11">&nbsp;&nbsp;&nbsp;&nbsp;11</option>
+                                                    <option value="12">&nbsp;&nbsp;&nbsp;&nbsp;12</option>
+                                                </select>
+                                                <span class="pretty-select-icon"></span>
+                                                <select name="umzugsjahr" tabindex="1" class="pretty-select" id="select-umzugsjahr">
+                                                    <option value="2017">2017</option>
+                                                    <option value="2018">2018</option>
+                                                    <option value="2019">2019</option>
+                                                </select>
+                                                <span class="pretty-select-icon"></span>
+                                                <p class="cta button-primary" onclick="goToStep('frage')">Weiter</p>
+                                            </div>
+                                            <p class="interactive-link" onclick="goToStep('umzugsplaner')">Sie wissen noch nicht wann? Dann klicken Sie hier</p>
+                                        </div>
+
+                                        <div class="interactive-steps question-answer" id="frage">
+                                            <h2 class="back-to"><span onclick="goToLastStep()"></span>Wie möchten Sie Ihren Umzug durchführen?</h2>
+                                            <div class="interactive-answerbox">
+                                                <div><p onclick="goToStep('umzugkarton')"><strong>Allein</strong></p></div>
+                                                <div><p onclick="goToStep('transporter')"><strong>Mit<br/> Transporter</strong></p></div>
+                                                <div><p onclick="goToStep('umzugsfirma')"><strong>Mit<br/> Umzugsunternehmen</strong></p></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="interactive-steps question-answer" id="umzugsplaner">
+                                            <h2 class="back-to two-line"><span onclick="goToLastStep()"></span>Mit unserem <strong>Umzugsplaner</strong> erhalten Sie<br/> erste hilfreiche Tipps für Ihren Umzug</h2>
+                                            <div class="interactive-list-content">
+                                                <ul>
+                                                    <li class="first-listpoint"><strong>Persönlichen Umzugsplan</strong><br/> per E-Mail bekommen</li>
+                                                    <li class="second-listpoint"><strong>Erinnerungen an Aufgaben</strong><br/> erhalten &amp; nichts vergessen</li>
+                                                    <li class="third-listpoint"><strong>Wertvolle Umzugstipps</strong><br/> nutzen &amp; Überblick behalten</li>
+                                                </ul>
+                                            </div>
+                                            <div class="interactive-form-content">
+                                                <form method="get" action="https://www.immobilienscout24.de/umzug/ratgeber/planen/umzugsplaner.html" id="umzugsplanerForm1" onsubmit="return validateUmzugsplaner('umzugsplanerForm1')">
+                                                    <div>
+                                                        <input type="checkbox" class="input-checkbox" id="data-privacy" name="data-privacy">
+                                                        <label for="data-privacy" class="label-radio">
+                                                            Ich stimme der <a href="https://www.immobilienscout24.de/agb/datenschutz/Datenschutzeinwilligung/" target="_blank">Datenschutzeinwilligung</a>
+                                                            von ImmobilienScout24 zu.
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="text" class="mail" name="email" id="email" placeholder="E-Mail-Adresse eingeben">
+                                                        <input class="button-primary" type="submit" value="Jetzt anmelden">
+                                                        <p class="font-error mail-message">Bitte geben Sie eine gültige E-Mail Adresse ein.</p>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="interactive-steps question-answer" id="umzugsfirma">
+                                            <h2 class="back-to two-line"><span onclick="goToLastStep()"></span><strong>Umzugsunternehmen vergleichen</strong><br/> und dabei Zeit &amp; Geld sparen</h2>
+                                            <div class="interactive-list-content">
+                                                <ul>
+                                                    <li class="first-listpoint"><strong>Sicher umziehen</strong> mit<br/> qualitätsgeprüfter Umzugsfirma</li>
+                                                    <li class="second-listpoint"><strong>Über 1.000 Umzugsunternehmen</strong><br/>vergleichen &amp; dabei <strong>bis zu 70% sparen</strong></li>
+                                                    <li class="third-listpoint"><strong>Kostenlos &amp; unverbindlich</strong><br/> Angebote erhalten</li>
+                                                </ul>
+                                            </div>
+                                            <div class="interactive-form-content">
+                                                <form method="get" action="https://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html">
+                                                    <input type="hidden" name="cmp_id" value="10-03850"/>
+                                                    <input type="hidden" name="cmp_name" value="relocation_leadengine"/>
+                                                    <input type="hidden" name="cmp_position" value="relocation_content"/>
+                                                    <input type="hidden" name="cmp_creative" value="rundumservice"/>
+                                                    <div class="label-box">
+                                                        <label for="plz-von">von</label>
+                                                        <input type="tel" name="vonplz" id="plz-von" maxlength="5" placeholder="PLZ">
+                                                    </div>
+                                                    <div class="label-box">
+                                                        <label for="plz-nach">nach</label>
+                                                        <input type="tel" name="nachplz" id="plz-nach" maxlength="5" placeholder="PLZ">
+                                                    </div>
+                                                    <div class="cta-content">
+                                                        <input class="button-primary" type="submit" value="Jetzt Umzugsunternehmen vergleichen">
+                                                        <p><strong>Kostenlos &amp; unverbindlich</strong></p>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="interactive-steps question-answer" id="transporter">
+                                            <h2 class="back-to two-line"><span onclick="goToLastStep()"></span><strong>Transporter</strong> auf Stundenbasis<br/> für Ihren Umzug mieten</h2>
+                                            <div class="interactive-list-content">
+                                                <ul>
+                                                    <li class="first-listpoint"><strong>Bis zu 60% sparen</strong><br/> Benzin &amp; Versicherung inklusive</li>
+                                                    <li class="second-listpoint"><strong>Bequem &amp; schnell</strong><br/> Transporter online buchen</li>
+                                                    <li class="third-listpoint"><strong>Professionelle Kraft inklusive</strong><br/> Fährt Transporter &amp; packt mit an</li>
+                                                </ul>
+                                            </div>
+                                            <a class="button-primary" href="https://www.immobilienscout24.de/umzugsexpose/transportservice/ausschreibung">Jetzt Transporter auswählen</a>
+                                        </div>
+
+                                        <div class="interactive-steps question-answer" id="umzugkarton">
+                                            <h2 class="back-to two-line"><span onclick="goToLastStep()"></span><strong>Umzugskartons</strong> bequem online<br/> kaufen oder leihen</h2>
+                                            <div class="interactive-list-content">
+                                                <ul>
+                                                    <li class="first-listpoint"><strong>Geld sparen</strong> &amp; Umzugskartons<br/> günstig online bestellen</li>
+                                                    <li class="second-listpoint"><strong>Qualitätsprodukte erhalten</strong><br/> und alles sicher verpacken</li>
+                                                    <li class="third-listpoint"><strong>Kurze Lieferzeit</strong><br/> von 1-3 Werktagen</li>
+                                                </ul>
+                                            </div>
+                                            <a class="button-primary" href="https://www.immobilienscout24.de/umzug/ratgeber/planen/kartonrechner/umzugskartons.html">Zum Umzugsshop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="parbase section textimage">
+                        <div>
+                            <a href="https://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html">Umzugsunternehmen vergleichen</a>
+                            <a href="https://www.immobilienscout24.de/umzug/ratgeber/planen/umzugsplaner.html">Umzug planen</a>
+                        </div>
+                        <div>
+                            <a href="https://www.immobilienscout24.de/umzugsexpose/transportservice/ausschreibung">Transporter mieten</a>
+                            <a href="https://www.immobilienscout24.de/umzug/ratgeber/vorlagen/musterbrief-kuendigung.html">Zur Kündigungsvorlage</a>
+                            <a href="https://www.immobilienscout24.de/umzug/ratgeber/planen/kartonrechner/umzugskartons.html">Zum Umzugsshop</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section checklist-content">
+                <div class="grid gutter">
+                    <div class="grid-item lap-one-third palm-one-whole desk-four-twelfths align-center">
+                        <p class="checklist-headline"><strong>Kostenlos &amp; unverbindlich</strong><br/> Erhalten Sie passende Angebote</p>
+                    </div>
+                    <div class="grid-item lap-one-third palm-one-whole desk-four-twelfths align-center">
+                        <p class="checklist-headline"><strong>Einfach &amp; günstig</strong><br/> Ziehen Sie zum besten Preis um</p>
+                    </div>
+                    <div class="grid-item lap-one-third palm-one-whole desk-four-twelfths align-center">
+                        <p class="checklist-headline"><strong>Kompetent &amp; zuverlässig</strong><br/> Finden Sie eine ideale Umzugsfirma</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titleblock section umzugsfirma-headline">
+                <div class="align-center">
+                    <h2><span>Umzugsfirma oder selber machen?</span></h2>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section umzugsfirma-content">
+                <div class="grid gutter">
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths umzugsfirma-description">
+                        <p>
+                            Sicher haben Sie sich auch schon einmal diese Frage gestellt, wenn Sie an einen<br/> möglichen Umzug dachten. Wenngleich die <strong>Vorfreude</strong> auf die neue Wohnung<br/> oder das neue Haus mit jedem Tag wächst, ist ein Umzug in der Regel mit viel<br/> <strong>Zeitplanung und Organisation</strong> verbunden. Sie sollten daher die Vor- und<br/> Nachteile der verschiedenen Optionen, die Ihnen zur Verfügung stehen,<br/> gegeneinander abwägen.
+                        </p>
+                        <p>
+                            Im besten Fall starten Sie mit unserem <strong>Umzugsplaner</strong>, mit dem Sie all Ihre<br/> Aufgaben im Blick behalten und wichtige Umzugstipps erhalten. Auf diese Weise<br/> können Sie dem Umzug gelassen entgegensehen, weil Sie immer wissen, bis<br/> wann Sie etwas erledigt haben sollten.
+                        </p>
+                        <p>
+                            Möchten Sie ohne Hilfe umziehen, sollten Sie sich frühzeitig um einen<br/> <strong>Transporter sowie Umzugskartons</strong> kümmern, um dem Umzug entspannt<br/> entgegen zu sehen. Wenn Sie weniger Zeit haben oder es sich um einen großen<br/> Umzug handelt, lohnt es sich, wenn Sie <strong>Umzugsunternehmen vergleichen</strong>. Auf<br/> diese Weise können Sie qualifizierte und günstige Anbieter in Ihrer Nähe finden.
+                        </p>
+                    </div>
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths advantage-content no-padding-left">
+                        <div class="advantage-umzugsfirma">
+                            <div class="advantage-headline"><p><strong>Umzugsfirma</strong></p></div>
+                            <div class="advantage-listbox">
+                                <ul class="positive-list">
+                                    <li>Professionelle Umzugshelfer</li>
+                                    <li> Umzug innerhalb kurzer Zeit abgeschlossen</li>
+                                    <li>Umzugsstress gemindert</li>
+                                    <li>Transportiert sicher &amp; deckt Schäden</li>
+                                    <li>Übernimmt die logistische Planung</li>
+                                </ul>
+                                <ul class="negative-list">
+                                    <li>Kostenintensiver</li>
+                                    <li>An Zeitplan der Umzugsfirma gebunden</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="advantage-or">oder</p>
+                        <div class="advantage-privatumzug">
+                            <div class="advantage-headline"><p><strong>Privatumzug</strong></p></div>
+                            <div class="advantage-listbox">
+                                <ul class="positive-list">
+                                    <li>Kein Zeitdruck</li>
+                                    <li>Flexibel in der Planung</li>
+                                    <li>Günstig</li>
+                                    <li>Umzug mit Freunden kann Spaß machen</li>
+                                    <li>Selbst verursachte Schäden durch private Haftpflicht-Versicherung gedeckt</li>
+                                </ul>
+                                <ul class="negative-list">
+                                    <li>Transportschäden durch Freunde meist nicht versichert</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titleblock section umzug-experten-headline icon-headline">
+                <div class="align-center">
+                    <hr/>
+                    <span class="headline-icon"></span>
+                    <h2><span>Lassen Sie Ihren <strong>Umzug durch Experten</strong> durchführen</span></h2>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section umzug-experten-content">
+                <div class="grid gutter">
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths">
+                        <ul class="checklist">
+                            <li><strong>Sicher umziehen</strong> mit qualitätsgeprüfter Umzugsfirma</li>
+                            <li><strong>Über 1.000 Umzugsunternehmen</strong> vergleichen &amp; dabei bis zu 70% sparen</li>
+                            <li><strong>Kostenlos &amp; unverbindlich</strong> Angebote erhalten</li>
+                        </ul>
+                        <p>
+                            Ein Umzug kann nicht nur viel Zeit, sondern auch Energie und Kraft kosten. Je<br/> größer der Haushalt ist oder je weiter entfernt der neue Wohnort liegt, desto<br/> mehr Zeit müssen Sie einplanen. In einem solchen Fall kann es sich daher<br/> lohnen, wenn Sie den Umzug durch eine <strong>qualifizierte Umzugsfirma</strong><br/> durchführen lassen.
+                        </p>
+                        <img class="no-desktop" src="https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzug-experten.jpg" alt="ImmobilienScout24 - Umzug durch Experten" />
+                        <p>
+                            ImmobilienScout24 unterstützt Sie beim Vergleich von über 1.000 guten und<br/> zuverlässigen Umzugsunternehmen, wobei die <strong>Preisunterschiede bis zu 70%</strong><br/> betragen können. Erhalten Sie <strong>kostenlose und unverbindliche Angebote</strong><br/> von qualitätsgeprüften Umzugsunternehmen für einen sicheren Umzug.
+                        </p>
+                    </div>
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths no-padding-left">
+                        <img class="no-mobile" src="https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzug-experten.jpg" alt="ImmobilienScout24 - Umzug durch Experten" />
+                        <div class="ctabox">
+                            <a href="https://www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html" class="button-primary">Jetzt Umzugsunternehmen vergleichen</a>
+                            <p><strong>Kostenlos &amp; unverbindlich</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titleblock section umzugsplaner-headline icon-headline">
+                <div class="align-center">
+                    <hr/>
+                    <span class="headline-icon"></span>
+                    <h2><span>Überlassen Sie nichts dem Zufall – Nutzen Sie unseren <strong>Umzugsplaner</strong></span></h2>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section umzugsplaner-content">
+                <div class="grid gutter">
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths no-padding-left right-content">
+                        <p>
+                            Mit unserem <strong>praktischen Umzugsplaner</strong> denken Sie problemlos an alles. Legen Sie<br/> im Vorfeld eine Umzugscheckliste an, um zu sehen, bis wann Sie welche Aufgaben<br/> erledigen sollten, um dem Umzug entspannt entgegensehen zu können. Ihre<br/> <strong>Umzugscheckliste</strong> sollte möglichst detailliert sein und einen Zeitraum von circa 3<br/> Monaten vor dem Umzug bis zum Tag des Wohnungs- oder Hauswechsels umfassen.
+                        </p>
+                        <p>
+                            Die zeitliche Planung wird sich auszahlen, sodass Sie den Umzug stressfrei gestalten<br/> können. Der Umzugsplaner bietet Ihnen zusätzlich hilfreiche <strong>Tipps und Hinweise</strong> und<br/> zeigt, worauf Sie beim Umzug achten sollten. Profitieren Sie von Ihrem persönlichen<br/> Umzugsplan, der Ihnen per E-Mail zugeschickt wird und stellen Sie so sicher, dass Sie<br/> an alle wichtigen Aufgaben während des Umzugs erinnert werden.
+                        </p>
+                    </div>
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths">
+                        <ul class="checklist">
+                            <li><strong>Persönlichen Umzugsplan</strong> per E-Mail bekommen</li>
+                            <li><strong>Erinnerungen an Aufgaben</strong> erhalten &amp; nichts vergessen</li>
+                            <li><strong>Wertvolle Umzugstipps</strong> nutzen &amp; Überblick behalten</li>
+                        </ul>
+                        <div class="umzugsplaner-form-content">
+                            <form method="get" action="https://www.immobilienscout24.de/umzug/ratgeber/planen/umzugsplaner.html" id="umzugsplanerForm2" onsubmit="return validateUmzugsplaner('umzugsplanerForm2')">
+                                <input type="checkbox" class="input-checkbox" id="data-privacy2" name="data-privacy">
+                                <label for="data-privacy2" class="label-radio">
+                                    Ich stimme der <a href="https://www.immobilienscout24.de/agb/datenschutz/Datenschutzeinwilligung/" target="_blank">Datenschutzeinwilligung</a>
+                                    von ImmobilienScout24 zu.
+                                </label>
+                                <div>
+                                    <input type="text" class="mail" name="email" id="email2" placeholder="E-Mail-Adresse eingeben">
+                                    <input class="button-primary" type="submit" value="Jetzt anmelden">
+                                </div>
+                                <p class="font-error mail-message">Bitte geben Sie eine gültige E-Mail Adresse ein.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titleblock section transporter-headline icon-headline">
+                <div class="align-center">
+                    <hr/>
+                    <span class="headline-icon"></span>
+                    <h2><span>Mieten Sie einen <strong>Transporter</strong> &amp; ziehen Sie selbstständig um</span></h2>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section transporter-content">
+                <div class="grid gutter">
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths">
+                        <ul class="checklist">
+                            <li><strong>Bis zu 60% sparen</strong> – Benzin &amp; Versicherung inklusive</li>
+                            <li><strong>Bequem &amp; schnell</strong> Transporter online buchen</li>
+                            <li><strong>Professionelle Kraft inklusive</strong> – Fährt Transporter &amp; packt mit an</li>
+                        </ul>
+                        <p>
+                            Wenn Sie umziehen möchten und lieber selbst anpacken, dann sollten Sie im<br/> Vorfeld einen <strong>Transporter mieten</strong>. Hierbei kommt es auf die passende Größe<br/> des Fahrzeugs an, um sicherzustellen, dass Sie Ihren kompletten Hausrat mit<br/> einem Mal mitnehmen können. Sie können je nach Umfang des Umzugs<br/> zwischen drei verschiedenen Größen wählen, welche für 1 bis 3 Zimmer<br/> ausgelegt sind.
+                        </p>
+                        <img class="no-desktop" src="https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/transporter.jpg" alt="ImmobilienScout24 - Transporter" />
+                        <p>
+                            Als Zusatz erhalten Sie kostenfrei einen Fahrer, der ebenfalls beim Umzug<br/> mithelfen wird. Vor allem wenn Sie keinen Führerschein haben, kann das vorteilig<br/> für Sie sein. Wenn Sie weitere Umzugshelfer benötigen, können Sie diese<br/> ebenfalls zusätzlich buchen. Benzin und Versicherung sind inklusive, sodass Sie<br/> hier <strong>bis zu 60 Prozent sparen</strong> können. Die Vermietung erfolgt jeweils auf<br/> Stundenbasis, wodurch Sie vorab bereits Ihre Kosten bestimmen können.
+                        </p>
+                    </div>
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths no-padding-left">
+                        <img class="no-mobile" src="https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/transporter.jpg" alt="ImmobilienScout24 - Transporter" />
+                        <div class="ctabox"><a href="https://www.immobilienscout24.de/umzugsexpose/transportservice/ausschreibung" class="button-primary">Jetzt Transporter auswählen</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titleblock section umzugskartons-headline icon-headline">
+                <div class="align-center">
+                    <hr/>
+                    <span class="headline-icon"></span>
+                    <h2><span>Denken Sie an ausreichend <strong>Umzugskartons</strong></span></h2>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section umzugskartons-content">
+                <div class="grid gutter">
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths no-padding-left right-content">
+                        <ul class="checklist">
+                            <li><strong>Geld sparen</strong> &amp; Umzugskartons günstig online bestellen</li>
+                            <li><strong>Qualitätsprodukte</strong> erhalten &amp; alles sicher verpacken</li>
+                            <li><strong>Kurze Lieferzeit</strong> von 1-3 Werktagen</li>
+                        </ul>
+                        <p>
+                            Jeder Umzug ist mit einer Menge Arbeit verbunden. Daher ist es umso wichtiger, dass<br/> Sie im Vorfeld alles gut planen. Neben einem generellen Umzugsplan ist es auch<br/> wichtig, zu wissen, wie Sie Ihren Hausrat verpacken möchten. <strong>Umzugskartons</strong> sind<br/> dabei das Mittel der Wahl – praktisch, einfach und gut transportierbar.
+                        </p>
+                        <img class="no-desktop" src="https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugskartons.jpg" alt="ImmobilienScout24 - Umzugskartons" />
+                        <p>
+                            Umzugskartons können Sie dabei <strong>einfach, schnell und günstig</strong> online kaufen. Dabei<br/> können Sie sowohl auf klassische Kartons sowie Kleider- oder Archivboxen<br/> zurückgreifen, welche Ihren Umzug vereinfachen. Machen Sie sich am besten vorher<br/> Gedanken, welche Gegenstände Sie verpacken möchten und wie viele Umzugskartons<br/> Sie benötigen werden. Durch die ausschließlich <strong>hochwertigen Materialien</strong> kommt<br/> Ihr Hausrat garantiert sicher in die neue Wohnung oder ins neue Haus.
+                        </p>
+                    </div>
+                    <div class="grid-item lap-six-twelfths palm-one-whole desk-six-twelfths">
+                        <img class="no-mobile" src="https://www.sandbox-immobilienscout24.de/umzugsexpose/images/leapCmsPage/umzugskartons.jpg" alt="ImmobilienScout24 - Umzugskartons" />
+                        <div class="ctabox"><a href="https://www.immobilienscout24.de/umzug/ratgeber/planen/kartonrechner/umzugskartons.html" class="button-primary">Zum Umzugsshop</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flexigrid gridcomponent section border-top"><div class="grid gutter"> <div class="grid-item lap-one-half palm-one-whole desk-three-twelfths"> <div class="column1 parbase griditem"><div class="section title"><a href="//www.immobilienscout24.de/baufinanzierung/"><h4 class="margin-top-m font-m">Baufinanzierung</h4></a></div> <div class="listexternal parbase section"><ul class="icon-arrow "> <li><a href="//www.immobilienscout24.de/baufinanzierung/finanzierungsrechner/">Finanzierungsrechner</a></li> <li><a href="//www.immobilienscout24.de/baufinanzierung/ratgeber/wie-viel-haus-kann-ich-mir-leisten.html">Eigenkapital berechnen</a></li> <li><a href="//www.immobilienscout24.de/baufinanzierung/ratgeber/darlehen/hausfinanzierung-ohne-eigenkapital.html">Finanzieren ohne Eigenkapital</a></li> <li><a href="//www.immobilienscout24.de/baufinanzierung/ratgeber/anschlussfinanzierung.html">Anschlussfinanzierung</a></li> <li><a href="//www.immobilienscout24.de/baufinanzierung/ratgeber/darlehen/annuitaetendarlehen.html">Annuitätendarlehen</a></li> </ul> </div> </div> </div> <div class="grid-item lap-one-half palm-one-whole desk-three-twelfths"> <div class="parbase column2 griditem"><div class="section title"><a href="//www.immobilienscout24.de/ratgeber/renovieren.html"><h4 class="margin-top-m font-m">Bau &amp; Umbau</h4></a></div> <div class="listexternal parbase section"><ul class="icon-arrow "> <li><a href="//www.immobilienscout24.de/bauen/">Haus bauen</a></li> <li><a href="//www.immobilienscout24.de/bauen/fertighaus.html">Fertighäuser</a></li> <li><a href="//www.immobilienscout24.de/neubau/">Bauträger</a></li> <li><a href="//www.immobilienscout24.de/ratgeber/renovieren/heimwerken/kuechenplaner.html">Küchenplaner</a></li> <li><a href="//www.immobilienscout24.de/ratgeber/renovieren.html">Renovieren</a></li> </ul> </div> </div> </div> <div class="grid-item lap-one-half palm-one-whole desk-three-twelfths"> <div class="column3 parbase griditem"><div class="section title"><a href="//www.immobilienscout24.de/umzug/"><h4 class="margin-top-m font-m">Umzug</h4></a></div> <div class="listexternal parbase section"><ul class="icon-arrow "> <li><a href="//www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html">Umzugsfirmen</a></li> <li><a href="//www.immobilienscout24.de/umzugsexpose/transportservice/ausschreibung">Transporter mieten</a></li> <li><a href="//www.immobilienscout24.de/umzug/eigenregie/umzugsplanung.html">Umzugsplaner</a></li> <li><a href="//www.immobilienscout24.de/umzug/mietrecht/mietvertrag-und-kuendigung/musterbrief-kuendigung.html">Mietvertrag kündigen</a></li> <li><a href="//www.immobilienscout24.de/umzug/eigenregie/umzugsplanung/umzugscheckliste.html">Umzugscheckliste</a></li> </ul> </div> </div> </div> <div class="grid-item lap-one-half palm-one-whole desk-three-twelfths"> <div class="column4 parbase griditem"><div class="section title"><h4 class="margin-top-m font-m">Service</h4></div> <div class="section sourcecode"><ul class="icon-arrow"> <li> <a target="_blank" href="http://nachbarschaft.immobilienscout24.de/adressen/berlin,berlin,kreuzberg-kreuzberg.html" title="Nachbarschaft">Nachbarschaft</a> </li></ul></div> <div class="listexternal parbase section"><ul class="icon-arrow "> <li><a href="//www.immobilienscout24.de/baufinanzierung/ratgeber/hypothekenzinsen/zinsvergleich.html">Zinsvergleich</a></li> <li><a href="//www.immobilienscout24.de/bauen/bauplanung.html">Bauplaner</a></li> <li><a href="//www.immobilienscout24.de/baufinanzierung/ratgeber/immobilienkauf.html">Kaufplaner</a></li> <li><a href="//www.immobilienscout24.de/umzug/mietrecht/mietvertrag-und-kuendigung.html">Mietvertrag</a></li> </ul> </div> </div> </div> </div> </div>
+        </div>
+    </article>
+<script type="text/javascript">
+    var stepHistory = ["start"];
+    var stepNames = ["start", "frage", "umzugsplaner", "umzugsfirma", "transporter", "umzugkarton"];
+    var error = false;
+    var umzugMonth = umzugYear = '';
+    var _validateMail = function(mail) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(mail);
+    }
+    var _resetSteps = function() {
+        for(key in stepNames) {
+            id = stepNames[key];
+            document.getElementById(id).style.display = 'none';
+        }
+    };
+    var _showStep = function(stepId) {
+        _resetSteps();
+        document.getElementById(stepId).style.display='inline-block';
+    };
+    // --------------------------------------------------------------------------------------
+    var goToStep = function(stepId) {
+        if(stepId === 'frage'){
+            $(".error").removeClass("error");
+            umzugMonth = $("#select-umzugsmonat").val();
+            if(umzugMonth.length == 0){
+                $("#select-umzugsmonat").addClass("error");
+                return false;
+            }
+            else{
+                stepHistory.push(stepId);
+                _showStep(stepId);
+            }
+        }
+        else{
+            stepHistory.push(stepId);
+            _showStep(stepId);
+        }
+    };
+    var goToLastStep = function() {
+        if(stepHistory.length > 1) {
+            stepHistory.pop();
+            lastStepName = stepHistory[stepHistory.length - 1]
+            _showStep(lastStepName);
+        } else {
+            _showStep(stepNames[0]);
+        }
+    };
+    function validateUmzugsplaner(formId){
+        var error = false;
+        $('.mail-message').hide();
+        $('.error').removeClass('error');
+        var mail = $('#'+formId+' .mail').val();
+        var validate = _validateMail(mail);
+        if(!validate) {
+            $('#'+formId+' .mail').focus().select();
+            $('#'+formId+' .mail').addClass('error');
+            $('#'+formId+' .mail-message').show();
+            error = true;
+        }
+        if( !$('#'+formId+' .input-checkbox').is(':checked')){
+            $('#'+formId+' .input-checkbox').addClass('error');
+            error = true;
+        }
+        if(error === true) return false;
+    }
+</script>
