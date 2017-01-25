@@ -1,4 +1,3 @@
-/* framewok to include bei part javascript : /umzugsexpose/js/libs/jquery-ui-1.11.4-datepicker.min.js */
 <script>
 
 
@@ -15,147 +14,167 @@
     de.is24.umzug = de.is24.umzug || {};
 
     de.is24.umzug.umzugsplaner3 = de.is24.umzug.umzugsplaner3 || (function ($) {
-        "use strict";
-        var isTeliumActivated;
-        function initRemovalPlaner() {
-            var $removalPlanerErrorBox = $('#removal-planer-error-box'),
-                    $removalPlanerServerErrorBox = $('#removal-planer-server-error-box'),
-                    $removalPlanerSuccessBox = $('#removal-planer-success-box'),
-                    $datepicker = $('#datepicker'),
-                    $email = $('#removal-planer-email'),
-                    $dataPrivacy = $('#data-privacy'),
-                    email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
-                    $status_text_date = $('#status-text-date'),
-                    $status_text_email = $('#status-text-email'),
-                    $status_text_dataPrivacy = $('#status-text-data-privacy'),
-                    error_text_date = "Bitte wählen Sie einen Umzugstermin aus.",
-                    error_text_email_wrong = "Bitte geben Sie eine gültige E-Mail Adresse ein.",
-                    error_text_dataPrivacy = "Bitte bestätigen Sie die Datenschutzeinwilligung.";
+                "use strict";
+                function initRemovalPlaner() {
+                    var $removalPlanerErrorBox = $('#removal-planer-error-box'),
+                            $removalPlanerServerErrorBox = $('#removal-planer-server-error-box'),
+                            $removalPlanerSuccessBox = $('#removal-planer-success-box'),
+                            $datepicker = $('#datepicker'),
+                            $email = $('#removal-planer-email'),
+                            $dataPrivacy = $('#data-privacy'),
+                            email_reg_link = "/umzugsexpose/umzugsplaner/createEmails",
+                            $status_text_date = $('#status-text-date'),
+                            $status_text_email = $('#status-text-email'),
+                            $status_text_dataPrivacy = $('#status-text-data-privacy'),
+                            error_text_date = "Bitte wählen Sie einen Umzugstermin aus.",
+                            error_text_email_wrong = "Bitte geben Sie eine gültige E-Mail Adresse ein.",
+                            error_text_dataPrivacy = "Bitte bestätigen Sie die Datenschutzeinwilligung.";
 
 
-            function initDatepicker() {
-                $.datepicker.regional.de = {
-                    monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
-                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
-                };
-                $.datepicker.setDefaults($.datepicker.regional.de);
-                $datepicker.datepicker({
-                    inline: true,
-                    dateFormat: 'dd.mm.yy',
-                    onSelect: function() {
-                        $status_text_date.html('&nbsp;');
-                        $removalPlanerErrorBox.removeClass('block').addClass('hide');
-                        $datepicker.removeClass('error');
-                    },
-                    minDate: 1
-                });
-            }
-            function register() {
-                var removal_date = $datepicker.datepicker("getDate"),
-                    datepicker_value = $datepicker.val(),
-                    email_value = $email.val(),
-                    is_data_privacy  = $dataPrivacy.is(':checked');
+                    function initDatepicker() {
+                        $.datepicker.regional.de = {
+                            monthNames: ['Januar', 'Februar', 'M&#228;rz', 'April', 'Mai', 'Juni',
+                                'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                            monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                                'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                            dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                            dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+                        };
+                        $.datepicker.setDefaults($.datepicker.regional.de);
+                        $datepicker.datepicker({
+                            inline: true,
+                            dateFormat: 'dd.mm.yy',
+                            onSelect: function() {
+                                $status_text_date.html('&nbsp;');
+                                $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                                $datepicker.removeClass('error');
+                            },
+                            minDate: 1
+                        });
+                    }
+                    function register() {
+                        var removal_date = $datepicker.datepicker("getDate"),
+                                datepicker_value = $datepicker.val(),
+                                email_value = $email.val(),
+                                is_data_privacy  = $dataPrivacy.is(':checked');
 
-                if (!datepicker_value.length > 0) {
-                    $status_text_date.text(error_text_date).fadeIn(1000);
-                    $datepicker.addClass('error');
-                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                }
-                if (!email_value.length > 0 ) {
-                    $status_text_email.text(error_text_email_wrong).fadeIn(1000);
-                    $email.addClass('error');
-                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                }
-                if(!is_data_privacy) {
-                    $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
-                    $dataPrivacy.addClass('error');
-                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                }
+                        if (!datepicker_value.length > 0) {
+                            $status_text_date.text(error_text_date).fadeIn(1000);
+                            $datepicker.addClass('error');
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
+                        if (!email_value.length > 0 ) {
+                            $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                            $email.addClass('error');
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
+                        if(!is_data_privacy) {
+                            $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                            $dataPrivacy.addClass('error');
+                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                        }
 
-                if (datepicker_value.length > 0 && email_value.length > 0 && is_data_privacy) {
-                    $.ajax( {
-                        url: email_reg_link,
-                        async: false,
-                        data: {
-                            "movingDate" : removal_date.getDate().toString() + '.' +
-                            ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
-                            "email" : email_value,
-                            "faxnumber": "",
-                            "dataPrivacy": true,
-                            "successUrl": $('#removalplaner-box').attr('data-success-url')
-                        },
-                        success: function(data) {
-                            if (data.status === "500") {
-                                $removalPlanerServerErrorBox.removeClass("hide").addClass('block');
-                            } else {
-                                $removalPlanerServerErrorBox.removeClass("block").addClass('hide');
-                                if (data.status === "400") {
-                                    $removalPlanerErrorBox.removeClass('hide').addClass('block');
-                                    if (!data.email) {
-                                        $status_text_email.text(error_text_email_wrong).fadeIn(1000);
-                                        $email.addClass('error');
-                                    }
-                                    if (!data.movingDate) {
-                                        $status_text_date.text(error_text_date).fadeIn(1000);
-                                        $datepicker.addClass('error');
-                                    }
-                                    if (!data.dataPrivacy) {
-                                        $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
-                                        $dataPrivacy.addClass('error');
-                                    }
-                                } else if (data.status === "200") {
-                                    $removalPlanerSuccessBox.removeClass("hide").addClass('block');
-                                    if (isTeliumActivated) {
-                                        IS24.TEALIUM.tracking.report({
-                                            evt_ga_category: 'relocation',
-                                            evt_ga_action: 'planner',
-                                            evt_ga_label: 'generate'
-                                        });
+                        if (datepicker_value.length > 0 && email_value.length > 0 && is_data_privacy) {
+                            $.ajax( {
+                                url: email_reg_link,
+                                async: false,
+                                data: {
+                                    "movingDate" : removal_date.getDate().toString() + '.' +
+                                    ( removal_date.getMonth() + 1 ) + '.' + removal_date.getFullYear(),
+                                    "email" : email_value,
+                                    "faxnumber": "",
+                                    "dataPrivacy": true,
+                                    "successUrl": $('#removalplaner-box').attr('data-success-url')
+                                },
+                                success: function(data) {
+                                    if (data.status === "500") {
+                                        $removalPlanerServerErrorBox.removeClass("hide").addClass('block');
+                                    } else {
+                                        $removalPlanerServerErrorBox.removeClass("block").addClass('hide');
+                                        if (data.status === "400") {
+                                            $removalPlanerErrorBox.removeClass('hide').addClass('block');
+                                            if (!data.email) {
+                                                $status_text_email.text(error_text_email_wrong).fadeIn(1000);
+                                                $email.addClass('error');
+                                            }
+                                            if (!data.movingDate) {
+                                                $status_text_date.text(error_text_date).fadeIn(1000);
+                                                $datepicker.addClass('error');
+                                            }
+                                            if (!data.dataPrivacy) {
+                                                $status_text_dataPrivacy.text(error_text_dataPrivacy).fadeIn(1000);
+                                                $dataPrivacy.addClass('error');
+                                            }
+                                        } else if (data.status === "200") {
+                                            $removalPlanerSuccessBox.removeClass("hide").addClass('block');
+                                        }
                                     }
                                 }
-                            }
+                            });
                         }
+                    }
+
+                    function writeCSSForDatepickerInHead() {
+                        var $head = $('head');
+                        $head.append('<link type="text/css" href="/umzugsexpose/css/umzugsplaner/removalplanerForRemovalStartpage.css" rel="stylesheet"/>');
+                    }
+
+                    writeCSSForDatepickerInHead();
+                    initDatepicker();
+                    $('#trigger').click(function() {
+                        $datepicker.datepicker('show');
+                    });
+                    $email.focus(function() {
+                        $status_text_email.html('&nbsp;');
+                        $email.removeClass('error');
+                        $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                    });
+                    $dataPrivacy.click(function() {
+                        $status_text_dataPrivacy.html('&nbsp;');
+                        $dataPrivacy.removeClass('error');
+                        $removalPlanerErrorBox.removeClass('block').addClass('hide');
+                    });
+                    $('#removalplaner-box .button-primary').click(function (e) {
+                        e.preventDefault();
+                        register();
                     });
                 }
-            }
 
-            function writeCSSForDatepickerInHead() {
-                var $head = $('head');
-                $head.append('<link type="text/css" href="/umzugsexpose/css/umzugsplaner/removalplanerForRemovalStartpage.css" rel="stylesheet"/>');
-            }
 
-            writeCSSForDatepickerInHead();
-            initDatepicker();
-            $('#trigger').click(function() {
-                $datepicker.datepicker('show');
-            });
-            $email.focus(function() {
-                $status_text_email.html('&nbsp;');
-                $email.removeClass('error');
-                $removalPlanerErrorBox.removeClass('block').addClass('hide');
-            });
-            $dataPrivacy.click(function() {
-                $status_text_dataPrivacy.html('&nbsp;');
-                $dataPrivacy.removeClass('error');
-                $removalPlanerErrorBox.removeClass('block').addClass('hide');
-            });
-            $('#removalplaner-box .button-secondary').click(function (e) {
-                e.preventDefault();
-                register();
-            });
-        }
-        function init() {
-            isTeliumActivated = typeof ( window.IS24 && IS24.TEALIUM && IS24.TEALIUM.tracking && IS24.TEALIUM.tracking.report ) !== 'undefined';
-            initRemovalPlaner();
-        }
-        return {
-            init: init
-        };
-    })(jQuery);
+                function getUrlParameter() {
+                    var params =  window.location.search.substring(1).split("&"),
+                            emailValue;
+                    function setDateIn60Days() {
+                        var sixtyDaysInMillis = (24 * 60 * 60 * 1000) * 60,
+                            sixtyDaysInFutureInMillis = new Date().getTime() + sixtyDaysInMillis,
+                            sixtyDaysInFutureDate = new Date(sixtyDaysInFutureInMillis),
+                            dateMonth =  sixtyDaysInFutureDate.getMonth() + 1,
+                            month =  dateMonth < 10 ? "0" + dateMonth.toString() : dateMonth;
+                        $("#datepicker").val(sixtyDaysInFutureDate.getDate() + "." + month + "." + sixtyDaysInFutureDate.getFullYear());
+                    }
+
+                    for (var i in params) {
+                        if(params[i].indexOf("email=") > -1) {
+                            emailValue = params[i].substring(6);
+                            $("#removal-planer-email").val(decodeURIComponent(emailValue));
+                            setDateIn60Days();
+                        }
+                    }
+                }
+
+                function init() {
+                    initRemovalPlaner();
+                    getUrlParameter();
+                }
+
+
+
+
+
+                return {
+                    init: init
+                };
+            })(jQuery);
     /*funktioniert leider nicht immer bei ready*/
     jQuery(window).load(function () {
         "use strict";
