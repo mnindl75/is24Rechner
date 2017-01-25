@@ -1,0 +1,46 @@
+<style scoped>
+    .leadengine-banner {
+        background: url('//www.sandbox-immobilienscout24.de/umzugsexpose/images/is24HomepageBanner/bg-umzug-smart.jpg') 100% 6px no-repeat transparent;
+    }
+    .leadengine-banner .button-primary {
+        height: 3em;
+    }
+    @media screen and (min-width: 669px) {
+        .leadengine-banner {
+            background: url('//www.sandbox-immobilienscout24.de/umzugsexpose/images/is24HomepageBanner/bg-umzug-desk.jpg') 100% 0px no-repeat transparent;
+        }
+        .leadengine-banner .button-primary {
+            margin-top: 16px;
+        }
+    }
+    @media screen and (min-width: 1014px) {
+        .leadengine-banner {
+            padding-left: 80px !important;
+        }
+    }
+
+</style>
+<section class="leadengine-banner border padding padding-bottom-xxl">
+    <h3 class="margin-top-xxl">Umzugskosten berechnen</h3>
+    <p class="font-m margin-bottom-xl">Kostenlos und unverbindlich. Vergleichen und bis zu 70% sparen!</p>
+    <form method="post" action="//www.immobilienscout24.de/umzug/umzugsunternehmen/vergleichen.html">
+        <input type="hidden" name="cmp_id" value="10-03849"/>
+        <input type="hidden" name="cmp_name" value="relocation_leadengine"/>
+        <input type="hidden" name="cmp_position" value="brand_homepage"/>
+        <input type="hidden" name="cmp_creative" value="banner"/>
+        <div class="grid desk-one-half gutter-horizontal-l">
+            <div class="grid-item palm-one-half lap-one-third desk-one-third margin-bottom-l">
+                <label for="removal-leadengine-from-zip" class="font-bold font-m">Von</label>
+                <input type="text" class="input-text one-whole" placeholder="PLZ" name="vonplz" id="removal-leadengine-from-zip"/>
+            </div>
+            <div class="grid-item palm-one-half lap-one-third desk-one-third margin-bottom-l">
+                <label for="removal-leadengine-to-zip" class="font-bold font-m">Nach</label>
+                <input type="text" class="input-text one-whole" placeholder="PLZ" name="nachplz" id="removal-leadengine-to-zip"/>
+            </div>
+            <div class="grid-item palm-one-whole lap-one-third desk-one-third margin-bottom-l">
+                <button type="submit" class="one-whole button-primary font-m">Berechnen</button>
+            </div>
+        </div>
+    </form>
+
+</section>
